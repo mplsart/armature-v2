@@ -3,9 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = _default;
+exports["default"] = PrimaryButton;
 
 var _react = _interopRequireDefault(require("react"));
+
+var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _Button = _interopRequireDefault(require("@material-ui/core/Button"));
 
@@ -17,13 +19,18 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function _default(_ref) {
+function PrimaryButton(_ref) {
   var a = _ref.a,
       b = _ref.b,
       props = _objectWithoutProperties(_ref, ["a", "b"]);
 
   return _react["default"].createElement(_Button["default"], _extends({
     variant: "contained",
-    color: "secondary"
-  }, props), a + b, "!");
+    color: "primary"
+  }, props), a * b);
 }
+
+PrimaryButton.propTypes = {
+  a: _propTypes["default"].number,
+  b: _propTypes["default"].number
+};
