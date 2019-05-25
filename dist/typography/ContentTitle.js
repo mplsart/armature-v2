@@ -3,13 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = PrimaryButton;
+exports["default"] = ContentTitle;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _Button = _interopRequireDefault(require("@material-ui/core/Button"));
+var _Typography = _interopRequireDefault(require("@material-ui/core/Typography"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -19,18 +19,19 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function PrimaryButton(_ref) {
-  var a = _ref.a,
-      b = _ref.b,
-      props = _objectWithoutProperties(_ref, ["a", "b"]);
+function ContentTitle(_ref) {
+  var children = _ref.children,
+      rest = _objectWithoutProperties(_ref, ["children"]);
 
-  return _react["default"].createElement(_Button["default"], _extends({
-    variant: "contained",
-    color: "primary"
-  }, props), a * b + 2);
+  return _react["default"].createElement(_Typography["default"], _extends({
+    component: "h1",
+    variant: "h4",
+    gutterBottom: true,
+    color: "inherit"
+  }, rest), children);
 }
 
-PrimaryButton.propTypes = {
-  a: _propTypes["default"].number,
-  b: _propTypes["default"].number
+ContentTitle.propTypes = {
+  children: _propTypes["default"].any.isRequired,
+  className: _propTypes["default"].string
 };

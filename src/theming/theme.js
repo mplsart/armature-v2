@@ -11,7 +11,18 @@ const muiTheme = createMuiTheme({
 
   typography: {
     useNextVariants: true,
-    fontFamily: defaultFontFamily
+    fontFamily: defaultFontFamily,
+    h4: {
+      fontFamily: accentFontFamily,
+      fontWeight: 100
+    },
+    button: {
+      fontWeight: 400,
+      textTransform: 'none',
+      fontSize: '1.25rem',
+      fontFamily: accentFontFamily,
+      letterSpacing: '1px'
+    }
   },
 
   // Color Palette

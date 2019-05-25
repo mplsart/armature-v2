@@ -3,11 +3,13 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = PrimaryButton;
+exports["default"] = ResponsiveLinkButton;
 
 var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
+
+var _styles = require("@material-ui/styles");
 
 var _Button = _interopRequireDefault(require("@material-ui/core/Button"));
 
@@ -19,18 +21,31 @@ function _objectWithoutProperties(source, excluded) { if (source == null) return
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 
-function PrimaryButton(_ref) {
-  var a = _ref.a,
-      b = _ref.b,
-      props = _objectWithoutProperties(_ref, ["a", "b"]);
+// Style Overrides for the button
+var useStyles = (0, _styles.makeStyles)(function () {
+  return {
+    button: {
+      width: '100%',
+      lineHeight: '3.0rem'
+    },
+    input: {
+      display: 'none'
+    }
+  };
+});
 
+function ResponsiveLinkButton(props) {
+  var children = props.children,
+      rest = _objectWithoutProperties(props, ["children"]);
+
+  var classes = useStyles();
   return _react["default"].createElement(_Button["default"], _extends({
     variant: "contained",
-    color: "primary"
-  }, props), a * b + 2);
+    color: "primary",
+    className: classes.button
+  }, rest), children);
 }
 
-PrimaryButton.propTypes = {
-  a: _propTypes["default"].number,
-  b: _propTypes["default"].number
+ResponsiveLinkButton.propTypes = {
+  children: _propTypes["default"].node
 };

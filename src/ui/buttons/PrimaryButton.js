@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 export default function PrimaryButton({ a, b, ...props }) {
   return (
     <Button variant="contained" color="primary" {...props}>
-      {a * b}
+      {a * b + 2}
     </Button>
   );
 }
