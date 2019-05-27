@@ -28,7 +28,7 @@ let rightComponents = (
 const useStyles = makeStyles(theme => {
   return {
     root: {
-      backgroundColor: theme.palette.globalHeader.main,
+      backgroundColor: `${theme.palette.globalHeader.main}`,
       height: theme.appBarHeight.compact,
       minHeight: theme.appBarHeight.compact,
       [theme.breakpoints.up('sm')]: {

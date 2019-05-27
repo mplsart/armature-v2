@@ -46,7 +46,7 @@ var useStyles = (0, _styles.makeStyles)(function (theme) {
 
   return {
     root: _defineProperty({
-      backgroundColor: theme.palette.globalHeader.main,
+      backgroundColor: "".concat(theme.palette.globalHeader.main),
       height: theme.appBarHeight.compact,
       minHeight: theme.appBarHeight.compact
     }, theme.breakpoints.up('sm'), {

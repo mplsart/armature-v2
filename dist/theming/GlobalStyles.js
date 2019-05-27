@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports["default"] = GlobalStyles;
 
-var _styles = require("@material-ui/styles");
+var _styles = require("@material-ui/core/styles");
 
 var useStyles = (0, _styles.makeStyles)(function (theme) {
   return {
