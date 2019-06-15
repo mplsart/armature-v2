@@ -9,7 +9,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _styles = require("@material-ui/styles");
+var _styles = require("@material-ui/core/styles");
 
 var _Button = _interopRequireDefault(require("@material-ui/core/Button"));
 

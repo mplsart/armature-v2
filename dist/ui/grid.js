@@ -13,7 +13,7 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _Grid = _interopRequireDefault(require("@material-ui/core/Grid"));
 
-var _styles = require("@material-ui/styles");
+var _styles = require("@material-ui/core/styles");
 
 var _clsx = _interopRequireDefault(require("clsx"));
 

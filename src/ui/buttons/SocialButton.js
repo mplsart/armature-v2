@@ -1,7 +1,7 @@
 // Social Button for Internal Social Links and Gallery Links, targetClasses
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import classnames from 'clsx';
 
 import TwitterIcon from '../../icons/Twitter';
