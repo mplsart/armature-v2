@@ -1,6 +1,6 @@
 {
   "name": "armature",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "React components for MPLSART product suite",
   "main": "index.js",
   "scripts": {
@@ -36,8 +36,10 @@
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-react-hooks": "^1.5.0",
     "next": "^8.0.4",
-    "nodemon": "^1.18.11",
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
   }
 }

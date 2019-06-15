@@ -55,7 +55,8 @@ var useStyles = (0, _styles.makeStyles)(function (theme) {
       borderRadius: 0,
       margin: "".concat(theme.spacing(1), "px"),
       //margin: `${theme.spacing(4)}px 0 ${theme.spacing(4)}px 0`,
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: 'red',
+      //theme.palette.secondary.main,
       color: '#ffffff',
       '&:hover': {
         backgroundColor: theme.palette.primary.dark
@@ -92,7 +93,7 @@ function SocialButton(_ref) {
       root: classes.root,
       label: classes.label
     }
-  }), _react["default"].createElement(IconComponent, null));
+  }), "x", _react["default"].createElement(IconComponent, null), "x");
 }
 
 SocialButton.propTypes = {
