@@ -29,8 +29,7 @@ const useStyles = makeStyles(theme => ({
   root: {
     borderRadius: 0,
     margin: `${theme.spacing(1)}px`,
-    //margin: `${theme.spacing(4)}px 0 ${theme.spacing(4)}px 0`,
-    backgroundColor: 'lime', //theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
     color: '#ffffff',
     '&:hover': {
       backgroundColor: theme.palette.primary.dark
@@ -63,7 +62,7 @@ export default function SocialButton({ component, service, ...rest }) {
         label: classes.label
       }}
     >
-      x<IconComponent />x
+      <IconComponent />
     </IconButton>
   );
 }
