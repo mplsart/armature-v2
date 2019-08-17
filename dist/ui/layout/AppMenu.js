@@ -39,9 +39,9 @@ var useStyles = (0, _styles.makeStyles)(function (theme) {
       paddingTop: 0
     },
     modal: _defineProperty({
-      top: theme.appBarHeight.compact
+      top: "".concat(theme.appBarHeight.compact, "px !important")
     }, theme.breakpoints.up('sm'), {
-      top: theme.appBarHeight["default"]
+      top: "".concat(theme.appBarHeight["default"], "px !important")
     }),
     modalBackdrop: _defineProperty({
       top: theme.appBarHeight.compact

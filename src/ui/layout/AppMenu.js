@@ -26,9 +26,9 @@ const useStyles = makeStyles(theme => ({
     paddingTop: 0
   },
   modal: {
-    top: theme.appBarHeight.compact,
+    top: `${theme.appBarHeight.compact}px !important`,
     [theme.breakpoints.up('sm')]: {
-      top: theme.appBarHeight.default
+      top: `${theme.appBarHeight.default}px !important`
     }
   },
   modalBackdrop: {
