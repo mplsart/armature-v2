@@ -34,5 +34,5 @@ export default function Lead({ children, ...rest }) {
 }
 
 Lead.propTypes = {
-  children: PropTypes.any.isRequired
+  children: PropTypes.node.isRequired
 };

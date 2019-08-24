@@ -10,7 +10,8 @@ const useStyles = makeStyles(theme => {
         'font-size': '18px'
       },
       body: {
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
+        fontWeight: 100
       },
       a: {
         color: theme.palette.primary.main,
@@ -19,6 +20,13 @@ const useStyles = makeStyles(theme => {
         '&:hover': {
           textDecoration: 'underline'
         }
+      },
+      p: {
+        fontWeight: 100
+      },
+      small: { ...theme.typography.caption },
+      li: {
+        paddingBottom: theme.spacing(1)
       }
     }
   };

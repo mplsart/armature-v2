@@ -26,5 +26,5 @@ export default function SideBarHeader({ children, ...rest }) {
 }
 
 SideBarHeader.propTypes = {
-  children: PropTypes.any.isRequired
+  children: PropTypes.node.isRequired
 };

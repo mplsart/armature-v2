@@ -22,8 +22,19 @@ var muiTheme = (0, _styles.createMuiTheme)({
     useNextVariants: true,
     fontFamily: defaultFontFamily,
     h4: {
+      // ContentTitle
       fontFamily: accentFontFamily,
-      fontWeight: 100
+      fontWeight: 100,
+      fontSize: '2.5rem'
+    },
+    h5: {
+      // ContentSubTitle
+      fontFamily: accentFontFamily,
+      fontWeight: 100,
+      fontSize: '2rem'
+    },
+    caption: {
+      color: 'rgba(0, 0, 0, 0.54)'
     },
     button: {
       fontWeight: 400,

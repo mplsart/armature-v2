@@ -3,11 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import MUITypography from '@material-ui/core/Typography';
 
-export default function ContentTitle({ children, ...rest }) {
+export default function ContentSubTitle({ children, ...rest }) {
   return (
     <MUITypography
-      component="h1"
-      variant="h4"
+      component="h2"
+      variant="h5"
       gutterBottom
       color="inherit"
       {...rest}
@@ -17,6 +17,6 @@ export default function ContentTitle({ children, ...rest }) {
   );
 }
 
-ContentTitle.propTypes = {
+ContentSubTitle.propTypes = {
   children: PropTypes.node.isRequired
 };

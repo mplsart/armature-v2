@@ -32,6 +32,5 @@ function ContentTitle(_ref) {
 }
 
 ContentTitle.propTypes = {
-  children: _propTypes["default"].any.isRequired,
-  className: _propTypes["default"].string
+  children: _propTypes["default"].node.isRequired
 };

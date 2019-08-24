@@ -52,5 +52,5 @@ function Lead(_ref) {
 }
 
 Lead.propTypes = {
-  children: _propTypes["default"].any.isRequired
+  children: _propTypes["default"].node.isRequired
 };

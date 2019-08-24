@@ -9,6 +9,12 @@ Object.defineProperty(exports, "ContentTitle", {
     return _ContentTitle["default"];
   }
 });
+Object.defineProperty(exports, "ContentSubTitle", {
+  enumerable: true,
+  get: function get() {
+    return _ContentSubTitle["default"];
+  }
+});
 Object.defineProperty(exports, "Lead", {
   enumerable: true,
   get: function get() {
@@ -23,6 +29,8 @@ Object.defineProperty(exports, "SideBarHeader", {
 });
 
 var _ContentTitle = _interopRequireDefault(require("./ContentTitle"));
+
+var _ContentSubTitle = _interopRequireDefault(require("./ContentSubTitle"));
 
 var _Lead = _interopRequireDefault(require("./Lead"));
 
