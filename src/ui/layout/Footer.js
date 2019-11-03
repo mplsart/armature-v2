@@ -1,10 +1,10 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
-import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles(theme => ({
   root: {
     ...theme.typography.caption,
+    color: '#111111',
     'text-align': 'right',
     padding: theme.spacing(2)
   }

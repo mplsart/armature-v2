@@ -15,14 +15,12 @@ const muiTheme = createMuiTheme({
     h4: {
       // ContentTitle
       fontFamily: accentFontFamily,
-      fontWeight: 100,
-      fontSize: '2.5rem'
+      fontWeight: 100
     },
     h5: {
       // ContentSubTitle
       fontFamily: accentFontFamily,
-      fontWeight: 100,
-      fontSize: '2rem'
+      fontWeight: 100
     },
     caption: { color: 'rgba(0, 0, 0, 0.54)' },
 
