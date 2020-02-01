@@ -1,57 +1,50 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = AppMenuItem;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _styles = require("@material-ui/styles");
-
-var _ListItem = _interopRequireDefault(require("@material-ui/core/ListItem"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var useStyles = (0, _styles.makeStyles)(function (theme) {
-  return {
-    listItem: _objectSpread({}, theme.typography.subheading, {
-      color: theme.palette.primary.main,
-      borderBottom: "1px solid ".concat(theme.palette.grey[800]),
-      fontSize: 18,
-      padding: theme.spacing(),
-      '&:hover': {
-        color: theme.palette.primary.dark,
-        textDecoration: 'none'
-      }
-    })
-  };
-});
-
-function AppMenuItem(_ref) {
-  var children = _ref.children,
-      component = _ref.component,
-      rest = _objectWithoutProperties(_ref, ["children", "component"]);
-
-  var classes = useStyles();
-  var Component = component;
-  return _react["default"].createElement(_ListItem["default"], {
-    button: true,
-    className: classes.listItem
-  }, _react["default"].createElement(Component, rest, children));
-}
-
-AppMenuItem.propTypes = {
-  children: _propTypes["default"].node,
-  component: _propTypes["default"].any
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+// A Wrapper class for menu items
+var react_1 = __importDefault(require("react"));
+var styles_1 = require("@material-ui/core/styles");
+var ListItem_1 = __importDefault(require("@material-ui/core/ListItem"));
+var useStyles = styles_1.makeStyles(function (theme) {
+    return {
+        listItem: __assign(__assign({}, theme.typography.subtitle1), { color: theme.palette.primary.main, borderBottom: "1px solid " + theme.palette.grey[800], fontSize: 18, fontWeight: 100, padding: theme.spacing(), fontFamily: theme.fontFamily.accent, '& a': {
+                fontWeight: 100,
+            }, '&:hover': {
+                color: theme.palette.primary.dark,
+                textDecoration: 'none',
+            } }),
+    };
+});
+//export default function AppMenuItem({ children, component, ...rest }) {
+var AppMenuItem = function (props) {
+    var children = props.children, component = props.component, rest = __rest(props, ["children", "component"]);
+    var classes = useStyles();
+    var Component = component;
+    return (react_1.default.createElement(ListItem_1.default, { button: true, className: classes.listItem },
+        react_1.default.createElement(Component, __assign({}, rest), children)));
+};
+exports.default = AppMenuItem;

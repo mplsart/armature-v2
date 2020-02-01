@@ -1,39 +1,14 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "ContentTitle", {
-  enumerable: true,
-  get: function get() {
-    return _ContentTitle["default"];
-  }
-});
-Object.defineProperty(exports, "ContentSubTitle", {
-  enumerable: true,
-  get: function get() {
-    return _ContentSubTitle["default"];
-  }
-});
-Object.defineProperty(exports, "Lead", {
-  enumerable: true,
-  get: function get() {
-    return _Lead["default"];
-  }
-});
-Object.defineProperty(exports, "SideBarHeader", {
-  enumerable: true,
-  get: function get() {
-    return _SideBarHeader["default"];
-  }
-});
-
-var _ContentTitle = _interopRequireDefault(require("./ContentTitle"));
-
-var _ContentSubTitle = _interopRequireDefault(require("./ContentSubTitle"));
-
-var _Lead = _interopRequireDefault(require("./Lead"));
-
-var _SideBarHeader = _interopRequireDefault(require("./SideBarHeader"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+// Main Typography components
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var ContentTitle_1 = __importDefault(require("./ContentTitle"));
+exports.ContentTitle = ContentTitle_1.default;
+var ContentSubTitle_1 = __importDefault(require("./ContentSubTitle"));
+exports.ContentSubTitle = ContentSubTitle_1.default;
+var Lead_1 = __importDefault(require("./Lead"));
+exports.Lead = Lead_1.default;
+var SideBarHeader_1 = __importDefault(require("./SideBarHeader"));
+exports.SideBarHeader = SideBarHeader_1.default;

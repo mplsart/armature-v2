@@ -1,62 +1,43 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = Separator;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _grid = require("../grid");
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _styles = require("@material-ui/styles");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var useStyles = (0, _styles.makeStyles)(function (theme) {
-  return {
-    root: _defineProperty({
-      height: theme.spacing(4) / 2,
-      backgroundColor: theme.palette.secondary.main,
-      margin: "".concat(theme.spacing(4) / 2, "px 0"),
-      backgroundImage: 'url(https://storage.googleapis.com/cdn.mplsart.com/assets/separator.png)',
-      backgroundRepeat: 'repeat-y',
-      backgroundPosition: '100% 0'
-    }, theme.breakpoints.down('md'), {
-      margin: "".concat(theme.spacing(4) / 4, "px 0")
-    }),
-    withMargin: {
-      marginTop: theme.spacing(4),
-      marginBottom: theme.spacing(4),
-      marginRight: theme.spacing(2)
-    }
-  };
-});
-
-function Separator(_ref) {
-  var withMargin = _ref.withMargin;
-  var classes = useStyles();
-  var targetClasses = ['fancy-separator'];
-
-  if (withMargin) {
-    targetClasses.push(classes.withMargin);
-  }
-
-  return _react["default"].createElement(_grid.Row, null, _react["default"].createElement(_grid.Col, {
-    xs: 12
-  }, _react["default"].createElement("div", {
-    className: (0, _clsx["default"])(classes.root, targetClasses)
-  })));
-} // prop definitions
-
-
-Separator.propTypes = {
-  className: _propTypes["default"].string,
-  withMargin: _propTypes["default"].bool
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+// Fancy Pink Separator
+var react_1 = __importDefault(require("react"));
+var grid_1 = require("../grid");
+var clsx_1 = __importDefault(require("clsx"));
+var styles_1 = require("@material-ui/core/styles");
+var useStyles = styles_1.makeStyles(function (theme) {
+    var _a;
+    return ({
+        root: (_a = {
+                height: theme.spacing(4) / 2,
+                backgroundColor: theme.palette.secondary.main,
+                margin: theme.spacing(4) / 2 + "px 0",
+                backgroundImage: 'url(https://storage.googleapis.com/cdn.mplsart.com/assets/separator.png)',
+                backgroundRepeat: 'repeat-y',
+                backgroundPosition: '100% 0'
+            },
+            _a[theme.breakpoints.down('md')] = {
+                margin: theme.spacing(4) / 4 + "px 0",
+            },
+            _a),
+        withMargin: {
+            marginTop: theme.spacing(4),
+            marginBottom: theme.spacing(4),
+            marginRight: theme.spacing(2),
+        },
+    });
+});
+var Separator = function (props) {
+    var classes = useStyles();
+    var targetClasses = ['fancy-separator'];
+    if (props.withMargin) {
+        targetClasses.push(classes.withMargin);
+    }
+    return (react_1.default.createElement(grid_1.Row, null,
+        react_1.default.createElement(grid_1.Col, { xs: 12 },
+            react_1.default.createElement("div", { className: clsx_1.default(classes.root, targetClasses) }))));
+};
+exports.default = Separator;

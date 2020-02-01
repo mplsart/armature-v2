@@ -1,100 +1,74 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = SocialButton;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _styles = require("@material-ui/core/styles");
-
-var _clsx = _interopRequireDefault(require("clsx"));
-
-var _Twitter = _interopRequireDefault(require("../../icons/Twitter"));
-
-var _Facebook = _interopRequireDefault(require("../../icons/Facebook"));
-
-var _Instagram = _interopRequireDefault(require("../../icons/Instagram"));
-
-var _Tumblr = _interopRequireDefault(require("../../icons/Tumblr"));
-
-var _YouTube = _interopRequireDefault(require("../../icons/YouTube"));
-
-var _Vimeo = _interopRequireDefault(require("../../icons/Vimeo"));
-
-var _OtherLink = _interopRequireDefault(require("../../icons/OtherLink"));
-
-var _MNArtists = _interopRequireDefault(require("../../icons/MNArtists"));
-
-var _IconButton = _interopRequireDefault(require("@material-ui/core/IconButton"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-var serviceComponentMap = {
-  instagram: _Instagram["default"],
-  facebook: _Facebook["default"],
-  twitter: _Twitter["default"],
-  tumblr: _Tumblr["default"],
-  youtube: _YouTube["default"],
-  vimeo: _Vimeo["default"],
-  mnartists: _MNArtists["default"],
-  other: _OtherLink["default"]
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
-var useStyles = (0, _styles.makeStyles)(function (theme) {
-  return {
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+// Social Button for Internal Social Links and Gallery Links, targetClasses
+var react_1 = __importDefault(require("react"));
+var styles_1 = require("@material-ui/core/styles");
+var IconButton_1 = __importDefault(require("@material-ui/core/IconButton"));
+var Twitter_1 = __importDefault(require("../../icons/Twitter"));
+var Facebook_1 = __importDefault(require("../../icons/Facebook"));
+var Instagram_1 = __importDefault(require("../../icons/Instagram"));
+var Tumblr_1 = __importDefault(require("../../icons/Tumblr"));
+var YouTube_1 = __importDefault(require("../../icons/YouTube"));
+var Vimeo_1 = __importDefault(require("../../icons/Vimeo"));
+var OtherLink_1 = __importDefault(require("../../icons/OtherLink"));
+var MNArtists_1 = __importDefault(require("../../icons/MNArtists"));
+// Define map of service types and Renderer
+var serviceIconMap = {
+    instagram: Instagram_1.default,
+    facebook: Facebook_1.default,
+    twitter: Twitter_1.default,
+    tumblr: Tumblr_1.default,
+    youtube: YouTube_1.default,
+    vimeo: Vimeo_1.default,
+    mnartists: MNArtists_1.default,
+    other: OtherLink_1.default,
+};
+// Override IconButton defaults: root is applied to Button root.
+// TODO: Might be easier to override Button vs. IconButton ?
+var useStyles = styles_1.makeStyles(function (theme) { return ({
     root: {
-      borderRadius: 0,
-      margin: "".concat(theme.spacing(1), "px"),
-      backgroundColor: theme.palette.primary.main,
-      color: '#ffffff',
-      '&:hover': {
-        backgroundColor: theme.palette.primary.dark
-      }
+        borderRadius: 0,
+        margin: theme.spacing(1) + "px",
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.common.white,
+        '&:hover': {
+            backgroundColor: theme.palette.primary.dark,
+        },
     },
-    label: {
-      '& svg': {
-        fontSize: '24px'
-      }
-    }
-  };
-});
-
-function SocialButton(_ref) {
-  var component = _ref.component,
-      service = _ref.service,
-      rest = _objectWithoutProperties(_ref, ["component", "service"]);
-
-  var classes = useStyles();
-  var temp = {
-    component: 'a'
-  };
-
-  if (component) {
-    temp.component = component;
-  }
-
-  var IconComponent = serviceComponentMap[service];
-  return _react["default"].createElement(_IconButton["default"], _extends({
-    component: temp.component
-  }, rest, {
-    "aria-label": service,
-    classes: {
-      root: classes.root,
-      label: classes.label
-    }
-  }), _react["default"].createElement(IconComponent, null));
-}
-
-SocialButton.propTypes = {
-  service: _propTypes["default"].string,
-  component: _propTypes["default"].func
+}); });
+var SocialButton = function (_a) {
+    var component = _a.component, service = _a.service, rest = __rest(_a, ["component", "service"]);
+    var classes = useStyles();
+    // Default to use anchor tags
+    var ButtonComponent = component ? component : 'a';
+    // Resolve Icon component for service
+    var IconComponent = serviceIconMap[service] || serviceIconMap.other;
+    return (react_1.default.createElement(IconButton_1.default, __assign({ component: ButtonComponent }, rest, { "aria-label": service, classes: { root: classes.root } }),
+        react_1.default.createElement(IconComponent, { fontSize: "inherit" })));
 };
+exports.default = react_1.default.memo(SocialButton);

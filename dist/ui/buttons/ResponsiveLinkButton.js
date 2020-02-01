@@ -1,51 +1,42 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = ResponsiveLinkButton;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _propTypes = _interopRequireDefault(require("prop-types"));
-
-var _styles = require("@material-ui/core/styles");
-
-var _Button = _interopRequireDefault(require("@material-ui/core/Button"));
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
-
-function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
-
-// Style Overrides for the button
-var useStyles = (0, _styles.makeStyles)(function () {
-  return {
-    button: {
-      width: '100%',
-      lineHeight: '3.0rem'
-    },
-    input: {
-      display: 'none'
-    }
-  };
-});
-
-function ResponsiveLinkButton(props) {
-  var children = props.children,
-      rest = _objectWithoutProperties(props, ["children"]);
-
-  var classes = useStyles();
-  return _react["default"].createElement(_Button["default"], _extends({
-    variant: "contained",
-    color: "primary",
-    className: classes.button
-  }, rest), children);
-}
-
-ResponsiveLinkButton.propTypes = {
-  children: _propTypes["default"].node
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+/* Default Styles For Thin Wide Call To Action Button */
+var react_1 = __importDefault(require("react"));
+var styles_1 = require("@material-ui/core/styles");
+var Button_1 = __importDefault(require("@material-ui/core/Button"));
+// Style Overrides for the button
+var useStyles = styles_1.makeStyles(function () { return ({
+    button: { width: '100%', lineHeight: '3.0rem' },
+}); });
+var ResponsiveLinkButton = function (props) {
+    var classes = useStyles();
+    var children = props.children, rest = __rest(props, ["children"]);
+    // Default to contained and primary
+    return (react_1.default.createElement(Button_1.default, __assign({ variant: "contained", color: "primary", className: classes.button }, rest), children));
+};
+exports.default = react_1.default.memo(ResponsiveLinkButton);

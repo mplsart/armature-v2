@@ -1,35 +1,29 @@
 "use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = Footer;
-
-var _react = _interopRequireDefault(require("react"));
-
-var _styles = require("@material-ui/styles");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var useStyles = (0, _styles.makeStyles)(function (theme) {
-  return {
-    root: _objectSpread({}, theme.typography.caption, {
-      color: '#111111',
-      'text-align': 'right',
-      padding: theme.spacing(2)
-    })
-  };
-});
-
-function Footer() {
-  var classes = useStyles();
-  return _react["default"].createElement("footer", {
-    className: classes.root
-  }, _react["default"].createElement("p", null, "We love art. We love you. \xA9 2019 MPLSART.COM "));
-}
-
-Footer.propTypes = {};
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+// Simple Footer
+// TODO: Consider converting to <Col> component
+var react_1 = __importDefault(require("react"));
+var styles_1 = require("@material-ui/core/styles");
+var useStyles = styles_1.makeStyles(function (theme) { return ({
+    root: __assign(__assign({}, theme.typography.caption), { color: '#111111', 'text-align': 'right', padding: theme.spacing(2) }),
+}); });
+var Footer = function () {
+    var classes = useStyles();
+    return (react_1.default.createElement("footer", { className: classes.root },
+        react_1.default.createElement("p", null, "We love art. We love you. \u00A9 2020 MPLSART.COM ")));
+};
+exports.default = Footer;
