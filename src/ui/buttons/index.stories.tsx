@@ -4,6 +4,14 @@ import SocialButton from './SocialButton';
 import ResponsiveLinkButton from './ResponsiveLinkButton';
 import PrimaryButton from './PrimaryButton';
 
+import EyeIcon from '../../icons/Eye';
+import CalendarIcon from '../../icons/Calendar';
+import MapMarkerIcon from '../../icons/MapMarker';
+import NewspaperIcon from '../../icons/Newspaper';
+import SpeedDial from '@material-ui/lab/SpeedDial';
+import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
+import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
+
 const ExternalLink: React.ForwardRefExoticComponent<React.FunctionComponent<React.ElementType>> = React.forwardRef(
   function ExternalLinkAnchor(props, ref: React.Ref<HTMLAnchorElement>) {
     const testHandler = (e: React.MouseEvent): void => {
@@ -112,4 +120,25 @@ storiesOf('Custom Buttons', module)
         </ResponsiveLinkButton>
       </div>
     </>
-  ));
+  ))
+  .add('Material Components', () => {
+    const actions = [
+      { icon: <CalendarIcon />, name: 'Event' },
+      { icon: <EyeIcon />, name: 'Eyeball' },
+      { icon: <MapMarkerIcon />, name: 'Venue' },
+      { icon: <NewspaperIcon />, name: 'Article' },
+    ];
+
+    return (
+      <SpeedDial ariaLabel="SpeedDial exampddle" icon={<SpeedDialIcon />} open={true}>
+        {actions.map(action => (
+          <SpeedDialAction
+            key={action.name}
+            FabProps={{ size: 'small' }}
+            icon={action.icon}
+            tooltipTitle={action.name}
+          />
+        ))}
+      </SpeedDial>
+    );
+  });

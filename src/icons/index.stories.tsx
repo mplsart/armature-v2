@@ -13,10 +13,13 @@ import Twitter from './Twitter';
 import Vimeo from './Vimeo';
 import YouTube from './YouTube';
 
-// https://blog.logrocket.com/correctly-typed-react-components-with-typescript/
+import Newspaper from './Newspaper';
+import MapMarker from './MapMarker';
+import Calendar from './Calendar';
+import Eye from './Eye';
 
 storiesOf('Icons', module)
-  .add('Social Icons', () => (
+  .add('Elsewhere', () => (
     <>
       <Facebook />
       <Twitter />
@@ -26,6 +29,15 @@ storiesOf('Icons', module)
       <Tumblr />
       <YouTube />
       <Vimeo />
+    </>
+  ))
+  .add('Content Types', () => (
+    <>
+      <h2>Font Awesome (Current)</h2>
+      <Newspaper />
+      <MapMarker />
+      <Calendar />
+      <Eye />
     </>
   ))
   .add('with SVG props', () => (
