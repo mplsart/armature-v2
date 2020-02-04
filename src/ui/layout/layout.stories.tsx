@@ -36,7 +36,18 @@ storiesOf('Layout', module)
             </Col>
 
             <Col xs={6} className={classes.styledCell}>
-              <PaddedBox>A Padded Box</PaddedBox>
+              <PaddedBox>A Padded Box (align default - left)</PaddedBox>
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={4} className={classes.styledCell}>
+              <PaddedBox align="left">A Padded Box (align left)</PaddedBox>
+            </Col>
+            <Col xs={4} className={classes.styledCell}>
+              <PaddedBox align="center">A Padded Box (align center)</PaddedBox>
+            </Col>
+            <Col xs={4} className={classes.styledCell}>
+              <PaddedBox align="right">A Padded Box (align right)</PaddedBox>
             </Col>
           </Row>
           <Separator />

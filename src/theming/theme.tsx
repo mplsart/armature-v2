@@ -48,6 +48,7 @@ const muiTheme = createMuiTheme({
     },
     caption: { color: 'rgba(0, 0, 0, 0.54)' },
 
+    body2: { fontWeight: 100 },
     button: {
       fontWeight: 400,
       textTransform: 'none',

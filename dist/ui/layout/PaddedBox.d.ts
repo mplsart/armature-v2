@@ -1,5 +1,7 @@
 import React from 'react';
-declare const PaddedBox: React.FunctionComponent<{
+export interface PaddedBoxProps {
     children: React.ReactNode;
-}>;
+    align?: 'center' | 'right' | 'left';
+}
+declare const PaddedBox: React.FC<PaddedBoxProps>;
 export default PaddedBox;
