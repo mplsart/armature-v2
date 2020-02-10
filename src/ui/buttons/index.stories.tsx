@@ -1,8 +1,11 @@
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import SocialButton from './SocialButton';
-import ResponsiveLinkButton from './ResponsiveLinkButton';
+
+import GiantActionButton from './GiantActionButton';
 import PrimaryButton from './PrimaryButton';
+import ResponsiveLinkButton from './ResponsiveLinkButton';
+import SmallActionButton from './SmallActionButton';
+import SocialButton from './SocialButton';
 
 import EyeIcon from '../../icons/Eye';
 import CalendarIcon from '../../icons/Calendar';
@@ -52,6 +55,65 @@ storiesOf('Custom Buttons', module)
         >
           Custom Props
         </PrimaryButton>
+      </div>
+    </>
+  ))
+  .add('Call To Action Buttons', () => (
+    <>
+      <div>
+        <GiantActionButton href="https://www.mplsart.com">Minimal Props</GiantActionButton>
+      </div>
+      <br />
+      <div>
+        <GiantActionButton
+          onClick={(): void => {
+            console.log('Inline Clickhandler ');
+          }}
+        >
+          Inline Click Handler
+        </GiantActionButton>
+      </div>
+
+      <br />
+      <div>
+        <GiantActionButton
+          data-test="test" // no error
+          href="https://www.mplsart.com"
+          variant="outlined"
+          target="blank"
+          rel="noopener"
+          component={ExternalLink}
+        >
+          Custom Props
+        </GiantActionButton>
+      </div>
+
+      <div>
+        <SmallActionButton href="https://www.mplsart.com">Minimal Props</SmallActionButton>
+      </div>
+      <br />
+      <div>
+        <SmallActionButton
+          onClick={(): void => {
+            console.log('Inline Clickhandler ');
+          }}
+        >
+          Inline Click Handler
+        </SmallActionButton>
+      </div>
+
+      <br />
+      <div>
+        <SmallActionButton
+          data-test="test" // no error
+          href="https://www.mplsart.com"
+          variant="outlined"
+          target="blank"
+          rel="noopener"
+          component={ExternalLink}
+        >
+          Custom Props
+        </SmallActionButton>
       </div>
     </>
   ))
