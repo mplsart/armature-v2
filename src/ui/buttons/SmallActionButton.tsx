@@ -1,22 +1,28 @@
-/* Default Styles For Thin Wide Call To Action Button */
+/* Small Call To Action Button */
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Button, { ButtonProps } from '@material-ui/core/Button';
 
 // Style Overrides for the button
-const useStyles = makeStyles(() => ({
-  button: { width: '100%', lineHeight: '3.0rem' },
+const useStyles = makeStyles(theme => ({
+  button: {
+    margin: theme.spacing(1),
+    //fontSize: '1.8rem',
+    //height: '4.5rem',
+    //lineHeight: '4.5rem',
+    padding: '0 2.5rem',
+    fontWeight: 'bold',
+  },
 }));
 
 // TODO: ButtonProps interface doesn't define these, but why? Seems silly to have to extend...
-interface ResponsiveLinkButtonProps extends ButtonProps {
+interface SmallActionButtonProps extends ButtonProps {
   component?: React.ElementType;
   target?: string;
   rel?: string;
-  as?: string; // Next route param
 }
 
-const ResponsiveLinkButton: React.FunctionComponent<ResponsiveLinkButtonProps> = props => {
+const SmallActionButton: React.FunctionComponent<SmallActionButtonProps> = props => {
   let classes = useStyles();
   let { children, ...rest } = props;
 
@@ -28,4 +34,4 @@ const ResponsiveLinkButton: React.FunctionComponent<ResponsiveLinkButtonProps> =
   );
 };
 
-export default React.memo(ResponsiveLinkButton);
+export default React.memo(SmallActionButton);

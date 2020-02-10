@@ -57,5 +57,7 @@ var muiTheme = styles_1.createMuiTheme({
         compact: 50,
     },
     globalMenuWidth: 300,
+    // Global Gutter size - theme.spacing(4)
+    gutterSize: 32,
 });
 exports.default = muiTheme;

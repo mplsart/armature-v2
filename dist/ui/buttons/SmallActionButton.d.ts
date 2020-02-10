@@ -1,10 +1,9 @@
 import React from 'react';
 import { ButtonProps } from '@material-ui/core/Button';
-interface ResponsiveLinkButtonProps extends ButtonProps {
+interface SmallActionButtonProps extends ButtonProps {
     component?: React.ElementType;
     target?: string;
     rel?: string;
-    as?: string;
 }
-declare const _default: React.NamedExoticComponent<ResponsiveLinkButtonProps>;
+declare const _default: React.NamedExoticComponent<SmallActionButtonProps>;
 export default _default;

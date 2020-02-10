@@ -9,6 +9,7 @@ declare module '@material-ui/core/styles/createMuiTheme' {
             compact: number;
         };
         globalMenuWidth: number;
+        gutterSize: number;
     }
     interface ThemeOptions {
         fontFamily: {
@@ -20,6 +21,7 @@ declare module '@material-ui/core/styles/createMuiTheme' {
             compact: number;
         };
         globalMenuWidth: number;
+        gutterSize: number;
     }
 }
 declare module '@material-ui/core/styles/createPalette' {

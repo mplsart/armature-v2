@@ -11,12 +11,14 @@ declare module '@material-ui/core/styles/createMuiTheme' {
     fontFamily: { default: string; accent: string };
     appBarHeight: { default: number; compact: number };
     globalMenuWidth: number;
+    gutterSize: number;
   }
   // allow configuration using `createMuiTheme`
   interface ThemeOptions {
     fontFamily: { default: string; accent: string };
     appBarHeight: { default: number; compact: number };
     globalMenuWidth: number;
+    gutterSize: number;
   }
 }
 
@@ -87,6 +89,9 @@ const muiTheme = createMuiTheme({
     compact: 50,
   },
   globalMenuWidth: 300,
+
+  // Global Gutter size - theme.spacing(4)
+  gutterSize: 32,
 });
 
 export default muiTheme;

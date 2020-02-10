@@ -18,7 +18,7 @@ let titleComponents = (
   </Link>
 );
 */
-var rightComponents = react_1.default.createElement("a", null, "contact"); //'YOLO';
+var rightComponents = react_1.default.createElement(react_1.default.Fragment, null);
 var useStyles = styles_1.makeStyles(function (theme) {
     var _a, _b, _c, _d;
     return {

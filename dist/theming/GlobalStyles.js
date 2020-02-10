@@ -22,8 +22,10 @@ var useStyles = styles_1.makeStyles(function (theme) {
                 'font-size': '18px',
             },
             body: {
-                backgroundColor: '#ffffff',
+                backgroundColor: '#fafafa',
                 fontWeight: 100,
+                '-webkit-font-smoothing': 'unset',
+                '-moz-osx-font-smoothing': 'unset',
             },
             a: {
                 color: theme.palette.primary.main,

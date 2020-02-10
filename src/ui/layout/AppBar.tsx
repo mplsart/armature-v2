@@ -16,7 +16,7 @@ let titleComponents = (
   </Link>
 );
 */
-let rightComponents = <a>contact</a>; //'YOLO';
+let rightComponents = <></>;
 
 const useStyles = makeStyles(theme => {
   return {
