@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
+var styles_1 = require("@material-ui/core/styles");
 var TextField_1 = __importDefault(require("@material-ui/core/TextField"));
 var InputAdornment_1 = __importDefault(require("@material-ui/core/InputAdornment"));
-var styles_1 = require("@material-ui/core/styles");
 var SmallActionButton_1 = __importDefault(require("../buttons/SmallActionButton"));
 var typography_1 = require("../../typography");
 var useStyles = styles_1.makeStyles(function (theme) {

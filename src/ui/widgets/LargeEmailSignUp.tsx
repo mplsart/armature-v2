@@ -1,8 +1,8 @@
 import React from 'react';
 
+import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
-import { makeStyles } from '@material-ui/core/styles';
 import SmallActionButton from '../buttons/SmallActionButton';
 import { ContentTitle } from '../../typography';
 

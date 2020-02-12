@@ -11,9 +11,13 @@ var useStyles = styles_1.makeStyles(function (theme) {
     var _a;
     return ({
         root: {
-            margin: theme.spacing(4) + "px",
-            //margin: `${theme.spacing(4)}px 0 ${theme.spacing(4)}px 0`,
+            //margin: `${theme.spacing(4)}px`,
+            margin: theme.spacing(4) + "px 0 " + theme.spacing(4) + "px 0",
             borderTop: '1px solid #000000',
+        },
+        padSides: {
+            marginRight: theme.spacing(4) + "px",
+            marginLeft: theme.spacing(4) + "px",
         },
         padTop: (_a = {
                 marginTop: theme.spacing(0)
@@ -26,8 +30,8 @@ var useStyles = styles_1.makeStyles(function (theme) {
 });
 var SideBarContainer = function (_a) {
     var _b;
-    var children = _a.children, padTop = _a.padTop;
+    var children = _a.children, padTop = _a.padTop, padSides = _a.padSides;
     var classes = useStyles();
-    return react_1.default.createElement("div", { className: clsx_1.default((_b = {}, _b[classes.root] = true, _b[classes.padTop] = padTop, _b)) }, children);
+    return (react_1.default.createElement("div", { className: clsx_1.default((_b = {}, _b[classes.root] = true, _b[classes.padTop] = padTop, _b[classes.padSides] = padSides, _b)) }, children));
 };
 exports.default = SideBarContainer;

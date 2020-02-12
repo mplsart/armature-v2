@@ -5,9 +5,13 @@ import classnames from 'clsx';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    margin: `${theme.spacing(4)}px`,
-    //margin: `${theme.spacing(4)}px 0 ${theme.spacing(4)}px 0`,
+    //margin: `${theme.spacing(4)}px`,
+    margin: `${theme.spacing(4)}px 0 ${theme.spacing(4)}px 0`,
     borderTop: '1px solid #000000',
+  },
+  padSides: {
+    marginRight: `${theme.spacing(4)}px`,
+    marginLeft: `${theme.spacing(4)}px`,
   },
   padTop: {
     marginTop: theme.spacing(0),
@@ -20,11 +24,17 @@ const useStyles = makeStyles(theme => ({
 interface SideBarContainerProps {
   children: React.ReactNode;
   padTop?: boolean;
+  padSides?: boolean;
 }
 
-const SideBarContainer: React.FunctionComponent<SideBarContainerProps> = ({ children, padTop }) => {
+const SideBarContainer: React.FunctionComponent<SideBarContainerProps> = ({ children, padTop, padSides }) => {
   let classes = useStyles();
-  return <div className={classnames({ [classes.root]: true, [classes.padTop]: padTop })}>{children}</div>;
+
+  return (
+    <div className={classnames({ [classes.root]: true, [classes.padTop]: padTop, [classes.padSides]: padSides })}>
+      {children}
+    </div>
+  );
 };
 
 export default SideBarContainer;

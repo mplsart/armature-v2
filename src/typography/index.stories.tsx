@@ -4,8 +4,9 @@ import { storiesOf } from '@storybook/react';
 import * as React from 'react';
 import { ContentTitle } from './index';
 import { ContentSubTitle } from './index';
-import { SideBarHeader } from './index';
 import { Lead } from './index';
+import { Overline } from './index';
+import { SideBarHeader } from './index';
 
 storiesOf('Typography', module).add('Custom Headers', () => (
   <>
@@ -15,6 +16,7 @@ storiesOf('Typography', module).add('Custom Headers', () => (
     </div>
 
     <div>
+      <Overline>Overline</Overline>
       <ContentSubTitle>This is a ContentSubTitle</ContentSubTitle>
       <ContentSubTitle component="h2">This is a ContentSubTitle with an H2</ContentSubTitle>
     </div>

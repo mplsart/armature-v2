@@ -22,7 +22,7 @@ interface GiantActionButtonProps extends ButtonProps {
   rel?: string;
 }
 
-const GiantActionButton: React.FunctionComponent<GiantActionButtonProps> = props => {
+const GiantActionButton: React.FC<GiantActionButtonProps> = props => {
   let classes = useStyles();
   let { children, ...rest } = props;
 
