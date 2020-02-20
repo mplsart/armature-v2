@@ -124,9 +124,9 @@ export interface ImageResource extends Resource {
     CARD_LARGE?: ImageVersion;
 
     // Not in use?
-    FULL?: ImageVersion;
-    SIZED?: ImageVersion;
-    CARD_PROGRESSIVE?: ImageVersion;
+    FULL?: ImageVersion | string;
+    SIZED?: ImageVersion | string;
+    CARD_PROGRESSIVE?: ImageVersion | string;
   };
 }
 
@@ -135,7 +135,7 @@ export interface StandardCardBaseProps {
   byLineText: string;
   title: string;
   overlineText: string;
-  imageResource?: ImageResource;
+  imageResource?: ImageResource | '';
   linkClassProps: object;
   linkClass: React.ElementType;
 }
