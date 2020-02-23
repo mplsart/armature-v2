@@ -76,12 +76,11 @@ const Grid: React.FunctionComponent<GridProps> = props => {
 type RowProps = MuiGridProps;
 const Row: React.FunctionComponent<RowProps> = props => {
   let { className, children, ...rest } = props;
-  let classes = useStyles();
   //let className = props.className;
 
-  // TODO: What is spacing these days?
+  //Note: spacing 4 equates to 16px padding around Col components
   return (
-    <MuiGrid spacing={0} container={true} className={classnames(classes.typeContainer, className)} {...rest}>
+    <MuiGrid spacing={4} container={true} className={className} {...rest}>
       {children}
     </MuiGrid>
   );

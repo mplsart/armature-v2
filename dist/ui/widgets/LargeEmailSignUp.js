@@ -129,7 +129,7 @@ var LargeEmailSignUp = function () {
     return (react_1.default.createElement("div", { className: classes.root },
         react_1.default.createElement("div", { className: classes.textContainer },
             react_1.default.createElement("div", { className: classes.textContainerInner },
-                react_1.default.createElement(typography_1.ContentTitle, { className: classes.text },
+                react_1.default.createElement(typography_1.ContentTitle, { component: "h2", className: classes.text },
                     react_1.default.createElement("span", { className: "line" }, "Find out what's up"),
                     " ",
                     react_1.default.createElement("span", { className: "line" }, "every weekend.")),

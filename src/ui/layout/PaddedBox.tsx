@@ -5,10 +5,10 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    padding: theme.spacing(3),
-    [theme.breakpoints.up('sm')]: {
-      paddingTop: theme.spacing(4),
-    },
+    padding: theme.spacing(2),
+    // [theme.breakpoints.up('sm')]: {
+    //   paddingTop: theme.spacing(4),
+    // },
   },
   left: { textAlign: 'left' },
   right: { textAlign: 'right' },

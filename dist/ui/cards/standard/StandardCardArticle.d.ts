@@ -18,17 +18,20 @@ export interface ImageResource extends Resource {
         CARD_LARGE?: ImageVersion;
         FULL?: ImageVersion | string;
         SIZED?: ImageVersion | string;
-        CARD_PROGRESSIVE?: ImageVersion | string;
+        CARD_PROGRESSIVE?: ImageVersion;
     };
 }
-export interface StandardCardBaseProps {
-    byLineIcon: React.ElementType;
-    byLineText: string;
+export interface ArticleResource extends Resource {
     title: string;
-    overlineText: string;
-    imageResource?: ImageResource | '';
-    linkClassProps: object;
-    linkClass: React.ElementType;
+    slug: string;
+    summary: string;
+    primary_image_resource: ImageResource;
+    author_name: string;
 }
-declare const StandardCardBase: React.FunctionComponent<StandardCardBaseProps>;
-export default StandardCardBase;
+interface StandardCardEventDateProps {
+    resource: ArticleResource;
+    linkClass: React.ElementType;
+    linkClassProps: object;
+}
+declare const StandardCardEventDate: React.FunctionComponent<StandardCardEventDateProps>;
+export default StandardCardEventDate;

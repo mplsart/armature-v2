@@ -1,16 +1,9 @@
 import { storiesOf } from '@storybook/react';
 import * as React from 'react';
-import CardAd from './ads/CardAd';
-import MegaBannerAd from './ads/MegaBannerAd';
-import StandardCardBase from './standard/StandardCardBase';
-import StandardCardEventDate from './standard/StandardCardEventDate';
-import StandardCardArticle from './standard/StandardCardArticle';
-import EyeIcon from '../../icons/Eye';
-import CalendarIcon from '../../icons/Calendar';
-import MapMarkerIcon from '../../icons/MapMarker';
-import NewspaperIcon from '../../icons/Newspaper';
 
 import { Grid, Row, Col } from '../grid';
+import CardListItemArticle from './CardListItemArticle';
+import CardListItemEventDate from './CardListItemEventDate';
 
 let xlBannerResource = {
   resource_id: 'ARTWUNDERFUL_1',
@@ -1422,7 +1415,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2NzQxMTQ5MDc4OTc4NTY',
     slug: 'the-most-love-an-interview-with-artist-amina-harper',
     summary:
-      'Queer, black, and femme characters find intimacy in this painter\'s wild world which, in her words, is much bigger than beige.',
+      "Queer, black, and femme characters find intimacy in this painter's wild world which, in her words, is much bigger than beige.",
     title: 'The Most Love: An interview with artist Amina Harper',
   },
   {
@@ -1558,7 +1551,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2NDI0Mjg4NTM3ODA0ODA',
     slug: 'jovan-c-speller-hend-al-mansour',
     summary:
-      'Ahead of their upcoming Discussion Series, two of the McKnight Foundation\'s 2018 Artist Fellows talk to us individually about their practices.',
+      "Ahead of their upcoming Discussion Series, two of the McKnight Foundation's 2018 Artist Fellows talk to us individually about their practices.",
     title: 'Creation Myths: Profiles of Jovan C. Speller and Hend Al-Mansour',
   },
   {
@@ -1688,7 +1681,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU3MDM2MDc5NDUwMDMwMDg',
     slug: 'chris-larson-jim-denomie',
     summary:
-      'Ahead of their upcoming Discussion Series, two of the McKnight Foundation\'s 2018 Artist Fellows talk to us individually about their practices.',
+      "Ahead of their upcoming Discussion Series, two of the McKnight Foundation's 2018 Artist Fellows talk to us individually about their practices.",
     title: 'What we do on this planet (and other absurdities): Profiles of Jim Denomie & Chris Larson',
   },
   {
@@ -1753,7 +1746,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2OTQ4ODk3OTg5MjYzMzY',
     slug: 'experimental-retail-review-joshua-mcgarvey-s-uselding-fridays-at-pmh',
     summary: 'The artist hosted a night of shopping and performance that was weird, wild, nostalgic, and new.',
-    title: 'Experimental Retail Review: Joshua McGarvey\'s Uselding Fridays at PMH',
+    title: "Experimental Retail Review: Joshua McGarvey's Uselding Fridays at PMH",
   },
   {
     _meta: { is_verbose: true, resource_type: 'BlogPost' },
@@ -2145,7 +2138,7 @@ let articleResources = [
     resource_id: 'QmxvZ1Bvc3QeHzU2NTAyNzMwNDExMjEyODA',
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2NTAyNzMwNDExMjEyODA',
     slug: 'working-small-&-staying-open-on-the-mighty-mississippi',
-    summary: 'How public space and moving water shaped creativity in Alyssa Baguss\'s Open Water Project',
+    summary: "How public space and moving water shaped creativity in Alyssa Baguss's Open Water Project",
     title: 'Working Small & Staying Open on the Mighty Mississippi',
   },
   {
@@ -2210,7 +2203,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU3NjExOTU5MDY2OTUxNjg',
     slug: 'the-gallery-of-babel-the-arab-imaginary-at-the-m',
     summary:
-      '\'History Is Not Here: Art and the Arab Imaginary\' is on view at The Minnesota Museum of America Art through January 5th, 2020.',
+      "'History Is Not Here: Art and the Arab Imaginary' is on view at The Minnesota Museum of America Art through January 5th, 2020.",
     title: 'The Gallery of Babel: Language, culture, and the Arab Imaginary at The M',
   },
   {
@@ -2534,7 +2527,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2OTkzOTAyODcxMTgzMzY',
     slug: 'shine-on-you-crazy-polyhedron-john-foster-at-gamut-gallery',
     summary:
-      'The artist behind these kaleidoscopic wonders talks about material, identity, and the importance of failure when you\'re looking for beauty.',
+      "The artist behind these kaleidoscopic wonders talks about material, identity, and the importance of failure when you're looking for beauty.",
     title: 'Shine On, You Crazy Polyhedron: John Foster at Gamut Gallery',
   },
   {
@@ -2599,7 +2592,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2MzY2MjEwODQ5MTc3NjA',
     slug: 'new-in-northeast-circa-gallery-reopens-this-weekend',
     summary:
-      'Ahead of the inaugural exhibition at CIRCA\'s new location, Gallery Director Krista Anderson-Larson talks past, present, and future.',
+      "Ahead of the inaugural exhibition at CIRCA's new location, Gallery Director Krista Anderson-Larson talks past, present, and future.",
     title: 'New in Northeast: CIRCA Gallery reopens this weekend',
   },
   {
@@ -2669,152 +2662,88 @@ let articleResources = [
   },
 ];
 
-let regularAd = {
-  resource_type: 'Advert',
-  advert_type_label: 'Sponsor',
-  advert_label: 'WPT002_6mnthads_APRIL132018',
-
-  image_resource: {
-    versions: {
-      MOBILE: {
-        height: 300,
-        width: 500,
-        url: 'https://dummyimage.com/427x540/888888/333333.png&text=500x300',
-      },
-      DEFAULT: {
-        height: 540,
-        width: 427,
-        url: 'https://dummyimage.com/427x540/888888/333333.png&text=427x540',
-      },
-    },
-  },
-  goto_url: 'http://www.wetpaintart.com/?from=mplsart',
-  advert_description: 'Wet Paint Artist Materials & Framing',
-  advert_client: 'wetpaint',
-  advert_campaign: '6month',
-  weight: 15,
-};
-
-storiesOf('Cards', module)
-  .add('Advert Card', () => (
+storiesOf('Lists', module)
+  .add('Articles', () => (
     <Grid>
       <Row>
-        <Col xs={12}>
-          <h2>Standard Ads</h2>
+        <Col xs={12} md={4}>
+          {articleResources.map((r, i) => (
+            <CardListItemArticle
+              key={i}
+              linkClassProps={{}}
+              resource={r}
+              component="a"
+              imageFloat="left"
+              highlightPrimary={true}
+            />
+          ))}
         </Col>
-      </Row>
-      <Row>
-        <Col xs={4}>
-          <CardAd width="xs" resource={regularAd} linkClass="a" linkClassProps={{ href: regularAd.goto_url }} />
+        <Col xs={12} md={4}>
+          {articleResources.map((r, i) => (
+            <CardListItemArticle
+              key={i}
+              linkClassProps={{}}
+              resource={r}
+              component="a"
+              imageFloat="right"
+              highlightPrimary={true}
+            />
+          ))}
         </Col>
-        <Col xs={4}>
-          <CardAd width="md" resource={regularAd} linkClass="a" linkClassProps={{ href: regularAd.goto_url }} />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12}>
-          <h2>XL Ads</h2>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col xs={12}>
-          <MegaBannerAd
-            width="xs"
-            resource={xlBannerResource}
-            linkClass="a"
-            linkClassProps={{ href: xlBannerResource.goto_url }}
-          />
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12}>
-          <MegaBannerAd
-            width="md"
-            resource={xlBannerResource}
-            linkClass="a"
-            linkClassProps={{ href: xlBannerResource.goto_url }}
-          />
+        <Col xs={12} md={4}>
+          {articleResources.map((r, i) => (
+            <CardListItemArticle
+              key={i}
+              linkClassProps={{}}
+              resource={r}
+              component="a"
+              imageFloat="right"
+              highlightPrimary={false}
+            />
+          ))}
         </Col>
       </Row>
     </Grid>
   ))
-
-  .add('Base Standard Card', () => (
+  .add('Events', () => (
     <Grid>
       <Row>
-        <Col xs={3}>
-          <StandardCardBase
-            byLineIcon={CalendarIcon}
-            byLineText="Wed Feb 12"
-            title="Harriet Bart: Abracadabra and Other Forms of Protection / Artist Talk"
-            overlineText="Artist Talk @ Weisman Art Museum, U of M"
-            linkClass="a"
-            linkClassProps={{ href: 'http://google.com' }}
-            //imageResource={{}}
-          />
+        <Col xs={12} md={4}>
+          {eventDateResources.map((r, i) => (
+            <CardListItemEventDate
+              key={i}
+              linkClassProps={{}}
+              resource={r}
+              component="a"
+              imageFloat="left"
+              highlightPrimary={false}
+            />
+          ))}
         </Col>
-        <Col xs={3}>
-          <StandardCardBase
-            byLineIcon={EyeIcon}
-            byLineText="Wed Feb 12"
-            title="Harriet Bart: Abracadabra and Other Forms of Protection / Artist Talk"
-            overlineText="over"
-            linkClass="a"
-            linkClassProps={{ href: 'http://google.com' }}
-          />
+        <Col xs={12} md={4}>
+          {eventDateResources.map((r, i) => (
+            <CardListItemEventDate
+              key={i}
+              linkClassProps={{}}
+              resource={r}
+              component="a"
+              imageFloat="right"
+              highlightPrimary={false}
+            />
+          ))}
         </Col>
-        <Col xs={3}>
-          <StandardCardBase
-            byLineIcon={NewspaperIcon}
-            byLineText="Wed Feb 12"
-            title="This is Cool"
-            overlineText="over"
-            linkClass="a"
-            linkClassProps={{ href: 'http://google.com' }}
-          />
+        <Col xs={12} md={4}>
+          {eventDateResources.map((r, i) => (
+            <CardListItemEventDate
+              key={i}
+              linkClassProps={{}}
+              resource={r}
+              component="a"
+              imageFloat="right"
+              highlightPrimary={true}
+            />
+          ))}
         </Col>
-        <Col xs={3}>
-          <StandardCardBase
-            byLineIcon={MapMarkerIcon}
-            byLineText="Cool"
-            title="This is Cool"
-            overlineText="over"
-            linkClass="a"
-            linkClassProps={{ href: 'http://google.com' }}
-          />
-        </Col>
-      </Row>
-    </Grid>
-  ))
-  .add('Event Date Cards', () => (
-    <Grid>
-      <Row>
-        {eventDateResources.map((ed, i) => (
-          <Col xs={3} key={i}>
-            <div style={{ padding: 16 }}>
-              <StandardCardEventDate
-                eventDateResource={ed}
-                eventResource={ed.event_resource}
-                linkClass="a"
-                linkClassProps={{ href: 'http://google.com' }}
-              />
-            </div>
-          </Col>
-        ))}
-      </Row>
-    </Grid>
-  ))
-  .add('Article Cards', () => (
-    <Grid>
-      <Row>
-        {articleResources.map((resource, i) => (
-          <Col xs={3} key={i}>
-            <div style={{ padding: 16 }}>
-              <StandardCardArticle resource={resource} linkClass="a" linkClassProps={{ href: 'http://google.com' }} />
-            </div>
-          </Col>
-        ))}
       </Row>
     </Grid>
   ));

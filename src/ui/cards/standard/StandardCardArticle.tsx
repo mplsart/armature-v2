@@ -35,7 +35,6 @@ export interface ArticleResource extends Resource {
   title: string;
   slug: string;
   summary: string;
-  primary_image_resource_id: string;
   primary_image_resource: ImageResource;
   author_name: string;
 }

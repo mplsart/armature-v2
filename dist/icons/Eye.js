@@ -15,6 +15,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 // Eye (Light) icon from: https://fontawesome.com/icons/eye?style=light
+// https://iconify.design/icon-sets/fa/eye.html
 var react_1 = __importDefault(require("react"));
 var SvgIcon_1 = __importDefault(require("@material-ui/core/SvgIcon"));
 var Eye = function (props) {

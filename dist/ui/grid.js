@@ -92,10 +92,9 @@ var Grid = function (props) {
 exports.Grid = Grid;
 var Row = function (props) {
     var className = props.className, children = props.children, rest = __rest(props, ["className", "children"]);
-    var classes = useStyles();
     //let className = props.className;
-    // TODO: What is spacing these days?
-    return (react_1.default.createElement(Grid_1.default, __assign({ spacing: 0, container: true, className: clsx_1.default(classes.typeContainer, className) }, rest), children));
+    //Note: spacing 4 equates to 16px padding around Col components
+    return (react_1.default.createElement(Grid_1.default, __assign({ spacing: 4, container: true, className: className }, rest), children));
 };
 exports.Row = Row;
 var Col = function (props) {

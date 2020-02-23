@@ -129,7 +129,7 @@ const LargeEmailSignUp: React.FC<{}> = () => {
     <div className={classes.root}>
       <div className={classes.textContainer}>
         <div className={classes.textContainerInner}>
-          <ContentTitle className={classes.text}>
+          <ContentTitle component="h2" className={classes.text}>
             <span className="line">Find out what's up</span> <span className="line">every weekend.</span>
           </ContentTitle>
           <p className={classes.subtext}>

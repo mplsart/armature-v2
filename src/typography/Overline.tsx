@@ -4,8 +4,16 @@ import MUITypography, { TypographyProps } from '@material-ui/core/Typography';
 import classnames from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(() => ({
-  root: { marginTop: '0.35em', fontWeight: 100 },
+const useStyles = makeStyles(theme => ({
+  root: {
+    marginTop: '0.35em',
+    //paddingTop: 8,
+    color: theme.palette.common.black,
+    fontWeight: 100,
+    fontSize: theme.typography.pxToRem(11),
+    display: 'block',
+    margin: 0,
+  },
 }));
 
 // TODO: TypographyProps interface doesn't define these, but why? Seems silly to have to extend...

@@ -25,25 +25,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Overline - Note: We may be able to use MUIs Overline typography variant with global overrides...
+// Standard Article
 var react_1 = __importDefault(require("react"));
-var Typography_1 = __importDefault(require("@material-ui/core/Typography"));
-var clsx_1 = __importDefault(require("clsx"));
-var styles_1 = require("@material-ui/core/styles");
-var useStyles = styles_1.makeStyles(function (theme) { return ({
-    root: {
-        marginTop: '0.35em',
-        //paddingTop: 8,
-        color: theme.palette.common.black,
-        fontWeight: 100,
-        fontSize: theme.typography.pxToRem(11),
-        display: 'block',
-        margin: 0,
-    },
-}); });
-var Overline = function (props) {
-    var children = props.children, className = props.className, rest = __rest(props, ["children", "className"]);
-    var classes = useStyles();
-    return (react_1.default.createElement(Typography_1.default, __assign({ component: "span", variant: "caption", className: clsx_1.default(classes.root, className), gutterBottom: true, color: "inherit" }, rest), children));
+var StandardCardBase_1 = __importDefault(require("./StandardCardBase"));
+var Newspaper_1 = __importDefault(require("../../../icons/Newspaper"));
+var StandardCardEventDate = function (props) {
+    var resource = props.resource, rest = __rest(props, ["resource"]);
+    return (react_1.default.createElement(StandardCardBase_1.default, __assign({ overlineText: "by " + resource.author_name, title: resource.title, byLineText: 'New Article', byLineIcon: Newspaper_1.default, imageResource: resource.primary_image_resource }, rest)));
 };
-exports.default = react_1.default.memo(Overline);
+exports.default = StandardCardEventDate;

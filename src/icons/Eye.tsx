@@ -1,4 +1,5 @@
 // Eye (Light) icon from: https://fontawesome.com/icons/eye?style=light
+// https://iconify.design/icon-sets/fa/eye.html
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 

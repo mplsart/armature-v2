@@ -7,21 +7,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var clsx_1 = __importDefault(require("clsx"));
 var styles_1 = require("@material-ui/core/styles");
-var useStyles = styles_1.makeStyles(function (theme) {
-    var _a;
-    return ({
-        root: (_a = {
-                padding: theme.spacing(3)
-            },
-            _a[theme.breakpoints.up('sm')] = {
-                paddingTop: theme.spacing(4),
-            },
-            _a),
-        left: { textAlign: 'left' },
-        right: { textAlign: 'right' },
-        center: { textAlign: 'center' },
-    });
-});
+var useStyles = styles_1.makeStyles(function (theme) { return ({
+    root: {
+        padding: theme.spacing(2),
+    },
+    left: { textAlign: 'left' },
+    right: { textAlign: 'right' },
+    center: { textAlign: 'center' },
+}); });
 var PaddedBox = function (props) {
     var _a;
     var classes = useStyles();

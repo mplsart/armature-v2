@@ -25,25 +25,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Overline - Note: We may be able to use MUIs Overline typography variant with global overrides...
 var react_1 = __importDefault(require("react"));
-var Typography_1 = __importDefault(require("@material-ui/core/Typography"));
-var clsx_1 = __importDefault(require("clsx"));
-var styles_1 = require("@material-ui/core/styles");
-var useStyles = styles_1.makeStyles(function (theme) { return ({
-    root: {
-        marginTop: '0.35em',
-        //paddingTop: 8,
-        color: theme.palette.common.black,
-        fontWeight: 100,
-        fontSize: theme.typography.pxToRem(11),
-        display: 'block',
-        margin: 0,
-    },
-}); });
-var Overline = function (props) {
-    var children = props.children, className = props.className, rest = __rest(props, ["children", "className"]);
-    var classes = useStyles();
-    return (react_1.default.createElement(Typography_1.default, __assign({ component: "span", variant: "caption", className: clsx_1.default(classes.root, className), gutterBottom: true, color: "inherit" }, rest), children));
+var CardListItemBase_1 = __importDefault(require("./CardListItemBase"));
+// TODO: This should be done in CSS
+function truncate(str, n) {
+    return str.length > n ? str.substr(0, n - 2) + '...' : str;
+}
+var CardListItemArticle = function (props) {
+    var resource = props.resource, rest = __rest(props, ["resource"]);
+    // Image
+    var imageUrl;
+    var imageAltText = resource.title;
+    if (resource.primary_image_resource &&
+        resource.primary_image_resource.versions &&
+        resource.primary_image_resource.versions.THUMB) {
+        imageUrl = resource.primary_image_resource.versions.THUMB.url;
+    }
+    // Author Credit
+    var overlineText = 'By ' + resource.author_name;
+    return (react_1.default.createElement(CardListItemBase_1.default, __assign({ primaryText: truncate(resource.title, 60), overlineText: overlineText, imageUrl: imageUrl, imageAltText: imageAltText }, rest)));
 };
-exports.default = react_1.default.memo(Overline);
+exports.default = CardListItemArticle;
