@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-// Common Page Header
+// ByLine - Optimize for Articles Page on mobile
 var react_1 = __importDefault(require("react"));
 var Typography_1 = __importDefault(require("@material-ui/core/Typography"));
 var styles_1 = require("@material-ui/core/styles");
@@ -22,11 +22,11 @@ var useStyles = styles_1.makeStyles(function (theme) {
     var _a;
     return ({
         // Optimize for insta screenshot
-        root: (_a = {}, _a[theme.breakpoints.only('xs')] = { fontSize: '1.25rem' }, _a),
+        root: (_a = { fontWeight: 100 }, _a[theme.breakpoints.only('xs')] = { fontSize: theme.typography.pxToRem(13) }, _a),
     });
 });
-var ContentTitle = function (props) {
+var ByLine = function (props) {
     var classes = useStyles();
-    return react_1.default.createElement(Typography_1.default, __assign({ component: "h1", variant: "h4", gutterBottom: true, color: "inherit" }, props, { className: classes.root }));
+    return (react_1.default.createElement(Typography_1.default, __assign({ component: "p", variant: "body1", gutterBottom: true, color: "inherit" }, props, { className: classes.root })));
 };
-exports.default = react_1.default.memo(ContentTitle);
+exports.default = react_1.default.memo(ByLine);

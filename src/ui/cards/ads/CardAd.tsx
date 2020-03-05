@@ -65,14 +65,14 @@ export interface AdvertResource {
 }
 
 export interface CardAdProps {
-  width: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  isMobile: boolean;
   resource?: AdvertResource;
   linkClassProps: object;
   linkClass: React.ElementType;
 }
 
 const CardAd: React.FC<CardAdProps> = props => {
-  const { width, resource, linkClassProps } = props;
+  const { isMobile, resource, linkClassProps } = props;
   const classes = useStyles();
   const LinkClass = props.linkClass;
 
@@ -85,7 +85,7 @@ const CardAd: React.FC<CardAdProps> = props => {
   }
 
   // If We're on mobile and the mobile
-  if (width == 'xs' && resource.image_resource.versions.MOBILE) {
+  if (isMobile && resource.image_resource.versions.MOBILE) {
     imageResource = resource.image_resource.versions.MOBILE;
   }
 

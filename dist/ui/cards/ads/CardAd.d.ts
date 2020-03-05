@@ -17,7 +17,7 @@ export interface AdvertResource {
     advert_type_label?: string;
 }
 export interface CardAdProps {
-    width: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+    isMobile: boolean;
     resource?: AdvertResource;
     linkClassProps: object;
     linkClass: React.ElementType;

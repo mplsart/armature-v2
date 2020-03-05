@@ -6,11 +6,11 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    marginTop: '0.35em',
-    //paddingTop: 8,
+    marginTop: 0,
     color: theme.palette.common.black,
     fontWeight: 100,
     fontSize: theme.typography.pxToRem(11),
+    lineHeight: '1.375em',
     display: 'block',
     margin: 0,
   },

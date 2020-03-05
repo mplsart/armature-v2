@@ -73,8 +73,7 @@ var CardListItemBase = function (props) {
         overlineNode,
         react_1.default.createElement(Typography_1.default, { variant: "subtitle2" }, primaryText),
         underlineNode));
-    var secondaryTextNode = (react_1.default.createElement("span", null,
-        react_1.default.createElement(Typography_1.default, { variant: "body2" }, secondaryText)));
+    var secondaryTextNode = react_1.default.createElement(Overline_1.default, null, secondaryText);
     return (react_1.default.createElement(ListItem_1.default, __assign({ button: true, className: classes.root }, rest, linkClassProps),
         imageFloat == 'left' && imageNode,
         react_1.default.createElement(ListItemText_1.default, { classes: { root: clsx_1.default(classes.text, highlightPrimary ? 'highlightPrimary' : '') }, primary: primaryTextNode, secondary: secondaryTextNode, disableTypography: true }),

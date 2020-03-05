@@ -65,7 +65,7 @@ const CardListItemArticle: React.FC<ListItemArticleProps> = props => {
 
   return (
     <CardListItemBase
-      primaryText={truncate(resource.title, 60)}
+      primaryText={truncate(resource.title, 45)}
       overlineText={overlineText}
       imageUrl={imageUrl}
       imageAltText={imageAltText}

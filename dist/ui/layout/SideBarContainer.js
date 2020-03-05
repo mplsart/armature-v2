@@ -8,24 +8,28 @@ var react_1 = __importDefault(require("react"));
 var styles_1 = require("@material-ui/core/styles");
 var clsx_1 = __importDefault(require("clsx"));
 var useStyles = styles_1.makeStyles(function (theme) {
-    var _a;
+    var _a, _b;
     return ({
-        root: {
-            //margin: `${theme.spacing(4)}px`,
-            margin: theme.spacing(4) + "px 0 " + theme.spacing(4) + "px 0",
-            borderTop: '1px solid #000000',
-        },
+        root: (_a = {
+                margin: theme.spacing(4) + "px 0 " + theme.spacing(4) + "px 0",
+                borderTop: '1px solid #000000'
+            },
+            _a[theme.breakpoints.up('md')] = {
+                // This tends to align the sidebar in line with the primary content header
+                marginTop: theme.spacing(10) + "px",
+            },
+            _a),
         padSides: {
             marginRight: theme.spacing(4) + "px",
             marginLeft: theme.spacing(4) + "px",
         },
-        padTop: (_a = {
+        padTop: (_b = {
                 marginTop: theme.spacing(0)
             },
-            _a[theme.breakpoints.up('md')] = {
+            _b[theme.breakpoints.up('md')] = {
                 marginTop: theme.spacing(11),
             },
-            _a),
+            _b),
     });
 });
 var SideBarContainer = function (_a) {

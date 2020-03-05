@@ -4,7 +4,7 @@ import classnames from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
 import CardMedia from '@material-ui/core/CardMedia';
-import ListItem, { ListItemProps } from '@material-ui/core/ListItem';
+import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MUITypography from '@material-ui/core/Typography';
@@ -99,11 +99,7 @@ const CardListItemBase: React.FC<CardListItemBaseProps> = props => {
     </span>
   );
 
-  let secondaryTextNode = (
-    <span>
-      <MUITypography variant="body2">{secondaryText}</MUITypography>
-    </span>
-  );
+  let secondaryTextNode = <Overline>{secondaryText}</Overline>;
 
   return (
     <ListItem button className={classes.root} {...rest} {...linkClassProps}>

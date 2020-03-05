@@ -25,42 +25,35 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// Marquee Event Small Card
 var react_1 = __importDefault(require("react"));
-var CardListItemBase_1 = __importDefault(require("./CardListItemBase"));
-var moment_1 = __importDefault(require("moment"));
-var CardListItemEventDate = function (props) {
-    var resource = props.resource, rest = __rest(props, ["resource"]);
-    var target_event_date = resource;
-    var event_resource = resource.event_resource;
-    // Image
-    var imageUrl;
-    var imageAltText = event_resource.name;
-    if (event_resource.primary_image_resource &&
-        event_resource.primary_image_resource.versions &&
-        event_resource.primary_image_resource.versions.THUMB) {
-        imageUrl = event_resource.primary_image_resource.versions.THUMB.url;
-    }
-    var byLineText = '';
-    var edLabel = '';
+var moment_timezone_1 = __importDefault(require("moment-timezone"));
+var StandardCardBase_1 = __importDefault(require("../standard/StandardCardBase"));
+var Calendar_1 = __importDefault(require("../../../icons/Calendar"));
+var StandardCardEventDate = function (props) {
+    var eventResource = props.eventResource, eventDateResource = props.eventDateResource, rest = __rest(props, ["eventResource", "eventDateResource"]);
+    // Event Date
+    var target_event_date = eventDateResource;
+    var byLineText;
     // If it is ongoing - worst case scenario
     if (target_event_date.category == 'ongoing') {
         byLineText =
-            moment_1.default(new Date(target_event_date.start)).format('MMM D') +
+            moment_timezone_1.default(new Date(target_event_date.start)).format('MMM D') +
                 ' - ' +
-                moment_1.default(new Date(target_event_date.end)).format('MMM D');
+                moment_timezone_1.default(new Date(target_event_date.end)).format('MMM D');
     }
     else {
-        // Else show the end
-        byLineText = moment_1.default(new Date(target_event_date.start)).format('ddd MMM D');
-        edLabel = target_event_date.label;
+        // Else show the start
+        byLineText = moment_timezone_1.default(new Date(target_event_date.start)).format('ddd MMM D');
     }
-    var venue_resource = resource.venue_resource;
+    // Venue
+    var venue_resource = target_event_date.venue_resource;
     var venue_name = venue_resource.nickname || venue_resource.name;
     if (venue_resource.multiple_locations_label) {
         venue_name = venue_resource.multiple_locations_label;
     }
     // Overline
-    var secondaryText = edLabel + ' @ ' + venue_name;
-    return (react_1.default.createElement(CardListItemBase_1.default, __assign({ primaryText: event_resource.name, secondaryText: secondaryText, overlineText: byLineText, imageUrl: imageUrl, imageAltText: imageAltText }, rest)));
+    var overlineText = target_event_date.label + ' @ ' + venue_name;
+    return (react_1.default.createElement(StandardCardBase_1.default, __assign({ overlineText: overlineText, title: eventResource.name, byLineText: byLineText, byLineIcon: Calendar_1.default, imageResource: eventResource.primary_image_resource }, rest)));
 };
-exports.default = CardListItemEventDate;
+exports.default = StandardCardEventDate;

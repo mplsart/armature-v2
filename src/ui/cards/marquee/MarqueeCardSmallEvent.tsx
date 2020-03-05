@@ -1,6 +1,8 @@
+// Marquee Event Small Card
 import React from 'react';
-import CardListItemBase, { CardListItemBaseProps } from './CardListItemBase';
-import moment from 'moment';
+import moment from 'moment-timezone';
+import StandardCardBase from '../standard/StandardCardBase';
+import CalendarIcon from '../../../icons/Calendar';
 
 // TODO: This sucks to duplicate... move to armature?
 // TODO: Move to a centralized types
@@ -61,30 +63,13 @@ interface StandardCardEventDateProps {
   linkClassProps: object;
 }
 
-//export default function CardListItemEventDate({ resource, divider, ...rest }) {
-interface ListItemArticleProps extends CardListItemBaseProps {
-  resource: EventDateResource;
-}
+const StandardCardEventDate: React.FunctionComponent<StandardCardEventDateProps> = props => {
+  const { eventResource, eventDateResource, ...rest } = props;
 
-const CardListItemEventDate: React.FC<ListItemArticleProps> = props => {
-  let { resource, ...rest } = props;
+  // Event Date
+  let target_event_date = eventDateResource;
+  let byLineText;
 
-  let target_event_date = resource;
-  let event_resource = resource.event_resource;
-
-  // Image
-  let imageUrl;
-  let imageAltText = event_resource.name;
-  if (
-    event_resource.primary_image_resource &&
-    event_resource.primary_image_resource.versions &&
-    event_resource.primary_image_resource.versions.THUMB
-  ) {
-    imageUrl = event_resource.primary_image_resource.versions.THUMB.url;
-  }
-
-  let byLineText = '';
-  let edLabel = '';
   // If it is ongoing - worst case scenario
   if (target_event_date.category == 'ongoing') {
     byLineText =
@@ -92,30 +77,30 @@ const CardListItemEventDate: React.FC<ListItemArticleProps> = props => {
       ' - ' +
       moment(new Date(target_event_date.end)).format('MMM D');
   } else {
-    // Else show the end
+    // Else show the start
     byLineText = moment(new Date(target_event_date.start)).format('ddd MMM D');
-    edLabel = target_event_date.label;
   }
 
-  let venue_resource = resource.venue_resource;
+  // Venue
+  let venue_resource = target_event_date.venue_resource;
   let venue_name = venue_resource.nickname || venue_resource.name;
   if (venue_resource.multiple_locations_label) {
     venue_name = venue_resource.multiple_locations_label;
   }
 
   // Overline
-  const secondaryText = edLabel + ' @ ' + venue_name;
+  let overlineText = target_event_date.label + ' @ ' + venue_name;
 
   return (
-    <CardListItemBase
-      primaryText={event_resource.name}
-      secondaryText={secondaryText}
-      overlineText={byLineText}
-      imageUrl={imageUrl}
-      imageAltText={imageAltText}
+    <StandardCardBase
+      overlineText={overlineText}
+      title={eventResource.name}
+      byLineText={byLineText}
+      byLineIcon={CalendarIcon}
+      imageResource={eventResource.primary_image_resource}
       {...rest}
     />
   );
 };
 
-export default CardListItemEventDate;
+export default StandardCardEventDate;

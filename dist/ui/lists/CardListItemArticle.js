@@ -43,6 +43,6 @@ var CardListItemArticle = function (props) {
     }
     // Author Credit
     var overlineText = 'By ' + resource.author_name;
-    return (react_1.default.createElement(CardListItemBase_1.default, __assign({ primaryText: truncate(resource.title, 60), overlineText: overlineText, imageUrl: imageUrl, imageAltText: imageAltText }, rest)));
+    return (react_1.default.createElement(CardListItemBase_1.default, __assign({ primaryText: truncate(resource.title, 45), overlineText: overlineText, imageUrl: imageUrl, imageAltText: imageAltText }, rest)));
 };
 exports.default = CardListItemArticle;

@@ -54,7 +54,7 @@ var useStyles = styles_1.makeStyles(function (theme) { return ({
     sponsorText: __assign(__assign({}, theme.typography.caption), { position: 'absolute', top: 0, color: theme.palette.common.white, paddingLeft: theme.gutterSize / 2, paddingTop: theme.gutterSize / 2, opacity: '0.8' }),
 }); });
 var CardAd = function (props) {
-    var width = props.width, resource = props.resource, linkClassProps = props.linkClassProps;
+    var isMobile = props.isMobile, resource = props.resource, linkClassProps = props.linkClassProps;
     var classes = useStyles();
     var LinkClass = props.linkClass;
     // Determine Image to use based on device/breakpoints
@@ -64,7 +64,7 @@ var CardAd = function (props) {
         return react_1.default.createElement(react_1.default.Fragment, null);
     }
     // If We're on mobile and the mobile
-    if (width == 'xs' && resource.image_resource.versions.MOBILE) {
+    if (isMobile && resource.image_resource.versions.MOBILE) {
         imageResource = resource.image_resource.versions.MOBILE;
     }
     if (!imageResource) {

@@ -5,9 +5,13 @@ import classnames from 'clsx';
 
 const useStyles = makeStyles(theme => ({
   root: {
-    //margin: `${theme.spacing(4)}px`,
     margin: `${theme.spacing(4)}px 0 ${theme.spacing(4)}px 0`,
     borderTop: '1px solid #000000',
+
+    [theme.breakpoints.up('md')]: {
+      // This tends to align the sidebar in line with the primary content header
+      marginTop: `${theme.spacing(10)}px`,
+    },
   },
   padSides: {
     marginRight: `${theme.spacing(4)}px`,
