@@ -3,7 +3,7 @@
 
 import React from 'react';
 
-const PageBase: React.FunctionComponent<{ children: React.ReactNode }> = ({ children }) => {
+const PageBase: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return <>{children}</>;
 };
 

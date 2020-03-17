@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     },
     [theme.breakpoints.up('md')]: {
       // Ipad in portrait and phones in landscape
-      fontSize: theme.typography.pxToRem(60),
+      fontSize: theme.typography.pxToRem(56),
       lineHeight: '3.6rem',
       paddingTop: '8px',
     },
@@ -32,7 +32,7 @@ interface ContentTitleProps extends TypographyProps {
   rel?: string;
 }
 
-const MegaHeader: React.FunctionComponent<ContentTitleProps> = props => {
+const MegaHeader: React.FC<ContentTitleProps> = props => {
   const classes = useStyles();
   return <MUITypography component="h1" variant="h1" gutterBottom color="inherit" {...props} className={classes.root} />;
 };

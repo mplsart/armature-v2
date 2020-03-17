@@ -9,7 +9,7 @@ interface PrimaryButtonProps extends ButtonProps {
   rel?: string;
 }
 
-const PrimaryButton: React.FunctionComponent<PrimaryButtonProps> = props => {
+const PrimaryButton: React.FC<PrimaryButtonProps> = props => {
   return <Button variant="contained" color="primary" {...props} />;
 };
 

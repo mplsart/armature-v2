@@ -2,7 +2,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-const MNArtists: React.FunctionComponent<SvgIconProps> = props => {
+const MNArtists: React.FC<SvgIconProps> = props => {
   return (
     <SvgIcon viewBox="0 0 20.04 12.67" {...props}>
       <polygon

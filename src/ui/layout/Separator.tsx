@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Separator: React.FunctionComponent<{ withMargin?: boolean }> = props => {
+const Separator: React.FC<{ withMargin?: boolean }> = props => {
   let classes = useStyles();
   let targetClasses = ['fancy-separator'];
 

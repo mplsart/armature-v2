@@ -38,7 +38,7 @@ var Vimeo_1 = __importDefault(require("../../icons/Vimeo"));
 var OtherLink_1 = __importDefault(require("../../icons/OtherLink"));
 var MNArtists_1 = __importDefault(require("../../icons/MNArtists"));
 // Define map of service types and Renderer
-var serviceIconMap = {
+exports.serviceIconMap = {
     instagram: Instagram_1.default,
     facebook: Facebook_1.default,
     twitter: Twitter_1.default,
@@ -67,7 +67,10 @@ var SocialButton = function (_a) {
     // Default to use anchor tags
     var ButtonComponent = component ? component : 'a';
     // Resolve Icon component for service
-    var IconComponent = serviceIconMap[service] || serviceIconMap.other;
+    var IconComponent = exports.serviceIconMap.other;
+    if (exports.serviceIconMap[service]) {
+        IconComponent = exports.serviceIconMap[service];
+    }
     return (react_1.default.createElement(IconButton_1.default, __assign({ component: ButtonComponent }, rest, { "aria-label": service, classes: { root: classes.root } }),
         react_1.default.createElement(IconComponent, { fontSize: "inherit" })));
 };

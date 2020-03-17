@@ -1,4 +1,4 @@
-// Base Standard Card
+// Base Marquee Card
 
 import React from 'react';
 import MUITypography from '@material-ui/core/Typography';
@@ -37,11 +37,14 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     overflow: 'hidden',
     backgroundColor: '#eeeeee',
-    '-webkit-transition': '0.6s ease',
     transition: '0.6s ease',
 
     [theme.breakpoints.only('xs')]: {
-      //padding:'30% 0 0 0',
+      padding: '80% 0 0 0', // Card matches mobile marquee ad size theoretically
+    },
+
+    [theme.breakpoints.only('md')]: {
+      padding: '60% 0 0 0', // Card matches mobile marquee ad size theoretically
     },
   },
 
@@ -73,7 +76,7 @@ const useStyles = makeStyles(theme => ({
       padding: 16,
     },
     position: 'absolute',
-    color: '#fff',
+    color: theme.palette.common.white,
     padding: '32px',
     background: 'linear-gradient(transparent, black)',
   },
@@ -83,10 +86,28 @@ const useStyles = makeStyles(theme => ({
     fontFamily: theme.fontFamily.accent,
     marginTop: '0.35em',
     fontSize: theme.typography.pxToRem(30),
-    lineHeight: theme.typography.pxToRem(30),
+    lineHeight: theme.typography.pxToRem(32),
     letterSpacing: '-0.00833em',
     fontWeight: 400,
     marginBottom: 0,
+    [theme.breakpoints.only('xs')]: {
+      // Phones in portrait
+      marginTop: '0',
+      fontSize: theme.typography.pxToRem(24),
+      lineHeight: theme.typography.pxToRem(26),
+      fontWeight: 400,
+      marginBottom: 0,
+      color: '#fafafa',
+    },
+    [theme.breakpoints.only('sm')]: {
+      // Ipad in portrait and phones in landscape
+      fontSize: theme.typography.pxToRem(28),
+      lineHeight: theme.typography.pxToRem(30),
+      marginTop: 0,
+      fontWeight: 400,
+      marginBottom: 0,
+      color: '#fafafa',
+    },
   },
 
   byline: {
@@ -97,8 +118,14 @@ const useStyles = makeStyles(theme => ({
     zIndex: 1000,
     backgroundColor: '#fafafa',
     fontWeight: 100,
-    fontSize: theme.typography.pxToRem(12),
-    padding: '0px 8px 2px 0px',
+    fontSize: theme.typography.pxToRem(14),
+    padding: '8px 16px 8px 8px',
+
+    [theme.breakpoints.only('xs')]: {
+      // Phones in portrait
+      fontSize: theme.typography.pxToRem(12),
+      padding: '4px 8px 4px 0px',
+    },
   },
 
   byLineIcon: {
@@ -109,10 +136,14 @@ const useStyles = makeStyles(theme => ({
   },
 
   overline: {
-    //paddingTop: 8,
+    paddingTop: 8,
     fontWeight: 100,
-    color: '#fff',
+    color: theme.palette.common.white,
     fontSize: theme.typography.pxToRem(12),
+    [theme.breakpoints.down('sm')]: {
+      fontSize: theme.typography.pxToRem(10),
+      paddingBottom: 4,
+    },
   },
 }));
 
@@ -153,7 +184,7 @@ export interface StandardCardBaseProps {
   linkClass: React.ElementType;
 }
 
-const StandardCardBase: React.FunctionComponent<StandardCardBaseProps> = props => {
+const StandardCardBase: React.FC<StandardCardBaseProps> = props => {
   let { byLineText, title, overlineText, linkClassProps, imageResource } = props;
   let classes = useStyles();
   let LinkClass = props.linkClass;

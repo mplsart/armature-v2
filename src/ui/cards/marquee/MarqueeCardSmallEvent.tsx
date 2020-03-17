@@ -1,8 +1,9 @@
 // Marquee Event Small Card
 import React from 'react';
-import moment from 'moment-timezone';
+import moment, { Moment } from 'moment-timezone';
 import StandardCardBase from '../standard/StandardCardBase';
 import CalendarIcon from '../../../icons/Calendar';
+import { getBestEventDate } from '../../../utils/dates';
 
 // TODO: This sucks to duplicate... move to armature?
 // TODO: Move to a centralized types
@@ -32,7 +33,7 @@ export interface ImageResource extends Resource {
   };
 }
 
-export interface EventResource extends Resource {
+export interface EventResourceVerbose extends Resource {
   name: string;
   slug: string;
   summary: string;
@@ -40,35 +41,49 @@ export interface EventResource extends Resource {
   featured: boolean;
   primary_image_resource_id: string;
   primary_image_resource: ImageResource;
+  event_dates: EventDateResource[];
+  content: string;
 }
 
-export interface EventDateResource extends Resource {
+export interface EventDateResource {
   label: string;
   category: string;
   type: string; //'timed' | 'reoccurring';
   end: string;
   start: string;
-  event_resource: EventResource;
-  venue_resource: {
+  venue_slug?: string;
+  venue_resource?: {
+    name: string;
+    nickname?: string | null;
+    multiple_locations_label?: string;
+  };
+  venue?: {
     name: string;
     nickname?: string | null;
     multiple_locations_label?: string;
   };
 }
 
-interface StandardCardEventDateProps {
-  eventResource: EventResource;
-  eventDateResource: EventDateResource;
+interface MarqueeCardEventProps {
+  resource: EventResourceVerbose;
   linkClass: React.ElementType;
   linkClassProps: object;
+  startingDateFilter: Moment;
 }
 
-const StandardCardEventDate: React.FunctionComponent<StandardCardEventDateProps> = props => {
-  const { eventResource, eventDateResource, ...rest } = props;
+const MarqueeCardSmallEvent: React.FC<MarqueeCardEventProps> = props => {
+  const { resource, startingDateFilter, ...rest } = props;
 
   // Event Date
-  let target_event_date = eventDateResource;
+  let eventResource = resource;
+  //let target_event_date = resource.event_dates[0]; // TODO: !!!! Get Goodest date...
+  let target_event_date = getBestEventDate(resource.event_dates, startingDateFilter);
+
   let byLineText;
+
+  if (!target_event_date) {
+    return <></>;
+  }
 
   // If it is ongoing - worst case scenario
   if (target_event_date.category == 'ongoing') {
@@ -82,10 +97,14 @@ const StandardCardEventDate: React.FunctionComponent<StandardCardEventDateProps>
   }
 
   // Venue
-  let venue_resource = target_event_date.venue_resource;
-  let venue_name = venue_resource.nickname || venue_resource.name;
-  if (venue_resource.multiple_locations_label) {
-    venue_name = venue_resource.multiple_locations_label;
+  let venue_resource = target_event_date.venue;
+
+  let venue_name;
+  if (venue_resource) {
+    venue_name = venue_resource.nickname || venue_resource.name;
+    if (venue_resource.multiple_locations_label) {
+      venue_name = venue_resource.multiple_locations_label;
+    }
   }
 
   // Overline
@@ -103,4 +122,4 @@ const StandardCardEventDate: React.FunctionComponent<StandardCardEventDateProps>
   );
 };
 
-export default StandardCardEventDate;
+export default MarqueeCardSmallEvent;

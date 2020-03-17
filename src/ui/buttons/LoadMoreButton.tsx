@@ -15,7 +15,7 @@ interface LoadMoreButtonProps {
   loadMoreClickHandler: () => void;
 }
 
-const LoadMoreButton: React.FunctionComponent<LoadMoreButtonProps> = props => {
+const LoadMoreButton: React.FC<LoadMoreButtonProps> = props => {
   let { hasMore, loadMoreClickHandler, displayLabel } = props;
   let classes = useStyles();
 

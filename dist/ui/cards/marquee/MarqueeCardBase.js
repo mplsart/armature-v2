@@ -1,5 +1,5 @@
 "use strict";
-// Base Standard Card
+// Base Marquee Card
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -21,7 +21,7 @@ var typography_1 = require("../../../typography");
 var clsx_1 = __importDefault(require("clsx"));
 var styles_1 = require("@material-ui/core/styles");
 var useStyles = styles_1.makeStyles(function (theme) {
-    var _a, _b;
+    var _a, _b, _c, _d, _e;
     return ({
         root: {
             position: 'relative',
@@ -51,11 +51,13 @@ var useStyles = styles_1.makeStyles(function (theme) {
                 position: 'relative',
                 overflow: 'hidden',
                 backgroundColor: '#eeeeee',
-                '-webkit-transition': '0.6s ease',
                 transition: '0.6s ease'
             },
             _a[theme.breakpoints.only('xs')] = {
-            //padding:'30% 0 0 0',
+                padding: '80% 0 0 0',
+            },
+            _a[theme.breakpoints.only('md')] = {
+                padding: '60% 0 0 0',
             },
             _a),
         imageLink: {
@@ -85,34 +87,61 @@ var useStyles = styles_1.makeStyles(function (theme) {
                 padding: 16,
             },
             _b.position = 'absolute',
-            _b.color = '#fff',
+            _b.color = theme.palette.common.white,
             _b.padding = '32px',
             _b.background = 'linear-gradient(transparent, black)',
             _b),
-        primaryTitle: __assign(__assign({}, theme.typography.h1), { fontFamily: theme.fontFamily.accent, marginTop: '0.35em', fontSize: theme.typography.pxToRem(30), lineHeight: theme.typography.pxToRem(30), letterSpacing: '-0.00833em', fontWeight: 400, marginBottom: 0 }),
-        byline: {
-            display: 'inline-block',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            zIndex: 1000,
-            backgroundColor: '#fafafa',
-            fontWeight: 100,
-            fontSize: theme.typography.pxToRem(12),
-            padding: '0px 8px 2px 0px',
-        },
+        primaryTitle: __assign(__assign({}, theme.typography.h1), (_c = { fontFamily: theme.fontFamily.accent, marginTop: '0.35em', fontSize: theme.typography.pxToRem(30), lineHeight: theme.typography.pxToRem(32), letterSpacing: '-0.00833em', fontWeight: 400, marginBottom: 0 }, _c[theme.breakpoints.only('xs')] = {
+            // Phones in portrait
+            marginTop: '0',
+            fontSize: theme.typography.pxToRem(24),
+            lineHeight: theme.typography.pxToRem(26),
+            fontWeight: 400,
+            marginBottom: 0,
+            color: '#fafafa',
+        }, _c[theme.breakpoints.only('sm')] = {
+            // Ipad in portrait and phones in landscape
+            fontSize: theme.typography.pxToRem(28),
+            lineHeight: theme.typography.pxToRem(30),
+            marginTop: 0,
+            fontWeight: 400,
+            marginBottom: 0,
+            color: '#fafafa',
+        }, _c)),
+        byline: (_d = {
+                display: 'inline-block',
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                zIndex: 1000,
+                backgroundColor: '#fafafa',
+                fontWeight: 100,
+                fontSize: theme.typography.pxToRem(14),
+                padding: '8px 16px 8px 8px'
+            },
+            _d[theme.breakpoints.only('xs')] = {
+                // Phones in portrait
+                fontSize: theme.typography.pxToRem(12),
+                padding: '4px 8px 4px 0px',
+            },
+            _d),
         byLineIcon: {
             fontSize: 'inherit',
             marginLeft: '2px',
             marginRight: '8px',
             height: 'inherit',
         },
-        overline: {
-            //paddingTop: 8,
-            fontWeight: 100,
-            color: '#fff',
-            fontSize: theme.typography.pxToRem(12),
-        },
+        overline: (_e = {
+                paddingTop: 8,
+                fontWeight: 100,
+                color: theme.palette.common.white,
+                fontSize: theme.typography.pxToRem(12)
+            },
+            _e[theme.breakpoints.down('sm')] = {
+                fontSize: theme.typography.pxToRem(10),
+                paddingBottom: 4,
+            },
+            _e),
     });
 });
 var StandardCardBase = function (props) {

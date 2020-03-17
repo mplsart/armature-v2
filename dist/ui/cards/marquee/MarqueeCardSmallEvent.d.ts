@@ -1,4 +1,5 @@
 import React from 'react';
+import { Moment } from 'moment-timezone';
 export interface Resource {
     resource_id: string;
     _meta: {
@@ -21,7 +22,7 @@ export interface ImageResource extends Resource {
         CARD_PROGRESSIVE?: ImageVersion;
     };
 }
-export interface EventResource extends Resource {
+export interface EventResourceVerbose extends Resource {
     name: string;
     slug: string;
     summary: string;
@@ -29,25 +30,32 @@ export interface EventResource extends Resource {
     featured: boolean;
     primary_image_resource_id: string;
     primary_image_resource: ImageResource;
+    event_dates: EventDateResource[];
+    content: string;
 }
-export interface EventDateResource extends Resource {
+export interface EventDateResource {
     label: string;
     category: string;
     type: string;
     end: string;
     start: string;
-    event_resource: EventResource;
-    venue_resource: {
+    venue_slug?: string;
+    venue_resource?: {
+        name: string;
+        nickname?: string | null;
+        multiple_locations_label?: string;
+    };
+    venue?: {
         name: string;
         nickname?: string | null;
         multiple_locations_label?: string;
     };
 }
-interface StandardCardEventDateProps {
-    eventResource: EventResource;
-    eventDateResource: EventDateResource;
+interface MarqueeCardEventProps {
+    resource: EventResourceVerbose;
     linkClass: React.ElementType;
     linkClassProps: object;
+    startingDateFilter: Moment;
 }
-declare const StandardCardEventDate: React.FunctionComponent<StandardCardEventDateProps>;
-export default StandardCardEventDate;
+declare const MarqueeCardSmallEvent: React.FC<MarqueeCardEventProps>;
+export default MarqueeCardSmallEvent;

@@ -30,13 +30,17 @@ var react_1 = __importDefault(require("react"));
 var moment_timezone_1 = __importDefault(require("moment-timezone"));
 var MarqueeCardBase_1 = __importDefault(require("./MarqueeCardBase"));
 var Calendar_1 = __importDefault(require("../../../icons/Calendar"));
+var dates_1 = require("../../../utils/dates");
 var MarqueeCardEvent = function (props) {
     var resource = props.resource, startingDateFilter = props.startingDateFilter, rest = __rest(props, ["resource", "startingDateFilter"]);
     // Event Date
     var eventResource = resource;
-    var target_event_date = resource.event_dates[0];
+    var target_event_date = dates_1.getBestEventDate(resource.event_dates, startingDateFilter);
     var byLineText;
     // If it is ongoing - worst case scenario
+    if (!target_event_date) {
+        return react_1.default.createElement(react_1.default.Fragment, null);
+    }
     if (target_event_date.category == 'ongoing') {
         byLineText =
             moment_timezone_1.default(new Date(target_event_date.start)).format('MMM D') +
@@ -48,7 +52,7 @@ var MarqueeCardEvent = function (props) {
         byLineText = moment_timezone_1.default(new Date(target_event_date.start)).format('ddd MMM D');
     }
     // Venue
-    console.log(target_event_date);
+    //console.log(target_event_date);
     var venue_name;
     var venue_resource = target_event_date.venue;
     if (venue_resource) {

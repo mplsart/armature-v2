@@ -30,5 +30,5 @@ export interface StandardCardBaseProps {
     linkClassProps: object;
     linkClass: React.ElementType;
 }
-declare const StandardCardBase: React.FunctionComponent<StandardCardBaseProps>;
+declare const StandardCardBase: React.FC<StandardCardBaseProps>;
 export default StandardCardBase;

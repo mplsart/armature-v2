@@ -42,7 +42,7 @@ interface SlideMenuProps {
   children: React.ReactNode;
 }
 
-const SlideMenu: React.FunctionComponent<SlideMenuProps> = props => {
+const SlideMenu: React.FC<SlideMenuProps> = props => {
   const classes = useStyles({});
   let { children, menuToggle, menuActive } = props;
 

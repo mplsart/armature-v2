@@ -51,7 +51,6 @@ var useStyles = styles_1.makeStyles(function (theme) {
                 position: 'relative',
                 overflow: 'hidden',
                 backgroundColor: '#eeeeee',
-                '-webkit-transition': '0.6s ease',
                 transition: '0.6s ease'
             },
             _a[theme.breakpoints.only('xs')] = {
@@ -101,7 +100,7 @@ var useStyles = styles_1.makeStyles(function (theme) {
             height: 'inherit',
         },
         overline: {
-            //paddingTop: 8,
+            paddingTop: 8,
             fontWeight: 400,
         },
     });

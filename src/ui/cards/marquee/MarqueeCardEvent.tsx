@@ -3,6 +3,7 @@ import React from 'react';
 import moment, { Moment } from 'moment-timezone';
 import MarqueeCardBase from './MarqueeCardBase';
 import CalendarIcon from '../../../icons/Calendar';
+import { getBestEventDate } from '../../../utils/dates';
 
 // TODO: This sucks to duplicate... move to armature?
 // TODO: Move to a centralized types
@@ -44,7 +45,7 @@ export interface EventResourceVerbose extends Resource {
   content: string;
 }
 
-interface EventDateResource {
+export interface EventDateResource {
   label: string;
   category: string;
   type: string; //'timed' | 'reoccurring';
@@ -70,10 +71,15 @@ const MarqueeCardEvent: React.FC<MarqueeCardEventProps> = props => {
 
   // Event Date
   let eventResource = resource;
-  let target_event_date = resource.event_dates[0];
+  let target_event_date = getBestEventDate(resource.event_dates, startingDateFilter);
+
   let byLineText;
 
   // If it is ongoing - worst case scenario
+  if (!target_event_date) {
+    return <></>;
+  }
+
   if (target_event_date.category == 'ongoing') {
     byLineText =
       moment(new Date(target_event_date.start)).format('MMM D') +
@@ -86,7 +92,7 @@ const MarqueeCardEvent: React.FC<MarqueeCardEventProps> = props => {
 
   // Venue
 
-  console.log(target_event_date);
+  //console.log(target_event_date);
   let venue_name;
   let venue_resource = target_event_date.venue;
 

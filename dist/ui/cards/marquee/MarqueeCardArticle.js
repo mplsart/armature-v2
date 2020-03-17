@@ -29,9 +29,20 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var MarqueeCardBase_1 = __importDefault(require("./MarqueeCardBase"));
 var Newspaper_1 = __importDefault(require("../../../icons/Newspaper"));
+var moment_timezone_1 = __importDefault(require("moment-timezone"));
 var StandardCardEventDate = function (props) {
     var resource = props.resource, rest = __rest(props, ["resource"]);
-    return (react_1.default.createElement(MarqueeCardBase_1.default, __assign({ overlineText: "by " + resource.author_name, title: resource.title, byLineText: 'New Article', byLineIcon: Newspaper_1.default, imageResource: resource.primary_image_resource }, rest)));
+    // Published Date
+    var publishedDate = moment_timezone_1.default(new Date(resource.published_date)).format('MMMM Do, YYYY');
+    // Author Credit
+    var extraOverline = '';
+    // Author resource is can be verbose only
+    if (resource.author_name) {
+        extraOverline = ' by ' + resource.author_name;
+    }
+    // Overline
+    var overlineText = 'Published ' + publishedDate + extraOverline;
+    return (react_1.default.createElement(MarqueeCardBase_1.default, __assign({ overlineText: overlineText, title: resource.title, byLineText: 'New Article', byLineIcon: Newspaper_1.default, imageResource: resource.primary_image_resource }, rest)));
 };
 /*
 class MarqueeCardArticle extends React.Component {

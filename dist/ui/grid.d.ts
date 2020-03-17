@@ -4,9 +4,9 @@ interface GridProps extends MuiGridProps {
     fluid?: boolean;
     align?: 'left' | 'center' | 'right';
 }
-declare const Grid: React.FunctionComponent<GridProps>;
+declare const Grid: React.FC<GridProps>;
 declare type RowProps = MuiGridProps;
-declare const Row: React.FunctionComponent<RowProps>;
+declare const Row: React.FC<RowProps>;
 declare type ColProps = MuiGridProps;
-declare const Col: React.FunctionComponent<ColProps>;
+declare const Col: React.FC<ColProps>;
 export { Grid, Row, Col };

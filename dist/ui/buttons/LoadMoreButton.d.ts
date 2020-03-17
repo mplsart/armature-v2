@@ -4,5 +4,5 @@ interface LoadMoreButtonProps {
     hasMore: boolean;
     loadMoreClickHandler: () => void;
 }
-declare const LoadMoreButton: React.FunctionComponent<LoadMoreButtonProps>;
+declare const LoadMoreButton: React.FC<LoadMoreButtonProps>;
 export default LoadMoreButton;

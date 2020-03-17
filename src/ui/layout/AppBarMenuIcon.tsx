@@ -62,7 +62,7 @@ export interface AppBarMenuIconProps {
   handleMenuToggle: (force?: boolean) => void; //React.MouseEventHandler; // (event: any) => void;
 }
 
-const AppBarMenuIcon: React.FunctionComponent<AppBarMenuIconProps> = props => {
+const AppBarMenuIcon: React.FC<AppBarMenuIconProps> = props => {
   const classes = useStyles();
   let { active, handleMenuToggle } = props;
 

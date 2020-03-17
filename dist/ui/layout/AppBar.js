@@ -48,16 +48,18 @@ var useStyles = styles_1.makeStyles(function (theme) {
         title: (_d = {
                 fontFamily: theme.fontFamily.accent,
                 flex: 1,
-                fontSize: '1.75rem',
-                lineHeight: '1.75rem',
+                fontSize: theme.typography.pxToRem(25),
+                lineHeight: theme.typography.pxToRem(25),
                 textAlign: 'left',
-                fontWeight: 100
+                fontWeight: 100,
+                marginTop: 2,
+                letterSpacing: 'normal'
             },
             _d[theme.breakpoints.down('md')] = {
                 // Center on mobile
                 textAlign: 'center',
-                fontSize: '1.5rem',
-                lineHeight: '1.5rem',
+                fontSize: theme.typography.pxToRem(26),
+                lineHeight: theme.typography.pxToRem(10),
                 color: '#dfdfdf',
             },
             _d['& a'] = {
@@ -78,7 +80,7 @@ var AppBar = function (props) {
         react_1.default.createElement(grid_1.Grid, { fluid: fluid, className: classes.gridContainer },
             react_1.default.createElement(Toolbar_1.default, { className: classes.toolBar },
                 react_1.default.createElement(AppBarMenuIcon_1.default, { active: menuActive, handleMenuToggle: menuToggle }),
-                react_1.default.createElement(Typography_1.default, { variant: "subtitle1", color: "inherit", className: classes.title }, titleComponents),
+                react_1.default.createElement(Typography_1.default, { variant: "subtitle1", component: "div", color: "inherit", className: classes.title }, titleComponents),
                 rightComponents))));
 };
 exports.default = AppBar;

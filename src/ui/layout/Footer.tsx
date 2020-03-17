@@ -12,7 +12,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Footer: React.FunctionComponent<{}> = () => {
+const Footer: React.FC<{}> = () => {
   let classes = useStyles();
   return (
     <footer className={classes.root}>

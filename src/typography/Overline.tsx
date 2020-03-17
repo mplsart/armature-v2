@@ -23,7 +23,7 @@ interface OverlineProps extends TypographyProps {
   rel?: string;
 }
 
-const Overline: React.FunctionComponent<OverlineProps> = props => {
+const Overline: React.FC<OverlineProps> = props => {
   let { children, className, ...rest } = props;
   let classes = useStyles();
 

@@ -36,7 +36,7 @@ var useStyles = styles_1.makeStyles(function (theme) {
             },
             _a[theme.breakpoints.up('md')] = {
                 // Ipad in portrait and phones in landscape
-                fontSize: theme.typography.pxToRem(60),
+                fontSize: theme.typography.pxToRem(56),
                 lineHeight: '3.6rem',
                 paddingTop: '8px',
             },

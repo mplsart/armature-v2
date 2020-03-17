@@ -27,11 +27,12 @@ export interface ArticleResource extends Resource {
     summary: string;
     primary_image_resource: ImageResource;
     author_name: string;
+    published_date: string;
 }
 interface StandardCardEventDateProps {
     resource: ArticleResource;
     linkClass: React.ElementType;
     linkClassProps: object;
 }
-declare const StandardCardEventDate: React.FunctionComponent<StandardCardEventDateProps>;
+declare const StandardCardEventDate: React.FC<StandardCardEventDateProps>;
 export default StandardCardEventDate;

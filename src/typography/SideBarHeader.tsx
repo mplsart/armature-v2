@@ -17,7 +17,7 @@ interface SideBarHeaderProps extends TypographyProps {
   rel?: string;
 }
 
-const SideBarHeader: React.FunctionComponent<SideBarHeaderProps> = props => {
+const SideBarHeader: React.FC<SideBarHeaderProps> = props => {
   let classes = useStyles();
   return <MUITypography component="h2" variant="h5" className={classes.root} {...props} />;
 };

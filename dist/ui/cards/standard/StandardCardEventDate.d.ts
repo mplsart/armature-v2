@@ -49,5 +49,5 @@ interface StandardCardEventDateProps {
     linkClass: React.ElementType;
     linkClassProps: object;
 }
-declare const StandardCardEventDate: React.FunctionComponent<StandardCardEventDateProps>;
+declare const StandardCardEventDate: React.FC<StandardCardEventDateProps>;
 export default StandardCardEventDate;

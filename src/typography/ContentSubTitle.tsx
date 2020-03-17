@@ -17,7 +17,7 @@ const useStyles = makeStyles(() => {
   };
 });
 
-const ContentSubTitle: React.FunctionComponent<ContentSubTitleProps> = props => {
+const ContentSubTitle: React.FC<ContentSubTitleProps> = props => {
   let { children, icon, ...rest } = props;
   let classes = useStyles();
 

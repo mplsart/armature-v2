@@ -4,5 +4,5 @@ interface SideBarContainerProps {
     padTop?: boolean;
     padSides?: boolean;
 }
-declare const SideBarContainer: React.FunctionComponent<SideBarContainerProps>;
+declare const SideBarContainer: React.FC<SideBarContainerProps>;
 export default SideBarContainer;

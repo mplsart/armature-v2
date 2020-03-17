@@ -45,16 +45,18 @@ const useStyles = makeStyles(theme => {
     title: {
       fontFamily: theme.fontFamily.accent,
       flex: 1,
-      fontSize: '1.75rem', // TODO: This should be the hx styles...
-      lineHeight: '1.75rem',
+      fontSize: theme.typography.pxToRem(25),
+      lineHeight: theme.typography.pxToRem(25),
       textAlign: 'left', // Left align on desktop
       fontWeight: 100,
+      marginTop: 2,
+      letterSpacing: 'normal',
 
       [theme.breakpoints.down('md')]: {
         // Center on mobile
         textAlign: 'center',
-        fontSize: '1.5rem', // TODO: This should be the hx styles...
-        lineHeight: '1.5rem',
+        fontSize: theme.typography.pxToRem(26),
+        lineHeight: theme.typography.pxToRem(10),
         color: '#dfdfdf', // TODO: Power off palette
       },
 
@@ -77,7 +79,7 @@ interface AppBarProps {
   titleComponents: React.ReactNode;
 }
 
-const AppBar: React.FunctionComponent<AppBarProps> = props => {
+const AppBar: React.FC<AppBarProps> = props => {
   let classes = useStyles();
   let { fluid, menuActive, menuToggle, titleComponents } = props;
 
@@ -86,7 +88,7 @@ const AppBar: React.FunctionComponent<AppBarProps> = props => {
       <Grid fluid={fluid} className={classes.gridContainer}>
         <MUiToolbar className={classes.toolBar}>
           <AppBarMenuIcon active={menuActive} handleMenuToggle={menuToggle} />
-          <MUiTypography variant="subtitle1" color="inherit" className={classes.title}>
+          <MUiTypography variant="subtitle1" component="div" color="inherit" className={classes.title}>
             {titleComponents}
           </MUiTypography>
           {rightComponents}

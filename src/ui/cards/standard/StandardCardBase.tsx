@@ -37,7 +37,6 @@ const useStyles = makeStyles(theme => ({
     position: 'relative',
     overflow: 'hidden',
     backgroundColor: '#eeeeee',
-    '-webkit-transition': '0.6s ease',
     transition: '0.6s ease',
 
     [theme.breakpoints.only('xs')]: {
@@ -101,7 +100,7 @@ const useStyles = makeStyles(theme => ({
   },
 
   overline: {
-    //paddingTop: 8,
+    paddingTop: 8,
     fontWeight: 400,
   },
 }));
@@ -143,7 +142,7 @@ export interface StandardCardBaseProps {
   linkClass: React.ElementType;
 }
 
-const StandardCardBase: React.FunctionComponent<StandardCardBaseProps> = props => {
+const StandardCardBase: React.FC<StandardCardBaseProps> = props => {
   let { byLineText, title, overlineText, linkClassProps, imageResource } = props;
   let classes = useStyles();
   let LinkClass = props.linkClass;

@@ -15,7 +15,7 @@ interface ContentTitleProps extends TypographyProps {
   rel?: string;
 }
 
-const ContentTitle: React.FunctionComponent<ContentTitleProps> = props => {
+const ContentTitle: React.FC<ContentTitleProps> = props => {
   const classes = useStyles();
   return <MUITypography component="h1" variant="h4" gutterBottom color="inherit" {...props} className={classes.root} />;
 };

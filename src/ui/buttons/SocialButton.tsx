@@ -17,7 +17,7 @@ import { SvgIconProps } from '@material-ui/core';
 type ServicesType = 'instagram' | 'facebook' | 'twitter' | 'tumblr' | 'youtube' | 'vimeo' | 'mnartists' | 'other';
 
 // Define map of service types and Renderer
-const serviceIconMap: Record<ServicesType, React.ElementType<SvgIconProps>> = {
+export const serviceIconMap: Record<ServicesType, React.ElementType<SvgIconProps>> = {
   instagram: InstagramIcon,
   facebook: FacebookIcon,
   twitter: TwitterIcon,
@@ -30,7 +30,7 @@ const serviceIconMap: Record<ServicesType, React.ElementType<SvgIconProps>> = {
 
 // Define SocialButton Prop Types
 interface SocialButtonProps extends IconButtonProps {
-  service: ServicesType;
+  service: ServicesType | string;
   component?: React.ElementType;
   target?: string;
   rel?: string;
@@ -51,14 +51,17 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SocialButton: React.FunctionComponent<SocialButtonProps> = ({ component, service, ...rest }) => {
+const SocialButton: React.FC<SocialButtonProps> = ({ component, service, ...rest }) => {
   let classes = useStyles();
 
   // Default to use anchor tags
   let ButtonComponent: React.ElementType = component ? component : 'a';
 
   // Resolve Icon component for service
-  let IconComponent = serviceIconMap[service] || serviceIconMap.other;
+  let IconComponent = serviceIconMap.other;
+  if (serviceIconMap[service as ServicesType]) {
+    IconComponent = serviceIconMap[service as ServicesType];
+  }
 
   return (
     <IconButton component={ButtonComponent} {...rest} aria-label={service} classes={{ root: classes.root }}>

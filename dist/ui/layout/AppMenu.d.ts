@@ -4,5 +4,5 @@ interface SlideMenuProps {
     menuToggle: (force?: boolean) => void;
     children: React.ReactNode;
 }
-declare const SlideMenu: React.FunctionComponent<SlideMenuProps>;
+declare const SlideMenu: React.FC<SlideMenuProps>;
 export default SlideMenu;

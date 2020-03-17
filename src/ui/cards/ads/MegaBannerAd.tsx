@@ -2,16 +2,7 @@
 
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-
-export interface AdvertResource {
-  image_resource: {
-    versions: {
-      MOBILE: { height: number; width: number; url: string };
-      DEFAULT: { height: number; width: number; url: string };
-    };
-  };
-  advert_type_label?: string;
-}
+import { CardAdProps, getAdImageStyles } from './utils';
 
 const useStyles = makeStyles(theme => ({
   adContainer: {
@@ -69,44 +60,17 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export interface MegaBannerAdProps {
-  width: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  resource?: AdvertResource;
-  linkClassProps: object;
-  linkClass: React.ElementType;
-}
-
-const MegaBannerAd: React.FC<MegaBannerAdProps> = props => {
-  const { width, resource, linkClassProps } = props;
+const MegaBannerAd: React.FC<CardAdProps> = props => {
+  const { isMobile, resource, linkClassProps } = props;
   const classes = useStyles();
   const LinkClass = props.linkClass;
-
-  // Determine Image to use based on device/breakpoints
-  let imageResource, imageUrl, h, w;
 
   // Bail if we have an ad resource but it doesn't have images
   if (!(resource && resource.image_resource)) {
     return <></>;
   }
 
-  if (width == 'xs' && resource.image_resource.versions.MOBILE) {
-    imageResource = resource.image_resource.versions.MOBILE;
-  }
-
-  if (!imageResource) {
-    imageResource = resource.image_resource.versions.DEFAULT;
-  }
-
-  h = imageResource.height;
-  w = imageResource.width;
-  imageUrl = imageResource.url;
-
-  let scale_factor = Math.floor(((100 * h) / w) * 100.0) / 100.0;
-  let adImageStyles = {
-    paddingTop: `${scale_factor}%`,
-    backgroundImage: `url("${imageUrl}")`,
-  };
-
+  let adImageStyles = getAdImageStyles(resource, isMobile);
   let linkNode = (
     <LinkClass {...linkClassProps} style={adImageStyles}>
       &nbsp;
@@ -116,10 +80,8 @@ const MegaBannerAd: React.FC<MegaBannerAdProps> = props => {
   return (
     <div className={classes.adContainer}>
       <div className={classes.card}>
-        <div className="card-header">
-          <div className={classes.cardImage}>{linkNode}</div>
-          <div className={classes.sponsorText}>{resource.advert_type_label || 'advertisement'}</div>
-        </div>
+        <div className={classes.cardImage}>{linkNode}</div>
+        <div className={classes.sponsorText}>{resource.advert_type_label || 'advertisement'}</div>
       </div>
     </div>
   );

@@ -16,8 +16,8 @@ const useStyles = makeStyles(theme => {
       marginLeft: 'auto',
       width: '100%', // xs,sm
       flexGrow: 1,
-      paddingRight: 0,
-      paddingLeft: 0,
+      paddingRight: theme.gutterSize / 2,
+      paddingLeft: theme.gutterSize / 2,
 
       [theme.breakpoints.only('xs')]: {
         width: '100%',
@@ -48,7 +48,7 @@ interface GridProps extends MuiGridProps {
   align?: 'left' | 'center' | 'right';
 }
 
-const Grid: React.FunctionComponent<GridProps> = props => {
+const Grid: React.FC<GridProps> = props => {
   let { align, className, children, fluid, ...rest } = props;
   let classes = useStyles();
   let collectedClasses = [className];
@@ -74,7 +74,7 @@ const Grid: React.FunctionComponent<GridProps> = props => {
 };
 
 type RowProps = MuiGridProps;
-const Row: React.FunctionComponent<RowProps> = props => {
+const Row: React.FC<RowProps> = props => {
   let { className, children, ...rest } = props;
   //let className = props.className;
 
@@ -88,7 +88,7 @@ const Row: React.FunctionComponent<RowProps> = props => {
 
 type ColProps = MuiGridProps;
 
-const Col: React.FunctionComponent<ColProps> = props => {
+const Col: React.FC<ColProps> = props => {
   let classes = useStyles();
 
   let { className, children, ...rest } = props;

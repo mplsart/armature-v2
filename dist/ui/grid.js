@@ -43,8 +43,8 @@ var useStyles = styles_1.makeStyles(function (theme) {
                 marginLeft: 'auto',
                 width: '100%',
                 flexGrow: 1,
-                paddingRight: 0,
-                paddingLeft: 0
+                paddingRight: theme.gutterSize / 2,
+                paddingLeft: theme.gutterSize / 2
             },
             _a[theme.breakpoints.only('xs')] = {
                 width: '100%',

@@ -15,7 +15,7 @@ import SpeedDial from '@material-ui/lab/SpeedDial';
 import SpeedDialIcon from '@material-ui/lab/SpeedDialIcon';
 import SpeedDialAction from '@material-ui/lab/SpeedDialAction';
 
-const ExternalLink: React.ForwardRefExoticComponent<React.FunctionComponent<React.ElementType>> = React.forwardRef(
+const ExternalLink: React.ForwardRefExoticComponent<React.FC<React.ElementType>> = React.forwardRef(
   function ExternalLinkAnchor(props, ref: React.Ref<HTMLAnchorElement>) {
     const testHandler = (e: React.MouseEvent): void => {
       console.log('ExternalLink.onClick event fired');

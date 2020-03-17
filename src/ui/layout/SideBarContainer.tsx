@@ -31,7 +31,7 @@ interface SideBarContainerProps {
   padSides?: boolean;
 }
 
-const SideBarContainer: React.FunctionComponent<SideBarContainerProps> = ({ children, padTop, padSides }) => {
+const SideBarContainer: React.FC<SideBarContainerProps> = ({ children, padTop, padSides }) => {
   let classes = useStyles();
 
   return (

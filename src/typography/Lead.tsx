@@ -20,7 +20,7 @@ interface LeadProps extends TypographyProps {
   rel?: string;
 }
 
-const Lead: React.FunctionComponent<LeadProps> = props => {
+const Lead: React.FC<LeadProps> = props => {
   let classes = useStyles();
 
   return (

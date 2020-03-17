@@ -10,6 +10,9 @@ declare module '@material-ui/core/styles/createMuiTheme' {
         };
         globalMenuWidth: number;
         gutterSize: number;
+        venues: {
+            [key: string]: any;
+        };
     }
     interface ThemeOptions {
         fontFamily: {
@@ -22,6 +25,9 @@ declare module '@material-ui/core/styles/createMuiTheme' {
         };
         globalMenuWidth: number;
         gutterSize: number;
+        venues: {
+            [key: string]: any;
+        };
     }
 }
 declare module '@material-ui/core/styles/createPalette' {

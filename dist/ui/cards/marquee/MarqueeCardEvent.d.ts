@@ -33,7 +33,7 @@ export interface EventResourceVerbose extends Resource {
     event_dates: EventDateResource[];
     content: string;
 }
-interface EventDateResource {
+export interface EventDateResource {
     label: string;
     category: string;
     type: string;

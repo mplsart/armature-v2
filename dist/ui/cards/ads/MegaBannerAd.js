@@ -17,6 +17,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var styles_1 = require("@material-ui/core/styles");
+var utils_1 = require("./utils");
 var useStyles = styles_1.makeStyles(function (theme) { return ({
     adContainer: {
         borderTop: '1px solid black',
@@ -58,34 +59,18 @@ var useStyles = styles_1.makeStyles(function (theme) { return ({
     sponsorText: __assign(__assign({}, theme.typography.caption), { position: 'absolute', top: 0, color: theme.palette.common.white, paddingLeft: theme.gutterSize / 2, paddingTop: theme.gutterSize / 2, opacity: '0.8' }),
 }); });
 var MegaBannerAd = function (props) {
-    var width = props.width, resource = props.resource, linkClassProps = props.linkClassProps;
+    var isMobile = props.isMobile, resource = props.resource, linkClassProps = props.linkClassProps;
     var classes = useStyles();
     var LinkClass = props.linkClass;
-    // Determine Image to use based on device/breakpoints
-    var imageResource, imageUrl, h, w;
     // Bail if we have an ad resource but it doesn't have images
     if (!(resource && resource.image_resource)) {
         return react_1.default.createElement(react_1.default.Fragment, null);
     }
-    if (width == 'xs' && resource.image_resource.versions.MOBILE) {
-        imageResource = resource.image_resource.versions.MOBILE;
-    }
-    if (!imageResource) {
-        imageResource = resource.image_resource.versions.DEFAULT;
-    }
-    h = imageResource.height;
-    w = imageResource.width;
-    imageUrl = imageResource.url;
-    var scale_factor = Math.floor(((100 * h) / w) * 100.0) / 100.0;
-    var adImageStyles = {
-        paddingTop: scale_factor + "%",
-        backgroundImage: "url(\"" + imageUrl + "\")",
-    };
+    var adImageStyles = utils_1.getAdImageStyles(resource, isMobile);
     var linkNode = (react_1.default.createElement(LinkClass, __assign({}, linkClassProps, { style: adImageStyles }), "\u00A0"));
     return (react_1.default.createElement("div", { className: classes.adContainer },
         react_1.default.createElement("div", { className: classes.card },
-            react_1.default.createElement("div", { className: "card-header" },
-                react_1.default.createElement("div", { className: classes.cardImage }, linkNode),
-                react_1.default.createElement("div", { className: classes.sponsorText }, resource.advert_type_label || 'advertisement')))));
+            react_1.default.createElement("div", { className: classes.cardImage }, linkNode),
+            react_1.default.createElement("div", { className: classes.sponsorText }, resource.advert_type_label || 'advertisement'))));
 };
 exports.default = MegaBannerAd;

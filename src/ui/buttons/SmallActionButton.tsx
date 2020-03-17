@@ -22,7 +22,7 @@ interface SmallActionButtonProps extends ButtonProps {
   rel?: string;
 }
 
-const SmallActionButton: React.FunctionComponent<SmallActionButtonProps> = props => {
+const SmallActionButton: React.FC<SmallActionButtonProps> = props => {
   let classes = useStyles();
   let { children, ...rest } = props;
 

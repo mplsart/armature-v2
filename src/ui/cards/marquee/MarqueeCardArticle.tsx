@@ -2,6 +2,7 @@
 import React from 'react';
 import MarqueeCardBase from './MarqueeCardBase';
 import NewspaperIcon from '../../../icons/Newspaper';
+import moment from 'moment-timezone';
 
 // TODO: This sucks to duplicate... move to armature?
 // TODO: Move to a centralized types
@@ -37,6 +38,7 @@ export interface ArticleResource extends Resource {
   summary: string;
   primary_image_resource: ImageResource;
   author_name: string;
+  published_date: string;
 }
 
 interface StandardCardEventDateProps {
@@ -45,12 +47,26 @@ interface StandardCardEventDateProps {
   linkClassProps: object;
 }
 
-const StandardCardEventDate: React.FunctionComponent<StandardCardEventDateProps> = props => {
+const StandardCardEventDate: React.FC<StandardCardEventDateProps> = props => {
   const { resource, ...rest } = props;
+
+  // Published Date
+  let publishedDate = moment(new Date(resource.published_date)).format('MMMM Do, YYYY');
+
+  // Author Credit
+  let extraOverline = '';
+
+  // Author resource is can be verbose only
+  if (resource.author_name) {
+    extraOverline = ' by ' + resource.author_name;
+  }
+
+  // Overline
+  let overlineText = 'Published ' + publishedDate + extraOverline;
 
   return (
     <MarqueeCardBase
-      overlineText={`by ${resource.author_name}`}
+      overlineText={overlineText}
       title={resource.title}
       byLineText={'New Article'}
       byLineIcon={NewspaperIcon}
