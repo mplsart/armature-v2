@@ -18,13 +18,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var Typography_1 = __importDefault(require("@material-ui/core/Typography"));
 var styles_1 = require("@material-ui/core/styles");
-var useStyles = styles_1.makeStyles(function (theme) {
-    var _a;
-    return ({
-        // Optimize for insta screenshot
-        root: (_a = {}, _a[theme.breakpoints.only('xs')] = { fontSize: '1.25rem' }, _a),
-    });
-});
+var useStyles = styles_1.makeStyles(function (theme) { return ({
+    // Optimize for insta screenshot
+    root: {
+    //[theme.breakpoints.only('xs')]: { fontSize: '1.25rem' }
+    },
+}); });
 var ContentTitle = function (props) {
     var classes = useStyles();
     return react_1.default.createElement(Typography_1.default, __assign({ component: "h1", variant: "h4", gutterBottom: true, color: "inherit" }, props, { className: classes.root }));

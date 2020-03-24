@@ -34,6 +34,7 @@ export interface EventResource extends Resource {
 export interface EventDateResource extends Resource {
     label: string;
     category: string;
+    canceled?: boolean;
     type: string;
     end: string;
     start: string;

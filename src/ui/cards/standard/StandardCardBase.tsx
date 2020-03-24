@@ -21,6 +21,9 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.primary.main,
       },
     },
+    '&.deemphasize': {
+      filter: 'grayscale(1) opacity(25%)',
+    },
   },
 
   imageWrapper: {
@@ -140,10 +143,11 @@ export interface StandardCardBaseProps {
   imageResource?: ImageResource | '';
   linkClassProps: object;
   linkClass: React.ElementType;
+  deemphasize?: boolean;
 }
 
 const StandardCardBase: React.FC<StandardCardBaseProps> = props => {
-  let { byLineText, title, overlineText, linkClassProps, imageResource } = props;
+  let { byLineText, title, overlineText, linkClassProps, imageResource, deemphasize } = props;
   let classes = useStyles();
   let LinkClass = props.linkClass;
   let ByLineIcon = props.byLineIcon;
@@ -165,7 +169,7 @@ const StandardCardBase: React.FC<StandardCardBaseProps> = props => {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classnames({ [classes.root]: true, deemphasize: deemphasize })}>
       <div className={classes.byline}>
         <ByLineIcon className={classes.byLineIcon} />
         {byLineText}

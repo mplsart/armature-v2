@@ -10,6 +10,10 @@ export interface CardListItemBaseProps {
     underlineText?: string;
     linkClassProps: object;
     component: React.ElementType;
+    divider?: boolean;
+    dense?: boolean;
+    actionButtonProps?: object;
+    deemphasize?: boolean;
 }
 declare const CardListItemBase: React.FC<CardListItemBaseProps>;
 export default CardListItemBase;

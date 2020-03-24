@@ -29,6 +29,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(require("react"));
 var styles_1 = require("@material-ui/core/styles");
 var IconButton_1 = __importDefault(require("@material-ui/core/IconButton"));
+var Artsy_1 = __importDefault(require("../../icons/Artsy"));
 var Twitter_1 = __importDefault(require("../../icons/Twitter"));
 var Facebook_1 = __importDefault(require("../../icons/Facebook"));
 var Instagram_1 = __importDefault(require("../../icons/Instagram"));
@@ -39,6 +40,7 @@ var OtherLink_1 = __importDefault(require("../../icons/OtherLink"));
 var MNArtists_1 = __importDefault(require("../../icons/MNArtists"));
 // Define map of service types and Renderer
 exports.serviceIconMap = {
+    artsy: Artsy_1.default,
     instagram: Instagram_1.default,
     facebook: Facebook_1.default,
     twitter: Twitter_1.default,

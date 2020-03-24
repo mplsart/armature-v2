@@ -1422,7 +1422,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2NzQxMTQ5MDc4OTc4NTY',
     slug: 'the-most-love-an-interview-with-artist-amina-harper',
     summary:
-      'Queer, black, and femme characters find intimacy in this painter\'s wild world which, in her words, is much bigger than beige.',
+      "Queer, black, and femme characters find intimacy in this painter's wild world which, in her words, is much bigger than beige.",
     title: 'The Most Love: An interview with artist Amina Harper',
   },
   {
@@ -1558,7 +1558,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2NDI0Mjg4NTM3ODA0ODA',
     slug: 'jovan-c-speller-hend-al-mansour',
     summary:
-      'Ahead of their upcoming Discussion Series, two of the McKnight Foundation\'s 2018 Artist Fellows talk to us individually about their practices.',
+      "Ahead of their upcoming Discussion Series, two of the McKnight Foundation's 2018 Artist Fellows talk to us individually about their practices.",
     title: 'Creation Myths: Profiles of Jovan C. Speller and Hend Al-Mansour',
   },
   {
@@ -1688,7 +1688,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU3MDM2MDc5NDUwMDMwMDg',
     slug: 'chris-larson-jim-denomie',
     summary:
-      'Ahead of their upcoming Discussion Series, two of the McKnight Foundation\'s 2018 Artist Fellows talk to us individually about their practices.',
+      "Ahead of their upcoming Discussion Series, two of the McKnight Foundation's 2018 Artist Fellows talk to us individually about their practices.",
     title: 'What we do on this planet (and other absurdities): Profiles of Jim Denomie & Chris Larson',
   },
   {
@@ -1753,7 +1753,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2OTQ4ODk3OTg5MjYzMzY',
     slug: 'experimental-retail-review-joshua-mcgarvey-s-uselding-fridays-at-pmh',
     summary: 'The artist hosted a night of shopping and performance that was weird, wild, nostalgic, and new.',
-    title: 'Experimental Retail Review: Joshua McGarvey\'s Uselding Fridays at PMH',
+    title: "Experimental Retail Review: Joshua McGarvey's Uselding Fridays at PMH",
   },
   {
     _meta: { is_verbose: true, resource_type: 'BlogPost' },
@@ -2145,7 +2145,7 @@ let articleResources = [
     resource_id: 'QmxvZ1Bvc3QeHzU2NTAyNzMwNDExMjEyODA',
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2NTAyNzMwNDExMjEyODA',
     slug: 'working-small-&-staying-open-on-the-mighty-mississippi',
-    summary: 'How public space and moving water shaped creativity in Alyssa Baguss\'s Open Water Project',
+    summary: "How public space and moving water shaped creativity in Alyssa Baguss's Open Water Project",
     title: 'Working Small & Staying Open on the Mighty Mississippi',
   },
   {
@@ -2210,7 +2210,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU3NjExOTU5MDY2OTUxNjg',
     slug: 'the-gallery-of-babel-the-arab-imaginary-at-the-m',
     summary:
-      '\'History Is Not Here: Art and the Arab Imaginary\' is on view at The Minnesota Museum of America Art through January 5th, 2020.',
+      "'History Is Not Here: Art and the Arab Imaginary' is on view at The Minnesota Museum of America Art through January 5th, 2020.",
     title: 'The Gallery of Babel: Language, culture, and the Arab Imaginary at The M',
   },
   {
@@ -2534,7 +2534,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2OTkzOTAyODcxMTgzMzY',
     slug: 'shine-on-you-crazy-polyhedron-john-foster-at-gamut-gallery',
     summary:
-      'The artist behind these kaleidoscopic wonders talks about material, identity, and the importance of failure when you\'re looking for beauty.',
+      "The artist behind these kaleidoscopic wonders talks about material, identity, and the importance of failure when you're looking for beauty.",
     title: 'Shine On, You Crazy Polyhedron: John Foster at Gamut Gallery',
   },
   {
@@ -2599,7 +2599,7 @@ let articleResources = [
     resource_url: '/api/posts/QmxvZ1Bvc3QeHzU2MzY2MjEwODQ5MTc3NjA',
     slug: 'new-in-northeast-circa-gallery-reopens-this-weekend',
     summary:
-      'Ahead of the inaugural exhibition at CIRCA\'s new location, Gallery Director Krista Anderson-Larson talks past, present, and future.',
+      "Ahead of the inaugural exhibition at CIRCA's new location, Gallery Director Krista Anderson-Larson talks past, present, and future.",
     title: 'New in Northeast: CIRCA Gallery reopens this weekend',
   },
   {
@@ -2705,10 +2705,10 @@ storiesOf('Cards', module)
       </Row>
       <Row>
         <Col xs={4}>
-          <CardAd width="xs" resource={regularAd} linkClass="a" linkClassProps={{ href: regularAd.goto_url }} />
+          <CardAd isMobile={false} resource={regularAd} linkClass="a" linkClassProps={{ href: regularAd.goto_url }} />
         </Col>
         <Col xs={4}>
-          <CardAd width="md" resource={regularAd} linkClass="a" linkClassProps={{ href: regularAd.goto_url }} />
+          <CardAd isMobile={true} resource={regularAd} linkClass="a" linkClassProps={{ href: regularAd.goto_url }} />
         </Col>
       </Row>
       <Row>
@@ -2720,7 +2720,7 @@ storiesOf('Cards', module)
       <Row>
         <Col xs={12}>
           <MegaBannerAd
-            width="xs"
+            isMobile={true}
             resource={xlBannerResource}
             linkClass="a"
             linkClassProps={{ href: xlBannerResource.goto_url }}
@@ -2730,7 +2730,7 @@ storiesOf('Cards', module)
       <Row>
         <Col xs={12}>
           <MegaBannerAd
-            width="md"
+            isMobile={false}
             resource={xlBannerResource}
             linkClass="a"
             linkClassProps={{ href: xlBannerResource.goto_url }}

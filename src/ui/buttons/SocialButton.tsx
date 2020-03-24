@@ -3,6 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton, { IconButtonProps } from '@material-ui/core/IconButton';
 
+import ArtsyIcon from '../../icons/Artsy';
 import TwitterIcon from '../../icons/Twitter';
 import FacebookIcon from '../../icons/Facebook';
 import InstagramIcon from '../../icons/Instagram';
@@ -14,10 +15,20 @@ import MNArtistsIcon from '../../icons/MNArtists';
 import { SvgIconProps } from '@material-ui/core';
 
 // Define allowed service types
-type ServicesType = 'instagram' | 'facebook' | 'twitter' | 'tumblr' | 'youtube' | 'vimeo' | 'mnartists' | 'other';
+type ServicesType =
+  | 'artsy'
+  | 'instagram'
+  | 'facebook'
+  | 'twitter'
+  | 'tumblr'
+  | 'youtube'
+  | 'vimeo'
+  | 'mnartists'
+  | 'other';
 
 // Define map of service types and Renderer
 export const serviceIconMap: Record<ServicesType, React.ElementType<SvgIconProps>> = {
+  artsy: ArtsyIcon,
   instagram: InstagramIcon,
   facebook: FacebookIcon,
   twitter: TwitterIcon,

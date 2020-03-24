@@ -5,7 +5,9 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
   // Optimize for insta screenshot
-  root: { [theme.breakpoints.only('xs')]: { fontSize: '1.25rem' } },
+  root: {
+    //[theme.breakpoints.only('xs')]: { fontSize: '1.25rem' }
+  },
 }));
 
 // TODO: TypographyProps interface doesn't define these, but why? Seems silly to have to extend...

@@ -45,6 +45,7 @@ export interface EventResource extends Resource {
 export interface EventDateResource extends Resource {
   label: string;
   category: string;
+  canceled?: boolean;
   type: string; //'timed' | 'reoccurring';
   end: string;
   start: string;
@@ -98,6 +99,7 @@ const StandardCardEventDate: React.FC<StandardCardEventDateProps> = props => {
       byLineText={byLineText}
       byLineIcon={CalendarIcon}
       imageResource={eventResource.primary_image_resource}
+      deemphasize={target_event_date.canceled}
       {...rest}
     />
   );

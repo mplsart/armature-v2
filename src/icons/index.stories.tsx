@@ -4,6 +4,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Fab from '@material-ui/core/Fab';
 import Button from '@material-ui/core/Button';
 
+import Artsy from './Artsy';
 import Facebook from './Facebook';
 import Instagram from './Instagram';
 import MNArtists from './MNArtists';
@@ -21,6 +22,7 @@ import Eye from './Eye';
 storiesOf('Icons', module)
   .add('Elsewhere', () => (
     <>
+      <Artsy />
       <Facebook />
       <Twitter />
       <Instagram />
@@ -42,6 +44,7 @@ storiesOf('Icons', module)
   ))
   .add('with SVG props', () => (
     <>
+      <Artsy color="secondary" />
       <Facebook color="secondary" />
       <Facebook color="primary" />
       <Facebook fontSize="large" />
@@ -50,6 +53,9 @@ storiesOf('Icons', module)
   .add('with Material Buttons', () => {
     return (
       <>
+        <Fab size="small" color="primary">
+          <Artsy />
+        </Fab>
         <Fab size="small" color="primary">
           <Facebook />
         </Fab>

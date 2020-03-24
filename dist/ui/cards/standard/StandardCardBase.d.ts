@@ -29,6 +29,7 @@ export interface StandardCardBaseProps {
     imageResource?: ImageResource | '';
     linkClassProps: object;
     linkClass: React.ElementType;
+    deemphasize?: boolean;
 }
 declare const StandardCardBase: React.FC<StandardCardBaseProps>;
 export default StandardCardBase;

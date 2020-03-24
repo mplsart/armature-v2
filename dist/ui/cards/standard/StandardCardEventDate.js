@@ -54,6 +54,6 @@ var StandardCardEventDate = function (props) {
     }
     // Overline
     var overlineText = target_event_date.label + ' @ ' + venue_name;
-    return (react_1.default.createElement(StandardCardBase_1.default, __assign({ overlineText: overlineText, title: eventResource.name, byLineText: byLineText, byLineIcon: Calendar_1.default, imageResource: eventResource.primary_image_resource }, rest)));
+    return (react_1.default.createElement(StandardCardBase_1.default, __assign({ overlineText: overlineText, title: eventResource.name, byLineText: byLineText, byLineIcon: Calendar_1.default, imageResource: eventResource.primary_image_resource, deemphasize: target_event_date.canceled }, rest)));
 };
 exports.default = StandardCardEventDate;

@@ -36,6 +36,9 @@ var useStyles = styles_1.makeStyles(function (theme) {
                     color: theme.palette.primary.main,
                 },
             },
+            '&.deemphasize': {
+                filter: 'grayscale(1) opacity(25%)',
+            },
         },
         imageWrapper: {
             overflow: 'hidden',
@@ -106,7 +109,8 @@ var useStyles = styles_1.makeStyles(function (theme) {
     });
 });
 var StandardCardBase = function (props) {
-    var byLineText = props.byLineText, title = props.title, overlineText = props.overlineText, linkClassProps = props.linkClassProps, imageResource = props.imageResource;
+    var _a;
+    var byLineText = props.byLineText, title = props.title, overlineText = props.overlineText, linkClassProps = props.linkClassProps, imageResource = props.imageResource, deemphasize = props.deemphasize;
     var classes = useStyles();
     var LinkClass = props.linkClass;
     var ByLineIcon = props.byLineIcon;
@@ -124,7 +128,7 @@ var StandardCardBase = function (props) {
     if (image_url) {
         imageAttrs.style = { backgroundImage: 'url(' + image_url + ')' };
     }
-    return (react_1.default.createElement("div", { className: classes.root },
+    return (react_1.default.createElement("div", { className: clsx_1.default((_a = {}, _a[classes.root] = true, _a.deemphasize = deemphasize, _a)) },
         react_1.default.createElement("div", { className: classes.byline },
             react_1.default.createElement(ByLineIcon, { className: classes.byLineIcon }),
             byLineText),

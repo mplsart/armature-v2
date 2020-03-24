@@ -10,9 +10,17 @@ import ListItemText from '@material-ui/core/ListItemText';
 import MUITypography from '@material-ui/core/Typography';
 
 import Overline from '../../typography/Overline';
+import ListActionButton from '../buttons/ListActionButton';
 
 const useStyles = makeStyles(theme => ({
-  root: { width: '100%', padding: '12px !important', overflowX: 'hidden' },
+  root: {
+    width: '100%',
+    padding: '12px !important',
+    overflowX: 'hidden',
+    '&.deemphasize': {
+      filter: 'grayscale(1) opacity(25%)',
+    },
+  },
   image: {
     width: '80px',
     height: '80px',
@@ -32,8 +40,11 @@ const useStyles = makeStyles(theme => ({
       fontWeight: 400,
       marginBottom: 0,
     },
-    '&.highlightPrimary h6': {
+    '&.highlightPrimary h2': {
       color: theme.palette.primary.main,
+    },
+    '&.dense': {
+      padding: 0,
     },
 
     // '& aside': {
@@ -53,6 +64,10 @@ export interface CardListItemBaseProps {
   underlineText?: string;
   linkClassProps: object;
   component: React.ElementType;
+  divider?: boolean;
+  dense?: boolean;
+  actionButtonProps?: object;
+  deemphasize?: boolean;
 }
 
 const CardListItemBase: React.FC<CardListItemBaseProps> = props => {
@@ -66,6 +81,8 @@ const CardListItemBase: React.FC<CardListItemBaseProps> = props => {
     overlineText,
     underlineText,
     linkClassProps,
+    actionButtonProps,
+    deemphasize,
     ...rest
   } = props;
   let classes = useStyles();
@@ -87,26 +104,44 @@ const CardListItemBase: React.FC<CardListItemBaseProps> = props => {
   }
 
   if (underlineText) {
-    underlineNode = <Overline>{underlineText}</Overline>;
+    underlineNode = (
+      <Overline>
+        <em>{underlineText}</em>
+      </Overline>
+    );
   }
 
   // Tweak button bool to be true bool
   let primaryTextNode = (
     <span>
       {overlineNode}
-      <MUITypography variant="subtitle2">{primaryText}</MUITypography>
+      <MUITypography variant="subtitle2" component="h2">
+        {primaryText}
+      </MUITypography>
       {underlineNode}
     </span>
   );
 
-  let secondaryTextNode = <Overline>{secondaryText}</Overline>;
+  let secondaryTextNode = (
+    <>
+      <Overline>{secondaryText}</Overline>
+      {actionButtonProps && <ListActionButton {...actionButtonProps} />}
+    </>
+  );
 
   return (
-    <ListItem button className={classes.root} {...rest} {...linkClassProps}>
+    <ListItem
+      button
+      className={classnames({ [classes.root]: true, deemphasize: deemphasize })}
+      {...rest}
+      {...linkClassProps}
+    >
       {imageFloat == 'left' && imageNode}
 
       <ListItemText
-        classes={{ root: classnames(classes.text, highlightPrimary ? 'highlightPrimary' : '') }}
+        classes={{
+          root: classnames(classes.text, rest.dense ? 'dense' : '', highlightPrimary ? 'highlightPrimary' : ''),
+        }}
         primary={primaryTextNode}
         secondary={secondaryTextNode}
         disableTypography

@@ -120,6 +120,7 @@ storiesOf('Custom Buttons', module)
   .add('Social Buttons', () => (
     <>
       <h2>Basic Usage</h2>
+      <SocialButton service="artsy" />
       <SocialButton service="instagram" />
       <SocialButton service="facebook" />
       <SocialButton service="twitter" />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconButtonProps } from '@material-ui/core/IconButton';
 import { SvgIconProps } from '@material-ui/core';
-declare type ServicesType = 'instagram' | 'facebook' | 'twitter' | 'tumblr' | 'youtube' | 'vimeo' | 'mnartists' | 'other';
+declare type ServicesType = 'artsy' | 'instagram' | 'facebook' | 'twitter' | 'tumblr' | 'youtube' | 'vimeo' | 'mnartists' | 'other';
 export declare const serviceIconMap: Record<ServicesType, React.ElementType<SvgIconProps>>;
 interface SocialButtonProps extends IconButtonProps {
     service: ServicesType | string;

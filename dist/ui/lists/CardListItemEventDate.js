@@ -61,6 +61,6 @@ var CardListItemEventDate = function (props) {
     }
     // Overline
     var secondaryText = edLabel + ' @ ' + venue_name;
-    return (react_1.default.createElement(CardListItemBase_1.default, __assign({ primaryText: event_resource.name, secondaryText: secondaryText, overlineText: byLineText, imageUrl: imageUrl, imageAltText: imageAltText }, rest)));
+    return (react_1.default.createElement(CardListItemBase_1.default, __assign({ primaryText: event_resource.name, secondaryText: secondaryText, overlineText: byLineText, imageUrl: imageUrl, imageAltText: imageAltText, deemphasize: target_event_date.canceled }, rest)));
 };
 exports.default = CardListItemEventDate;
