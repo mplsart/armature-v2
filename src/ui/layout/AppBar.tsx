@@ -9,15 +9,6 @@ import { Grid } from '../grid';
 import AppBarMenuIcon from './AppBarMenuIcon';
 
 // TODO: Hide on Scroll ? https://codesandbox.io/s/4z56yl6rm4
-/*
-let titleComponents = (
-  <Link href="/">
-    <a>MPLSART.COM</a>
-  </Link>
-);
-*/
-let rightComponents = <></>;
-
 const useStyles = makeStyles(theme => {
   return {
     root: {
@@ -77,11 +68,12 @@ interface AppBarProps {
   menuActive: boolean;
   menuToggle: (force?: boolean) => void; //React.MouseEventHandler;
   titleComponents: React.ReactNode;
+  rightComponents?: React.ReactNode;
 }
 
 const AppBar: React.FC<AppBarProps> = props => {
   let classes = useStyles();
-  let { fluid, menuActive, menuToggle, titleComponents } = props;
+  let { fluid, menuActive, menuToggle, titleComponents, rightComponents } = props;
 
   return (
     <MuiAppBar className={classes.root} position="sticky">

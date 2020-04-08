@@ -4,6 +4,7 @@ interface AppBarProps {
     menuActive: boolean;
     menuToggle: (force?: boolean) => void;
     titleComponents: React.ReactNode;
+    rightComponents?: React.ReactNode;
 }
 declare const AppBar: React.FC<AppBarProps>;
 export default AppBar;

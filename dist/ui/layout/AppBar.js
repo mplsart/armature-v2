@@ -11,14 +11,6 @@ var Typography_1 = __importDefault(require("@material-ui/core/Typography"));
 var grid_1 = require("../grid");
 var AppBarMenuIcon_1 = __importDefault(require("./AppBarMenuIcon"));
 // TODO: Hide on Scroll ? https://codesandbox.io/s/4z56yl6rm4
-/*
-let titleComponents = (
-  <Link href="/">
-    <a>MPLSART.COM</a>
-  </Link>
-);
-*/
-var rightComponents = react_1.default.createElement(react_1.default.Fragment, null);
 var useStyles = styles_1.makeStyles(function (theme) {
     var _a, _b, _c, _d;
     return {
@@ -75,7 +67,7 @@ var useStyles = styles_1.makeStyles(function (theme) {
 });
 var AppBar = function (props) {
     var classes = useStyles();
-    var fluid = props.fluid, menuActive = props.menuActive, menuToggle = props.menuToggle, titleComponents = props.titleComponents;
+    var fluid = props.fluid, menuActive = props.menuActive, menuToggle = props.menuToggle, titleComponents = props.titleComponents, rightComponents = props.rightComponents;
     return (react_1.default.createElement(AppBar_1.default, { className: classes.root, position: "sticky" },
         react_1.default.createElement(grid_1.Grid, { fluid: fluid, className: classes.gridContainer },
             react_1.default.createElement(Toolbar_1.default, { className: classes.toolBar },
