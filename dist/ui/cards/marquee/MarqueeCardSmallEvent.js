@@ -35,25 +35,16 @@ var MarqueeCardSmallEvent = function (props) {
     var resource = props.resource, startingDateFilter = props.startingDateFilter, rest = __rest(props, ["resource", "startingDateFilter"]);
     // Event Date
     var eventResource = resource;
-    //let target_event_date = resource.event_dates[0]; // TODO: !!!! Get Goodest date...
-    var target_event_date = dates_1.getBestEventDate(resource.event_dates, startingDateFilter);
-    var byLineText;
-    if (!target_event_date) {
+    var targetEd = dates_1.getBestEventDate(resource.event_dates, startingDateFilter);
+    if (!targetEd) {
         return react_1.default.createElement(react_1.default.Fragment, null);
     }
-    // If it is ongoing - worst case scenario
-    if (target_event_date.category == 'ongoing') {
-        byLineText =
-            moment_timezone_1.default(new Date(target_event_date.start)).format('MMM D') +
-                ' - ' +
-                moment_timezone_1.default(new Date(target_event_date.end)).format('MMM D');
-    }
-    else {
-        // Else show the start
-        byLineText = moment_timezone_1.default(new Date(target_event_date.start)).format('ddd MMM D');
-    }
+    // Determine date text to show
+    var startMoment = moment_timezone_1.default(new Date(targetEd.start));
+    var endMoment = moment_timezone_1.default(new Date(targetEd.end));
+    var byLineText = dates_1.getShortDateString(startMoment, endMoment, moment_timezone_1.default(new Date()));
     // Venue
-    var venue_resource = target_event_date.venue;
+    var venue_resource = targetEd.venue;
     var venue_name;
     if (venue_resource) {
         venue_name = venue_resource.nickname || venue_resource.name;
@@ -62,7 +53,7 @@ var MarqueeCardSmallEvent = function (props) {
         }
     }
     // Overline
-    var overlineText = target_event_date.label + ' @ ' + venue_name;
+    var overlineText = targetEd.label + " @ " + venue_name;
     return (react_1.default.createElement(StandardCardBase_1.default, __assign({ overlineText: overlineText, title: eventResource.name, byLineText: byLineText, byLineIcon: Calendar_1.default, imageResource: eventResource.primary_image_resource }, rest)));
 };
 exports.default = MarqueeCardSmallEvent;

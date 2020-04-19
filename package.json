@@ -1,12 +1,13 @@
 {
   "name": "armature",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Typescript React components for MPLSART product suite",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && tsc",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --collectCoverage true",
+    "unit": "jest --testRegex '(?<!integration\\.)test\\.(t|j)s(x?)$'",
     "lint": "eslint . --ext .js,.ts,.tsx",
     "dev-watch": "tsc --watch",
     "publishOnly": "npm run build",
@@ -27,37 +28,55 @@
     "react-dom": "*"
   },
   "dependencies": {
-    "@material-ui/core": "^4.9.3",
+    "@material-ui/core": "^4.9.10",
     "@material-ui/icons": "^4.9.1",
-    "@material-ui/styles": "^4.9.0",
+    "@material-ui/styles": "^4.9.10",
     "clsx": "^1.1.0",
-    "next": "^9.3.4",
-    "react": "^16.12.0",
-    "react-dom": "^16.13.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
-    "@material-ui/lab": "^4.0.0-alpha.45",
-    "@storybook/react": "^5.3.14",
+    "@material-ui/lab": "^4.0.0-alpha.49",
+    "@storybook/react": "^5.3.18",
     "@types/jest": "^24.9.1",
-    "@types/moment-timezone": "^0.5.12",
-    "@types/node": "^12.12.29",
-    "@typescript-eslint/eslint-plugin": "^2.23.0",
-    "@typescript-eslint/parser": "^2.23.0",
+    "@types/moment-timezone": "^0.5.13",
+    "@types/node": "^12.12.35",
+    "@typescript-eslint/eslint-plugin": "^2.28.0",
+    "@typescript-eslint/parser": "^2.28.0",
     "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^7.1.5",
     "eslint": "^6.7.2",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^1.5.0",
     "jest": "^24.9.0",
     "moment-timezone": "^0.5.28",
     "prettier": "^1.19.1",
-    "react-docgen-typescript-loader": "^3.7.1",
+    "react-docgen-typescript-loader": "^3.7.2",
     "react-docgen-typescript-webpack-plugin": "^1.1.0",
-    "storybook": "^5.3.14",
+    "storybook": "^5.3.18",
     "storybook-addon-material-ui": "^0.9.0-alpha.21",
     "ts-jest": "^24.3.0",
-    "ts-node": "^8.6.2",
+    "ts-node": "^8.8.2",
     "typescript": "^3.8.3"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "testRegex": ".test.(j|t)s(x?)$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "jsdom",
+    "resetMocks": true
   }
 }

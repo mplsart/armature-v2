@@ -5,6 +5,4 @@ import Facebook from './icons/Facebook';
 
 let cheese = 1;
 
-export {Facebook, cheese};
-
-
+export { Facebook, cheese };

@@ -3,7 +3,7 @@ import React from 'react';
 import moment, { Moment } from 'moment-timezone';
 import StandardCardBase from '../standard/StandardCardBase';
 import CalendarIcon from '../../../icons/Calendar';
-import { getBestEventDate } from '../../../utils/dates';
+import { getBestEventDate, getShortDateString } from '../../../utils/dates';
 
 // TODO: This sucks to duplicate... move to armature?
 // TODO: Move to a centralized types
@@ -76,28 +76,18 @@ const MarqueeCardSmallEvent: React.FC<MarqueeCardEventProps> = props => {
 
   // Event Date
   let eventResource = resource;
-  //let target_event_date = resource.event_dates[0]; // TODO: !!!! Get Goodest date...
-  let target_event_date = getBestEventDate(resource.event_dates, startingDateFilter);
-
-  let byLineText;
-
-  if (!target_event_date) {
+  let targetEd = getBestEventDate(resource.event_dates, startingDateFilter);
+  if (!targetEd) {
     return <></>;
   }
 
-  // If it is ongoing - worst case scenario
-  if (target_event_date.category == 'ongoing') {
-    byLineText =
-      moment(new Date(target_event_date.start)).format('MMM D') +
-      ' - ' +
-      moment(new Date(target_event_date.end)).format('MMM D');
-  } else {
-    // Else show the start
-    byLineText = moment(new Date(target_event_date.start)).format('ddd MMM D');
-  }
+  // Determine date text to show
+  let startMoment = moment(new Date(targetEd.start));
+  let endMoment = moment(new Date(targetEd.end));
+  let byLineText = getShortDateString(startMoment, endMoment, moment(new Date()));
 
   // Venue
-  let venue_resource = target_event_date.venue;
+  let venue_resource = targetEd.venue;
 
   let venue_name;
   if (venue_resource) {
@@ -108,7 +98,7 @@ const MarqueeCardSmallEvent: React.FC<MarqueeCardEventProps> = props => {
   }
 
   // Overline
-  let overlineText = target_event_date.label + ' @ ' + venue_name;
+  let overlineText = `${targetEd.label} @ ${venue_name}`;
 
   return (
     <StandardCardBase

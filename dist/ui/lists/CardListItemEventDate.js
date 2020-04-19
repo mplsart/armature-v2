@@ -25,42 +25,39 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+// List Event Card
 var react_1 = __importDefault(require("react"));
-var CardListItemBase_1 = __importDefault(require("./CardListItemBase"));
 var moment_1 = __importDefault(require("moment"));
+var CardListItemBase_1 = __importDefault(require("./CardListItemBase"));
+var dates_1 = require("../../utils/dates");
 var CardListItemEventDate = function (props) {
     var resource = props.resource, rest = __rest(props, ["resource"]);
-    var target_event_date = resource;
-    var event_resource = resource.event_resource;
+    // Isolate Event Date
+    var eventResource = resource.event_resource;
+    var targetEd = resource;
+    if (!targetEd) {
+        return react_1.default.createElement(react_1.default.Fragment, null);
+    }
     // Image
     var imageUrl;
-    var imageAltText = event_resource.name;
-    if (event_resource.primary_image_resource &&
-        event_resource.primary_image_resource.versions &&
-        event_resource.primary_image_resource.versions.THUMB) {
-        imageUrl = event_resource.primary_image_resource.versions.THUMB.url;
+    var imageAltText = eventResource.name;
+    if (eventResource.primary_image_resource &&
+        eventResource.primary_image_resource.versions &&
+        eventResource.primary_image_resource.versions.THUMB) {
+        imageUrl = eventResource.primary_image_resource.versions.THUMB.url;
     }
-    var byLineText = '';
-    var edLabel = '';
-    // If it is ongoing - worst case scenario
-    if (target_event_date.category == 'ongoing') {
-        byLineText =
-            moment_1.default(new Date(target_event_date.start)).format('MMM D') +
-                ' - ' +
-                moment_1.default(new Date(target_event_date.end)).format('MMM D');
-    }
-    else {
-        // Else show the end
-        byLineText = moment_1.default(new Date(target_event_date.start)).format('ddd MMM D');
-        edLabel = target_event_date.label;
-    }
+    // Determine date text to show
+    var startMoment = moment_1.default(new Date(targetEd.start));
+    var endMoment = moment_1.default(new Date(targetEd.end));
+    var byLineText = dates_1.getShortDateString(startMoment, endMoment, moment_1.default(new Date()));
+    // Venue
     var venue_resource = resource.venue_resource;
     var venue_name = venue_resource.nickname || venue_resource.name;
     if (venue_resource.multiple_locations_label) {
         venue_name = venue_resource.multiple_locations_label;
     }
     // Overline
-    var secondaryText = edLabel + ' @ ' + venue_name;
-    return (react_1.default.createElement(CardListItemBase_1.default, __assign({ primaryText: event_resource.name, secondaryText: secondaryText, overlineText: byLineText, imageUrl: imageUrl, imageAltText: imageAltText, deemphasize: target_event_date.canceled }, rest)));
+    var secondaryText = targetEd.label + " @ " + venue_name;
+    return (react_1.default.createElement(CardListItemBase_1.default, __assign({ primaryText: eventResource.name, secondaryText: secondaryText, overlineText: byLineText, imageUrl: imageUrl, imageAltText: imageAltText, deemphasize: targetEd.canceled }, rest)));
 };
 exports.default = CardListItemEventDate;

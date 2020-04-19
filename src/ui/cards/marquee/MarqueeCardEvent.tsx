@@ -3,7 +3,7 @@ import React from 'react';
 import moment, { Moment } from 'moment-timezone';
 import MarqueeCardBase from './MarqueeCardBase';
 import CalendarIcon from '../../../icons/Calendar';
-import { getBestEventDate } from '../../../utils/dates';
+import { getBestEventDate, getShortDateString } from '../../../utils/dates';
 
 // TODO: This sucks to duplicate... move to armature?
 // TODO: Move to a centralized types
@@ -69,32 +69,21 @@ interface MarqueeCardEventProps {
 const MarqueeCardEvent: React.FC<MarqueeCardEventProps> = props => {
   const { resource, startingDateFilter, ...rest } = props;
 
-  // Event Date
+  // Isolate Event Date
   let eventResource = resource;
-  let target_event_date = getBestEventDate(resource.event_dates, startingDateFilter);
-
-  let byLineText;
-
-  // If it is ongoing - worst case scenario
-  if (!target_event_date) {
+  let targetEd = getBestEventDate(resource.event_dates, startingDateFilter);
+  if (!targetEd) {
     return <></>;
   }
 
-  if (target_event_date.category == 'ongoing') {
-    byLineText =
-      moment(new Date(target_event_date.start)).format('MMM D') +
-      ' - ' +
-      moment(new Date(target_event_date.end)).format('MMM D');
-  } else {
-    // Else show the start
-    byLineText = moment(new Date(target_event_date.start)).format('ddd MMM D');
-  }
+  // Determine date text to show
+  let startMoment = moment(new Date(targetEd.start));
+  let endMoment = moment(new Date(targetEd.end));
+  let byLineText = getShortDateString(startMoment, endMoment, moment(new Date()));
 
   // Venue
-
-  //console.log(target_event_date);
   let venue_name;
-  let venue_resource = target_event_date.venue;
+  let venue_resource = targetEd.venue;
 
   if (venue_resource) {
     venue_name = venue_resource.nickname || venue_resource.name;
@@ -104,7 +93,7 @@ const MarqueeCardEvent: React.FC<MarqueeCardEventProps> = props => {
   }
 
   // Overline
-  let overlineText = target_event_date.label + ' @ ' + venue_name;
+  const overlineText = `${targetEd.label} @ ${venue_name}`;
 
   return (
     <MarqueeCardBase

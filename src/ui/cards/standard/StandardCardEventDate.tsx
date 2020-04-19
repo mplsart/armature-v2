@@ -3,6 +3,7 @@ import React from 'react';
 import moment from 'moment-timezone';
 import StandardCardBase from './StandardCardBase';
 import CalendarIcon from '../../../icons/Calendar';
+import { getShortDateString } from '../../../utils/dates';
 
 // TODO: This sucks to duplicate... move to armature?
 // TODO: Move to a centralized types
@@ -67,30 +68,26 @@ interface StandardCardEventDateProps {
 const StandardCardEventDate: React.FC<StandardCardEventDateProps> = props => {
   const { eventResource, eventDateResource, ...rest } = props;
 
-  // Event Date
-  let target_event_date = eventDateResource;
-  let byLineText;
-
-  // If it is ongoing - worst case scenario
-  if (target_event_date.category == 'ongoing') {
-    byLineText =
-      moment(new Date(target_event_date.start)).format('MMM D') +
-      ' - ' +
-      moment(new Date(target_event_date.end)).format('MMM D');
-  } else {
-    // Else show the start
-    byLineText = moment(new Date(target_event_date.start)).format('ddd MMM D');
+  // Isolate Event Date
+  let targetEd = eventDateResource;
+  if (!targetEd) {
+    return <></>;
   }
 
+  // Determine date text to show
+  let startMoment = moment(new Date(targetEd.start));
+  let endMoment = moment(new Date(targetEd.end));
+  let byLineText = getShortDateString(startMoment, endMoment, moment(new Date()));
+
   // Venue
-  let venue_resource = target_event_date.venue_resource;
+  let venue_resource = targetEd.venue_resource;
   let venue_name = venue_resource.nickname || venue_resource.name;
   if (venue_resource.multiple_locations_label) {
     venue_name = venue_resource.multiple_locations_label;
   }
 
   // Overline
-  let overlineText = target_event_date.label + ' @ ' + venue_name;
+  let overlineText = `${targetEd.label} @ ${venue_name}`;
 
   return (
     <StandardCardBase
@@ -99,7 +96,7 @@ const StandardCardEventDate: React.FC<StandardCardEventDateProps> = props => {
       byLineText={byLineText}
       byLineIcon={CalendarIcon}
       imageResource={eventResource.primary_image_resource}
-      deemphasize={target_event_date.canceled}
+      deemphasize={targetEd.canceled}
       {...rest}
     />
   );

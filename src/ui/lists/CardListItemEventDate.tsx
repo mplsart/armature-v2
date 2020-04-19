@@ -1,6 +1,8 @@
+// List Event Card
 import React from 'react';
-import CardListItemBase, { CardListItemBaseProps } from './CardListItemBase';
 import moment from 'moment';
+import CardListItemBase, { CardListItemBaseProps } from './CardListItemBase';
+import { getShortDateString } from '../../utils/dates';
 
 // TODO: This sucks to duplicate... move to armature?
 // TODO: Move to a centralized types
@@ -70,34 +72,30 @@ interface ListItemArticleProps extends CardListItemBaseProps {
 const CardListItemEventDate: React.FC<ListItemArticleProps> = props => {
   let { resource, ...rest } = props;
 
-  let target_event_date = resource;
-  let event_resource = resource.event_resource;
+  // Isolate Event Date
+  let eventResource = resource.event_resource;
+  let targetEd = resource;
+  if (!targetEd) {
+    return <></>;
+  }
 
   // Image
   let imageUrl;
-  let imageAltText = event_resource.name;
+  let imageAltText = eventResource.name;
   if (
-    event_resource.primary_image_resource &&
-    event_resource.primary_image_resource.versions &&
-    event_resource.primary_image_resource.versions.THUMB
+    eventResource.primary_image_resource &&
+    eventResource.primary_image_resource.versions &&
+    eventResource.primary_image_resource.versions.THUMB
   ) {
-    imageUrl = event_resource.primary_image_resource.versions.THUMB.url;
+    imageUrl = eventResource.primary_image_resource.versions.THUMB.url;
   }
 
-  let byLineText = '';
-  let edLabel = '';
-  // If it is ongoing - worst case scenario
-  if (target_event_date.category == 'ongoing') {
-    byLineText =
-      moment(new Date(target_event_date.start)).format('MMM D') +
-      ' - ' +
-      moment(new Date(target_event_date.end)).format('MMM D');
-  } else {
-    // Else show the end
-    byLineText = moment(new Date(target_event_date.start)).format('ddd MMM D');
-    edLabel = target_event_date.label;
-  }
+  // Determine date text to show
+  let startMoment = moment(new Date(targetEd.start));
+  let endMoment = moment(new Date(targetEd.end));
+  let byLineText = getShortDateString(startMoment, endMoment, moment(new Date()));
 
+  // Venue
   let venue_resource = resource.venue_resource;
   let venue_name = venue_resource.nickname || venue_resource.name;
   if (venue_resource.multiple_locations_label) {
@@ -105,16 +103,16 @@ const CardListItemEventDate: React.FC<ListItemArticleProps> = props => {
   }
 
   // Overline
-  const secondaryText = edLabel + ' @ ' + venue_name;
+  const secondaryText = `${targetEd.label} @ ${venue_name}`;
 
   return (
     <CardListItemBase
-      primaryText={event_resource.name}
+      primaryText={eventResource.name}
       secondaryText={secondaryText}
       overlineText={byLineText}
       imageUrl={imageUrl}
       imageAltText={imageAltText}
-      deemphasize={target_event_date.canceled}
+      deemphasize={targetEd.canceled}
       {...rest}
     />
   );

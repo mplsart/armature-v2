@@ -30,30 +30,26 @@ var react_1 = __importDefault(require("react"));
 var moment_timezone_1 = __importDefault(require("moment-timezone"));
 var StandardCardBase_1 = __importDefault(require("./StandardCardBase"));
 var Calendar_1 = __importDefault(require("../../../icons/Calendar"));
+var dates_1 = require("../../../utils/dates");
 var StandardCardEventDate = function (props) {
     var eventResource = props.eventResource, eventDateResource = props.eventDateResource, rest = __rest(props, ["eventResource", "eventDateResource"]);
-    // Event Date
-    var target_event_date = eventDateResource;
-    var byLineText;
-    // If it is ongoing - worst case scenario
-    if (target_event_date.category == 'ongoing') {
-        byLineText =
-            moment_timezone_1.default(new Date(target_event_date.start)).format('MMM D') +
-                ' - ' +
-                moment_timezone_1.default(new Date(target_event_date.end)).format('MMM D');
+    // Isolate Event Date
+    var targetEd = eventDateResource;
+    if (!targetEd) {
+        return react_1.default.createElement(react_1.default.Fragment, null);
     }
-    else {
-        // Else show the start
-        byLineText = moment_timezone_1.default(new Date(target_event_date.start)).format('ddd MMM D');
-    }
+    // Determine date text to show
+    var startMoment = moment_timezone_1.default(new Date(targetEd.start));
+    var endMoment = moment_timezone_1.default(new Date(targetEd.end));
+    var byLineText = dates_1.getShortDateString(startMoment, endMoment, moment_timezone_1.default(new Date()));
     // Venue
-    var venue_resource = target_event_date.venue_resource;
+    var venue_resource = targetEd.venue_resource;
     var venue_name = venue_resource.nickname || venue_resource.name;
     if (venue_resource.multiple_locations_label) {
         venue_name = venue_resource.multiple_locations_label;
     }
     // Overline
-    var overlineText = target_event_date.label + ' @ ' + venue_name;
-    return (react_1.default.createElement(StandardCardBase_1.default, __assign({ overlineText: overlineText, title: eventResource.name, byLineText: byLineText, byLineIcon: Calendar_1.default, imageResource: eventResource.primary_image_resource, deemphasize: target_event_date.canceled }, rest)));
+    var overlineText = targetEd.label + " @ " + venue_name;
+    return (react_1.default.createElement(StandardCardBase_1.default, __assign({ overlineText: overlineText, title: eventResource.name, byLineText: byLineText, byLineIcon: Calendar_1.default, imageResource: eventResource.primary_image_resource, deemphasize: targetEd.canceled }, rest)));
 };
 exports.default = StandardCardEventDate;

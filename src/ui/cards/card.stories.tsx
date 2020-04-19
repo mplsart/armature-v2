@@ -892,7 +892,7 @@ let eventDateResources = [
     },
     label: 'Opening',
     resource_id: '45d679de29b9407d8305af998f7b32d0',
-    start: '2020-02-16T00:00:00Z',
+    start: '2020-02-14T00:00:00Z',
     type: 'timed',
     venue_resource: {
       _meta: { is_verbose: false, resource_type: 'Venue' },
@@ -1100,7 +1100,7 @@ let eventDateResources = [
   {
     _meta: { is_verbose: true, resource_type: 'EventDateModel' },
     category: 'reception',
-    end: '2020-02-21T00:00:00Z',
+    end: '2021-03-22T00:00:00Z',
     event_resource: {
       _meta: { is_verbose: true, resource_type: 'EventModel' },
       featured: false,
@@ -1147,7 +1147,7 @@ let eventDateResources = [
     },
     label: 'Opening',
     resource_id: '23770f7eae4d4516919474f03be79051',
-    start: '2020-02-20T22:00:00Z',
+    start: '2021-02-20T22:00:00Z',
     type: 'timed',
     venue_resource: {
       _meta: { is_verbose: false, resource_type: 'Venue' },
