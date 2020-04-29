@@ -37,6 +37,7 @@ var Tumblr_1 = __importDefault(require("../../icons/Tumblr"));
 var YouTube_1 = __importDefault(require("../../icons/YouTube"));
 var Vimeo_1 = __importDefault(require("../../icons/Vimeo"));
 var OtherLink_1 = __importDefault(require("../../icons/OtherLink"));
+var Patreon_1 = __importDefault(require("../../icons/Patreon"));
 var MNArtists_1 = __importDefault(require("../../icons/MNArtists"));
 // Define map of service types and Renderer
 exports.serviceIconMap = {
@@ -48,6 +49,7 @@ exports.serviceIconMap = {
     youtube: YouTube_1.default,
     vimeo: Vimeo_1.default,
     mnartists: MNArtists_1.default,
+    patreon: Patreon_1.default,
     other: OtherLink_1.default,
 };
 // Override IconButton defaults: root is applied to Button root.

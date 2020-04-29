@@ -125,6 +125,7 @@ storiesOf('Custom Buttons', module)
       <SocialButton service="facebook" />
       <SocialButton service="twitter" />
       <SocialButton service="tumblr" />
+      <SocialButton service="patreon" />
       <SocialButton service="vimeo" />
       <SocialButton service="youtube" />
       <SocialButton service="mnartists" />
@@ -135,6 +136,7 @@ storiesOf('Custom Buttons', module)
       <SocialButton service="facebook" data-value="cool" title="bold tag" component="b" />
       <SocialButton service="twitter" title="italic tag" />
       <SocialButton service="tumblr" size="small" />
+      <SocialButton service="patreon" size="small" />
       <SocialButton service="vimeo" size="small" />
       <SocialButton service="youtube" size="small" />
       <SocialButton service="mnartists" size="small" />

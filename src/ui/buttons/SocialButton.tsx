@@ -11,6 +11,7 @@ import TumblrIcon from '../../icons/Tumblr';
 import YouTubeIcon from '../../icons/YouTube';
 import VimeoIcon from '../../icons/Vimeo';
 import OtherLinkIcon from '../../icons/OtherLink';
+import PatreonIcon from '../../icons/Patreon';
 import MNArtistsIcon from '../../icons/MNArtists';
 import { SvgIconProps } from '@material-ui/core';
 
@@ -23,6 +24,7 @@ type ServicesType =
   | 'tumblr'
   | 'youtube'
   | 'vimeo'
+  | 'patreon'
   | 'mnartists'
   | 'other';
 
@@ -36,6 +38,7 @@ export const serviceIconMap: Record<ServicesType, React.ElementType<SvgIconProps
   youtube: YouTubeIcon,
   vimeo: VimeoIcon,
   mnartists: MNArtistsIcon,
+  patreon: PatreonIcon,
   other: OtherLinkIcon,
 };
 

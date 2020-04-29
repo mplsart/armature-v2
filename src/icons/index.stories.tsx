@@ -9,6 +9,7 @@ import Facebook from './Facebook';
 import Instagram from './Instagram';
 import MNArtists from './MNArtists';
 import OtherLink from './OtherLink';
+import Patreon from './Patreon';
 import Tumblr from './Tumblr';
 import Twitter from './Twitter';
 import Vimeo from './Vimeo';
@@ -28,6 +29,7 @@ storiesOf('Icons', module)
       <Instagram />
       <MNArtists />
       <OtherLink />
+      <Patreon />
       <Tumblr />
       <YouTube />
       <Vimeo />
