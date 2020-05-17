@@ -79,10 +79,6 @@ const CardListItemVenue: React.FC<ListItemVenueProps> = props => {
     imageUrl = resource.primary_image_resource.versions.THUMB.url;
   }
 
-  // Author Credit
-  //const overlineText = 'By ' + resource.author_name;
-  //const overlineText = 'taco';
-
   //let formattedAddress = resource.address;
   return (
     <CardListItemBase

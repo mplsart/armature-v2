@@ -75,6 +75,9 @@ const useStyles = makeStyles(theme => ({
     margin: '8px 0',
     fontSize: '32px',
 
+    [theme.breakpoints.down('md')]: {
+      fontSize: '24px',
+    },
     [theme.breakpoints.down('sm')]: {
       textAlign: 'center',
       fontSize: '32px',
@@ -130,7 +133,7 @@ const LargeEmailSignUp: React.FC<{}> = () => {
       <div className={classes.textContainer}>
         <div className={classes.textContainerInner}>
           <ContentTitle component="h2" className={classes.text}>
-            <span className="line">Find out what's up</span> <span className="line">every weekend.</span>
+            <span className="line">Find out what's up</span> <span className="line">every week.</span>
           </ContentTitle>
           <p className={classes.subtext}>
             <span className="line">No spam. Just local art news and events</span>{' '}

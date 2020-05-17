@@ -38,9 +38,6 @@ var CardListItemVenue = function (props) {
         resource.primary_image_resource.versions.THUMB) {
         imageUrl = resource.primary_image_resource.versions.THUMB.url;
     }
-    // Author Credit
-    //const overlineText = 'By ' + resource.author_name;
-    //const overlineText = 'taco';
     //let formattedAddress = resource.address;
     return (react_1.default.createElement(CardListItemBase_1.default, __assign({ primaryText: resource.name, secondaryText: formattedAddress, underlineText: resource.summary, divider: true, dense: true, 
         //overlineText={overlineText}

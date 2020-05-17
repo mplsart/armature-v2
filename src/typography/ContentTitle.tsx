@@ -2,6 +2,7 @@
 import React, { ElementType, ReactNode } from 'react';
 import MUITypography, { TypographyProps } from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import classnames from 'clsx';
 
 const useStyles = makeStyles(theme => ({
   // Optimize for insta screenshot
@@ -19,7 +20,18 @@ interface ContentTitleProps extends TypographyProps {
 
 const ContentTitle: React.FC<ContentTitleProps> = props => {
   const classes = useStyles();
-  return <MUITypography component="h1" variant="h4" gutterBottom color="inherit" {...props} className={classes.root} />;
+  let { className, ...rest } = props;
+
+  return (
+    <MUITypography
+      component="h1"
+      variant="h4"
+      gutterBottom
+      color="inherit"
+      {...rest}
+      className={classnames(classes.root, className)}
+    />
+  );
 };
 
 export default React.memo(ContentTitle);

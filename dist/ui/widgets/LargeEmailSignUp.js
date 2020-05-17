@@ -77,6 +77,9 @@ var useStyles = styles_1.makeStyles(function (theme) {
                 margin: '8px 0',
                 fontSize: '32px'
             },
+            _c[theme.breakpoints.down('md')] = {
+                fontSize: '24px',
+            },
             _c[theme.breakpoints.down('sm')] = {
                 textAlign: 'center',
                 fontSize: '32px',
@@ -132,7 +135,7 @@ var LargeEmailSignUp = function () {
                 react_1.default.createElement(typography_1.ContentTitle, { component: "h2", className: classes.text },
                     react_1.default.createElement("span", { className: "line" }, "Find out what's up"),
                     " ",
-                    react_1.default.createElement("span", { className: "line" }, "every weekend.")),
+                    react_1.default.createElement("span", { className: "line" }, "every week.")),
                 react_1.default.createElement("p", { className: classes.subtext },
                     react_1.default.createElement("span", { className: "line" }, "No spam. Just local art news and events"),
                     ' ',
