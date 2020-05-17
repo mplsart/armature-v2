@@ -43,6 +43,12 @@ export interface EventResourceVerbose extends Resource {
   primary_image_resource: ImageResource;
   event_dates: EventDateResource[];
   content: string;
+  host_slug?: string;
+  host_resource?: {
+    name: string;
+    nickname?: string | null;
+    multiple_locations_label?: string;
+  };
 }
 
 export interface EventDateResource {
@@ -80,11 +86,18 @@ const MarqueeCardEvent: React.FC<MarqueeCardEventProps> = props => {
   let startMoment = moment(new Date(targetEd.start));
   let endMoment = moment(new Date(targetEd.end));
   let byLineText = getShortDateString(startMoment, endMoment, moment(new Date()));
+  let overlineText = targetEd.label;
 
   // Venue
-  let venue_name;
   let venue_resource = targetEd.venue;
+  if (eventResource.host_resource) {
+    venue_resource = eventResource.host_resource;
+    overlineText += ' ● ';
+  } else {
+    overlineText += ' @ ';
+  }
 
+  let venue_name;
   if (venue_resource) {
     venue_name = venue_resource.nickname || venue_resource.name;
     if (venue_resource.multiple_locations_label) {
@@ -93,7 +106,7 @@ const MarqueeCardEvent: React.FC<MarqueeCardEventProps> = props => {
   }
 
   // Overline
-  const overlineText = `${targetEd.label} @ ${venue_name}`;
+  overlineText += venue_name;
 
   return (
     <MarqueeCardBase

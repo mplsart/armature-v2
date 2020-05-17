@@ -32,6 +32,12 @@ export interface EventResourceVerbose extends Resource {
     primary_image_resource: ImageResource;
     event_dates: EventDateResource[];
     content: string;
+    host_slug?: string;
+    host_resource?: {
+        name: string;
+        nickname?: string | null;
+        multiple_locations_label?: string;
+    };
 }
 export interface EventDateResource {
     label: string;

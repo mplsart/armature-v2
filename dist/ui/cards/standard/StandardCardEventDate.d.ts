@@ -29,6 +29,12 @@ export interface EventResource extends Resource {
     featured: boolean;
     primary_image_resource_id: string;
     primary_image_resource: ImageResource;
+    host_slug?: string;
+    host_resource?: {
+        name: string;
+        nickname?: string | null;
+        multiple_locations_label?: string;
+    };
 }
 export interface EventDateResource extends Resource {
     label: string;

@@ -40,6 +40,12 @@ export interface EventResource extends Resource {
   featured: boolean;
   primary_image_resource_id: string;
   primary_image_resource: ImageResource;
+  host_slug?: string;
+  host_resource?: {
+    name: string;
+    nickname?: string | null;
+    multiple_locations_label?: string;
+  };
 }
 
 export interface EventDateResource extends Resource {
@@ -94,16 +100,28 @@ const CardListItemEventDate: React.FC<ListItemArticleProps> = props => {
   let startMoment = moment(new Date(targetEd.start));
   let endMoment = moment(new Date(targetEd.end));
   let byLineText = getShortDateString(startMoment, endMoment, moment(new Date()));
+  let secondaryText = targetEd.label;
 
   // Venue
-  let venue_resource = resource.venue_resource;
-  let venue_name = venue_resource.nickname || venue_resource.name;
-  if (venue_resource.multiple_locations_label) {
-    venue_name = venue_resource.multiple_locations_label;
+  let venue_resource = targetEd.venue_resource;
+
+  if (eventResource.host_resource) {
+    venue_resource = eventResource.host_resource;
+    secondaryText += ' • ';
+  } else {
+    secondaryText += ' @ ';
+  }
+
+  let venue_name;
+  if (venue_resource) {
+    venue_name = venue_resource.nickname || venue_resource.name;
+    if (venue_resource.multiple_locations_label) {
+      venue_name = venue_resource.multiple_locations_label;
+    }
   }
 
   // Overline
-  const secondaryText = `${targetEd.label} @ ${venue_name}`;
+  secondaryText += venue_name;
 
   return (
     <CardListItemBase

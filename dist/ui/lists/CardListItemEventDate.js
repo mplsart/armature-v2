@@ -50,14 +50,25 @@ var CardListItemEventDate = function (props) {
     var startMoment = moment_1.default(new Date(targetEd.start));
     var endMoment = moment_1.default(new Date(targetEd.end));
     var byLineText = dates_1.getShortDateString(startMoment, endMoment, moment_1.default(new Date()));
+    var secondaryText = targetEd.label;
     // Venue
-    var venue_resource = resource.venue_resource;
-    var venue_name = venue_resource.nickname || venue_resource.name;
-    if (venue_resource.multiple_locations_label) {
-        venue_name = venue_resource.multiple_locations_label;
+    var venue_resource = targetEd.venue_resource;
+    if (eventResource.host_resource) {
+        venue_resource = eventResource.host_resource;
+        secondaryText += ' • ';
+    }
+    else {
+        secondaryText += ' @ ';
+    }
+    var venue_name;
+    if (venue_resource) {
+        venue_name = venue_resource.nickname || venue_resource.name;
+        if (venue_resource.multiple_locations_label) {
+            venue_name = venue_resource.multiple_locations_label;
+        }
     }
     // Overline
-    var secondaryText = targetEd.label + " @ " + venue_name;
+    secondaryText += venue_name;
     return (react_1.default.createElement(CardListItemBase_1.default, __assign({ primaryText: eventResource.name, secondaryText: secondaryText, overlineText: byLineText, imageUrl: imageUrl, imageAltText: imageAltText, deemphasize: targetEd.canceled }, rest)));
 };
 exports.default = CardListItemEventDate;

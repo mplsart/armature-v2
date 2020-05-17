@@ -42,14 +42,25 @@ var StandardCardEventDate = function (props) {
     var startMoment = moment_timezone_1.default(new Date(targetEd.start));
     var endMoment = moment_timezone_1.default(new Date(targetEd.end));
     var byLineText = dates_1.getShortDateString(startMoment, endMoment, moment_timezone_1.default(new Date()));
+    var overlineText = targetEd.label;
     // Venue
     var venue_resource = targetEd.venue_resource;
-    var venue_name = venue_resource.nickname || venue_resource.name;
-    if (venue_resource.multiple_locations_label) {
-        venue_name = venue_resource.multiple_locations_label;
+    if (eventResource.host_resource) {
+        venue_resource = eventResource.host_resource;
+        overlineText += ' • ';
+    }
+    else {
+        overlineText += ' @ ';
+    }
+    var venue_name;
+    if (venue_resource) {
+        venue_name = venue_resource.nickname || venue_resource.name;
+        if (venue_resource.multiple_locations_label) {
+            venue_name = venue_resource.multiple_locations_label;
+        }
     }
     // Overline
-    var overlineText = targetEd.label + " @ " + venue_name;
+    overlineText += venue_name;
     return (react_1.default.createElement(StandardCardBase_1.default, __assign({ overlineText: overlineText, title: eventResource.name, byLineText: byLineText, byLineIcon: Calendar_1.default, imageResource: eventResource.primary_image_resource, deemphasize: targetEd.canceled }, rest)));
 };
 exports.default = StandardCardEventDate;
