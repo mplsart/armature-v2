@@ -29,6 +29,7 @@ export interface VenueResource {
     summary: string;
     category: string;
     is_premium_profile: boolean;
+    is_online_only: boolean;
     address: string;
     address2: string;
     city: string;

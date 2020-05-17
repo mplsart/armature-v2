@@ -44,6 +44,7 @@ export interface VenueResource {
   summary: string;
   category: string;
   is_premium_profile: boolean;
+  is_online_only: boolean;
 
   address: string;
   address2: string;
@@ -83,7 +84,6 @@ const CardListItemVenue: React.FC<ListItemVenueProps> = props => {
   //const overlineText = 'taco';
 
   //let formattedAddress = resource.address;
-
   return (
     <CardListItemBase
       primaryText={resource.name}
