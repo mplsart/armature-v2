@@ -92,7 +92,7 @@ const MarqueeCardEvent: React.FC<MarqueeCardEventProps> = props => {
   let venue_resource = targetEd.venue;
   if (eventResource.host_resource) {
     venue_resource = eventResource.host_resource;
-    overlineText += ' ● ';
+    overlineText += ' • ';
   } else {
     overlineText += ' @ ';
   }
