@@ -1,6 +1,6 @@
 {
   "name": "armature",
-  "version": "1.0.12",
+  "version": "1.0.13-RC1",
   "description": "Typescript React components for MPLSART product suite",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
