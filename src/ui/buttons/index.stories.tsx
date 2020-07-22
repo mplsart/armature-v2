@@ -121,15 +121,16 @@ storiesOf('Custom Buttons', module)
     <>
       <h2>Basic Usage</h2>
       <SocialButton service="artsy" />
-      <SocialButton service="instagram" />
       <SocialButton service="facebook" />
-      <SocialButton service="twitter" />
-      <SocialButton service="tumblr" />
-      <SocialButton service="patreon" />
-      <SocialButton service="vimeo" />
-      <SocialButton service="youtube" />
+      <SocialButton service="instagram" />
+      <SocialButton service="linkedin" />
       <SocialButton service="mnartists" />
       <SocialButton service="other" />
+      <SocialButton service="patreon" />
+      <SocialButton service="vimeo" />
+      <SocialButton service="tumblr" />
+      <SocialButton service="twitter" />
+      <SocialButton service="youtube" />
 
       <h2>With Forwarded Attributes</h2>
       <SocialButton service="instagram" title="default tag (anchor)" />

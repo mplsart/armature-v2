@@ -7,6 +7,7 @@ import Button from '@material-ui/core/Button';
 import Artsy from './Artsy';
 import Facebook from './Facebook';
 import Instagram from './Instagram';
+import LinkedIn from './LinkedIn';
 import MNArtists from './MNArtists';
 import OtherLink from './OtherLink';
 import Patreon from './Patreon';
@@ -27,6 +28,7 @@ storiesOf('Icons', module)
       <Facebook />
       <Twitter />
       <Instagram />
+      <LinkedIn />
       <MNArtists />
       <OtherLink />
       <Patreon />
@@ -55,6 +57,9 @@ storiesOf('Icons', module)
   .add('with Material Buttons', () => {
     return (
       <>
+        <Fab size="small" color="primary">
+          <LinkedIn />
+        </Fab>
         <Fab size="small" color="primary">
           <Artsy />
         </Fab>

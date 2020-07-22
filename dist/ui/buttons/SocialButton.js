@@ -30,27 +30,29 @@ var react_1 = __importDefault(require("react"));
 var styles_1 = require("@material-ui/core/styles");
 var IconButton_1 = __importDefault(require("@material-ui/core/IconButton"));
 var Artsy_1 = __importDefault(require("../../icons/Artsy"));
-var Twitter_1 = __importDefault(require("../../icons/Twitter"));
 var Facebook_1 = __importDefault(require("../../icons/Facebook"));
 var Instagram_1 = __importDefault(require("../../icons/Instagram"));
-var Tumblr_1 = __importDefault(require("../../icons/Tumblr"));
-var YouTube_1 = __importDefault(require("../../icons/YouTube"));
-var Vimeo_1 = __importDefault(require("../../icons/Vimeo"));
+var LinkedIn_1 = __importDefault(require("../../icons/LinkedIn"));
+var MNArtists_1 = __importDefault(require("../../icons/MNArtists"));
 var OtherLink_1 = __importDefault(require("../../icons/OtherLink"));
 var Patreon_1 = __importDefault(require("../../icons/Patreon"));
-var MNArtists_1 = __importDefault(require("../../icons/MNArtists"));
+var Tumblr_1 = __importDefault(require("../../icons/Tumblr"));
+var Twitter_1 = __importDefault(require("../../icons/Twitter"));
+var Vimeo_1 = __importDefault(require("../../icons/Vimeo"));
+var YouTube_1 = __importDefault(require("../../icons/YouTube"));
 // Define map of service types and Renderer
 exports.serviceIconMap = {
     artsy: Artsy_1.default,
-    instagram: Instagram_1.default,
     facebook: Facebook_1.default,
-    twitter: Twitter_1.default,
-    tumblr: Tumblr_1.default,
-    youtube: YouTube_1.default,
-    vimeo: Vimeo_1.default,
+    instagram: Instagram_1.default,
+    linkedin: LinkedIn_1.default,
     mnartists: MNArtists_1.default,
-    patreon: Patreon_1.default,
     other: OtherLink_1.default,
+    patreon: Patreon_1.default,
+    tumblr: Tumblr_1.default,
+    twitter: Twitter_1.default,
+    vimeo: Vimeo_1.default,
+    youtube: YouTube_1.default,
 };
 // Override IconButton defaults: root is applied to Button root.
 // TODO: Might be easier to override Button vs. IconButton ?

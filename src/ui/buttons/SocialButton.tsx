@@ -4,42 +4,46 @@ import { makeStyles } from '@material-ui/core/styles';
 import IconButton, { IconButtonProps } from '@material-ui/core/IconButton';
 
 import ArtsyIcon from '../../icons/Artsy';
-import TwitterIcon from '../../icons/Twitter';
 import FacebookIcon from '../../icons/Facebook';
 import InstagramIcon from '../../icons/Instagram';
-import TumblrIcon from '../../icons/Tumblr';
-import YouTubeIcon from '../../icons/YouTube';
-import VimeoIcon from '../../icons/Vimeo';
+import LinkedInIcon from '../../icons/LinkedIn';
+import MNArtistsIcon from '../../icons/MNArtists';
 import OtherLinkIcon from '../../icons/OtherLink';
 import PatreonIcon from '../../icons/Patreon';
-import MNArtistsIcon from '../../icons/MNArtists';
+import TumblrIcon from '../../icons/Tumblr';
+import TwitterIcon from '../../icons/Twitter';
+import VimeoIcon from '../../icons/Vimeo';
+import YouTubeIcon from '../../icons/YouTube';
+
 import { SvgIconProps } from '@material-ui/core';
 
 // Define allowed service types
 type ServicesType =
   | 'artsy'
-  | 'instagram'
   | 'facebook'
-  | 'twitter'
-  | 'tumblr'
-  | 'youtube'
-  | 'vimeo'
-  | 'patreon'
+  | 'instagram'
+  | 'linkedin'
   | 'mnartists'
-  | 'other';
+  | 'other'
+  | 'patreon'
+  | 'tumblr'
+  | 'twitter'
+  | 'vimeo'
+  | 'youtube';
 
 // Define map of service types and Renderer
 export const serviceIconMap: Record<ServicesType, React.ElementType<SvgIconProps>> = {
   artsy: ArtsyIcon,
-  instagram: InstagramIcon,
   facebook: FacebookIcon,
-  twitter: TwitterIcon,
-  tumblr: TumblrIcon,
-  youtube: YouTubeIcon,
-  vimeo: VimeoIcon,
+  instagram: InstagramIcon,
+  linkedin: LinkedInIcon,
   mnartists: MNArtistsIcon,
-  patreon: PatreonIcon,
   other: OtherLinkIcon,
+  patreon: PatreonIcon,
+  tumblr: TumblrIcon,
+  twitter: TwitterIcon,
+  vimeo: VimeoIcon,
+  youtube: YouTubeIcon,
 };
 
 // Define SocialButton Prop Types
