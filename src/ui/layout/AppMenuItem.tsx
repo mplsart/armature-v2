@@ -3,7 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ListItem from '@material-ui/core/ListItem';
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   return {
     listItem: {
       ...theme.typography.subtitle1,
@@ -30,7 +30,7 @@ export interface AppMenuItemProps extends React.HTMLProps<HTMLAnchorElement> {
 }
 
 //export default function AppMenuItem({ children, component, ...rest }) {
-const AppMenuItem: React.FC<AppMenuItemProps> = props => {
+const AppMenuItem: React.FC<AppMenuItemProps> = (props) => {
   let { children, component, ...rest } = props;
   let classes = useStyles();
   let Component = component;

@@ -28,17 +28,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // Common Page Header
 var react_1 = __importDefault(require("react"));
 var Typography_1 = __importDefault(require("@material-ui/core/Typography"));
-var styles_1 = require("@material-ui/core/styles");
-var clsx_1 = __importDefault(require("clsx"));
-var useStyles = styles_1.makeStyles(function (theme) { return ({
-    // Optimize for insta screenshot
-    root: {
-    //[theme.breakpoints.only('xs')]: { fontSize: '1.25rem' }
-    },
-}); });
 var ContentTitle = function (props) {
-    var classes = useStyles();
     var className = props.className, rest = __rest(props, ["className"]);
-    return (react_1.default.createElement(Typography_1.default, __assign({ component: "h1", variant: "h4", gutterBottom: true, color: "inherit" }, rest, { className: clsx_1.default(classes.root, className) })));
+    return react_1.default.createElement(Typography_1.default, __assign({ component: "h1", variant: "h4", gutterBottom: true, color: "inherit" }, rest, { className: className }));
 };
 exports.default = react_1.default.memo(ContentTitle);

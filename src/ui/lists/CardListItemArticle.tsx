@@ -46,7 +46,7 @@ interface ListItemArticleProps extends CardListItemBaseProps {
   resource: ArticleResource;
 }
 
-const CardListItemArticle: React.FC<ListItemArticleProps> = props => {
+const CardListItemArticle: React.FC<ListItemArticleProps> = (props) => {
   let { resource, ...rest } = props;
 
   // Image

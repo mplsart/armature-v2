@@ -3,7 +3,7 @@ import React from 'react';
 import classNames from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     padding: theme.spacing(2),
     // [theme.breakpoints.up('sm')]: {
@@ -20,7 +20,7 @@ export interface PaddedBoxProps {
   align?: 'center' | 'right' | 'left';
 }
 
-const PaddedBox: React.FC<PaddedBoxProps> = props => {
+const PaddedBox: React.FC<PaddedBoxProps> = (props) => {
   let classes = useStyles();
   let { children, align } = props;
 

@@ -5,7 +5,7 @@ var styles_1 = require("@material-ui/core/styles");
 var colors_1 = require("./colors");
 var defaultFontFamily = '"Roboto", "Helvetica", "Arial", sans-serif';
 var accentFontFamily = '"Bryant", "Helvetica", "Arial", sans-serif';
-var muiTheme = styles_1.createMuiTheme({
+exports.default = styles_1.createMuiTheme({
     // Typography
     fontFamily: { default: defaultFontFamily, accent: accentFontFamily },
     typography: {
@@ -102,4 +102,3 @@ var muiTheme = styles_1.createMuiTheme({
         default_color: '9e9e9e',
     },
 });
-exports.default = muiTheme;

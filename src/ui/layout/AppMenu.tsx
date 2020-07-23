@@ -3,7 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   drawerPaper: {
     backgroundColor: theme.palette.globalHeader.dark,
     color: '#9e9e9e', // TODO: Snag from theme...
@@ -42,7 +42,7 @@ interface SlideMenuProps {
   children: React.ReactNode;
 }
 
-const SlideMenu: React.FC<SlideMenuProps> = props => {
+const SlideMenu: React.FC<SlideMenuProps> = (props) => {
   const classes = useStyles({});
   let { children, menuToggle, menuActive } = props;
 

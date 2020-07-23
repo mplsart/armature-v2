@@ -12,7 +12,7 @@ import MUITypography from '@material-ui/core/Typography';
 import Overline from '../../typography/Overline';
 import ListActionButton from '../buttons/ListActionButton';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     padding: '12px !important',
@@ -70,7 +70,7 @@ export interface CardListItemBaseProps {
   deemphasize?: boolean;
 }
 
-const CardListItemBase: React.FC<CardListItemBaseProps> = props => {
+const CardListItemBase: React.FC<CardListItemBaseProps> = (props) => {
   let {
     imageFloat,
     highlightPrimary,

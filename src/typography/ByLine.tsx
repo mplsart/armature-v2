@@ -3,7 +3,7 @@ import React, { ElementType, ReactNode } from 'react';
 import MUITypography, { TypographyProps } from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   // Optimize for insta screenshot
   root: { fontWeight: 100, [theme.breakpoints.only('xs')]: { fontSize: theme.typography.pxToRem(13) } },
 }));
@@ -16,7 +16,7 @@ interface ByLineProps extends TypographyProps {
 }
 
 //
-const ByLine: React.FC<ByLineProps> = props => {
+const ByLine: React.FC<ByLineProps> = (props) => {
   const classes = useStyles();
   return (
     <MUITypography component="p" variant="body1" gutterBottom color="inherit" {...props} className={classes.root} />

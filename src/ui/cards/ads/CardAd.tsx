@@ -4,7 +4,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardAdProps, getAdImageStyles } from './utils';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     position: 'relative',
     transition: 'box-shadow .25s',
@@ -53,7 +53,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const CardAd: React.FC<CardAdProps> = props => {
+const CardAd: React.FC<CardAdProps> = (props) => {
   const { isMobile, resource, linkClassProps } = props;
   const classes = useStyles();
   const LinkClass = props.linkClass;

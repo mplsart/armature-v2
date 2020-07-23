@@ -5,35 +5,7 @@ import { blue, pink } from './colors';
 const defaultFontFamily = '"Roboto", "Helvetica", "Arial", sans-serif';
 const accentFontFamily = '"Bryant", "Helvetica", "Arial", sans-serif';
 
-// Extend the Mui types for our customizations
-declare module '@material-ui/core/styles/createMuiTheme' {
-  interface Theme {
-    fontFamily: { default: string; accent: string };
-    appBarHeight: { default: number; compact: number };
-    globalMenuWidth: number;
-    gutterSize: number;
-    venues: { [key: string]: any };
-  }
-  // allow configuration using `createMuiTheme`
-  interface ThemeOptions {
-    fontFamily: { default: string; accent: string };
-    appBarHeight: { default: number; compact: number };
-    globalMenuWidth: number;
-    gutterSize: number;
-    venues: { [key: string]: any };
-  }
-}
-
-declare module '@material-ui/core/styles/createPalette' {
-  interface Palette {
-    globalHeader: PaletteColor;
-  }
-  interface PaletteOptions {
-    globalHeader: PaletteColor;
-  }
-}
-
-const muiTheme = createMuiTheme({
+export default createMuiTheme({
   // Typography
   fontFamily: { default: defaultFontFamily, accent: accentFontFamily },
 
@@ -139,5 +111,3 @@ const muiTheme = createMuiTheme({
     default_color: '9e9e9e',
   },
 });
-
-export default muiTheme;

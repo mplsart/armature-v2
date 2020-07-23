@@ -197,7 +197,7 @@ storiesOf('Custom Buttons', module)
 
     return (
       <SpeedDial ariaLabel="SpeedDial exampddle" icon={<SpeedDialIcon />} open={true}>
-        {actions.map(action => (
+        {actions.map((action) => (
           <SpeedDialAction
             key={action.name}
             FabProps={{ size: 'small' }}

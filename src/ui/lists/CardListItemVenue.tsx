@@ -64,7 +64,7 @@ interface ListItemVenueProps extends CardListItemBaseProps {
   formattedAddress: string;
 }
 
-const CardListItemVenue: React.FC<ListItemVenueProps> = props => {
+const CardListItemVenue: React.FC<ListItemVenueProps> = (props) => {
   let { resource, formattedAddress, ...rest } = props;
 
   // Image

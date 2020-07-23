@@ -3,7 +3,7 @@ import React, { ElementType, ReactNode } from 'react';
 import MUITypography, { TypographyProps } from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     fontFamily: theme.fontFamily.accent,
     [theme.breakpoints.only('xs')]: {
@@ -32,7 +32,7 @@ interface ContentTitleProps extends TypographyProps {
   rel?: string;
 }
 
-const MegaHeader: React.FC<ContentTitleProps> = props => {
+const MegaHeader: React.FC<ContentTitleProps> = (props) => {
   const classes = useStyles();
   return <MUITypography component="h1" variant="h1" gutterBottom color="inherit" {...props} className={classes.root} />;
 };

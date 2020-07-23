@@ -9,7 +9,7 @@ import { Grid } from '../grid';
 import AppBarMenuIcon from './AppBarMenuIcon';
 
 // TODO: Hide on Scroll ? https://codesandbox.io/s/4z56yl6rm4
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   return {
     root: {
       backgroundColor: `${theme.palette.globalHeader.main}`,
@@ -71,7 +71,7 @@ interface AppBarProps {
   rightComponents?: React.ReactNode;
 }
 
-const AppBar: React.FC<AppBarProps> = props => {
+const AppBar: React.FC<AppBarProps> = (props) => {
   let classes = useStyles();
   let { fluid, menuActive, menuToggle, titleComponents, rightComponents } = props;
 

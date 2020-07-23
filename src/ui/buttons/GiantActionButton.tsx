@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button, { ButtonProps } from '@material-ui/core/Button';
 
 // Style Overrides for the button
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.spacing(1),
     fontSize: '1.8rem',
@@ -22,7 +22,7 @@ interface GiantActionButtonProps extends ButtonProps {
   rel?: string;
 }
 
-const GiantActionButton: React.FC<GiantActionButtonProps> = props => {
+const GiantActionButton: React.FC<GiantActionButtonProps> = (props) => {
   let classes = useStyles();
   let { children, ...rest } = props;
 

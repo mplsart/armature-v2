@@ -72,7 +72,7 @@ interface MarqueeCardEventProps {
   startingDateFilter: Moment;
 }
 
-const MarqueeCardEvent: React.FC<MarqueeCardEventProps> = props => {
+const MarqueeCardEvent: React.FC<MarqueeCardEventProps> = (props) => {
   const { resource, startingDateFilter, ...rest } = props;
 
   // Isolate Event Date

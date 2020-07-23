@@ -2,6 +2,7 @@
 // Advert Utilities
 // TODO: This turned into a bit of a junk drawer - figure out a pattern here...
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getAdImageStyles = void 0;
 // TODO: This is duped alllll over the place. Make uniform?
 // TODO: Unit Test
 function getAdImageStyles(resource, isMobile) {

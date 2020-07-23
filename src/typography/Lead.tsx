@@ -4,7 +4,7 @@ import MUITypography, { TypographyProps } from '@material-ui/core/Typography';
 
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     fontSize: '1.25rem',
     lineHeight: '1.75rem',
@@ -20,7 +20,7 @@ interface LeadProps extends TypographyProps {
   rel?: string;
 }
 
-const Lead: React.FC<LeadProps> = props => {
+const Lead: React.FC<LeadProps> = (props) => {
   let classes = useStyles();
 
   return (

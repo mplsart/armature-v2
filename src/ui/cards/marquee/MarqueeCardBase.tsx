@@ -6,7 +6,7 @@ import { Overline } from '../../../typography';
 import classnames from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
     '&:hover': {
@@ -184,7 +184,7 @@ export interface StandardCardBaseProps {
   linkClass: React.ElementType;
 }
 
-const StandardCardBase: React.FC<StandardCardBaseProps> = props => {
+const StandardCardBase: React.FC<StandardCardBaseProps> = (props) => {
   let { byLineText, title, overlineText, linkClassProps, imageResource } = props;
   let classes = useStyles();
   let LinkClass = props.linkClass;

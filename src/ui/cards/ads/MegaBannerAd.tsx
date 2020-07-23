@@ -4,7 +4,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { CardAdProps, getAdImageStyles } from './utils';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   adContainer: {
     borderTop: '1px solid black',
     borderBottom: '1px solid black',
@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const MegaBannerAd: React.FC<CardAdProps> = props => {
+const MegaBannerAd: React.FC<CardAdProps> = (props) => {
   const { isMobile, resource, linkClassProps } = props;
   const classes = useStyles();
   const LinkClass = props.linkClass;

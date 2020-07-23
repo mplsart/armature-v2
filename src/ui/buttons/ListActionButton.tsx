@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Button, { ButtonProps } from '@material-ui/core/Button';
 
 // Style Overrides for the button
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   button: {
     margin: theme.gutterSize / 4,
     marginLeft: 0,
@@ -25,7 +25,7 @@ interface ProfileButtonProps extends ButtonProps {
   rel?: string;
 }
 
-const ProfileButton: React.FC<ProfileButtonProps> = props => {
+const ProfileButton: React.FC<ProfileButtonProps> = (props) => {
   const { children, ...rest } = props;
   const classes = useStyles();
 

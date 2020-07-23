@@ -2,7 +2,7 @@ import React from 'react';
 import SmallActionButton from './SmallActionButton';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   moreWrap: {
     padding: theme.gutterSize,
     textAlign: 'center',
@@ -15,7 +15,7 @@ interface LoadMoreButtonProps {
   loadMoreClickHandler: () => void;
 }
 
-const LoadMoreButton: React.FC<LoadMoreButtonProps> = props => {
+const LoadMoreButton: React.FC<LoadMoreButtonProps> = (props) => {
   let { hasMore, loadMoreClickHandler, displayLabel } = props;
   let classes = useStyles();
 

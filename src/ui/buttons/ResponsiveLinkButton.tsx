@@ -16,7 +16,7 @@ interface ResponsiveLinkButtonProps extends ButtonProps {
   as?: string; // Next route param
 }
 
-const ResponsiveLinkButton: React.FC<ResponsiveLinkButtonProps> = props => {
+const ResponsiveLinkButton: React.FC<ResponsiveLinkButtonProps> = (props) => {
   let classes = useStyles();
   let { children, ...rest } = props;
 

@@ -3,7 +3,7 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import classnames from 'clsx';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: `${theme.spacing(4)}px 0 ${theme.spacing(4)}px 0`,
     borderTop: '1px solid #000000',

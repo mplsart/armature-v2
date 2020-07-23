@@ -4,7 +4,7 @@ import classnames from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   return {
     menuButtonJazzy: {
       transition: 'background-color 0.3s',
@@ -62,7 +62,7 @@ export interface AppBarMenuIconProps {
   handleMenuToggle: (force?: boolean) => void; //React.MouseEventHandler; // (event: any) => void;
 }
 
-const AppBarMenuIcon: React.FC<AppBarMenuIconProps> = props => {
+const AppBarMenuIcon: React.FC<AppBarMenuIconProps> = (props) => {
   const classes = useStyles();
   let { active, handleMenuToggle } = props;
 

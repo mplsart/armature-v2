@@ -2,7 +2,7 @@
 import React from 'react';
 import SvgIcon, { SvgIconProps } from '@material-ui/core/SvgIcon';
 
-const Artsy: React.FC<SvgIconProps> = props => {
+const Artsy: React.FC<SvgIconProps> = (props) => {
   return (
     <SvgIcon viewBox="0 0 600 600" {...props}>
       <path d="M71.9,571h500V71h-500V571L71.9,571z M536,535h-75.7v-98.6h-36V535H107.9V107H536V535z" />

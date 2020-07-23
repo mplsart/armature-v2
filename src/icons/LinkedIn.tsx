@@ -2,7 +2,7 @@
 import React from 'react';
 import { SvgIconProps } from '@material-ui/core/SvgIcon';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
-const LinkedIn: React.FC<SvgIconProps> = props => {
+const LinkedIn: React.FC<SvgIconProps> = (props) => {
   return <LinkedInIcon {...props} />;
 };
 

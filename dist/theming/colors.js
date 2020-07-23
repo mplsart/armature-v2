@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.red = exports.pink = exports.blue = void 0;
 exports.blue = {
     50: '#e1f3fc',
     100: '#b3e1f7',

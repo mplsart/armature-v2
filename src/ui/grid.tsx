@@ -5,7 +5,7 @@ import MuiGrid, { GridProps as MuiGridProps } from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import classnames from 'clsx';
 
-const useStyles = makeStyles(theme => {
+const useStyles = makeStyles((theme) => {
   return {
     fluidContainer: {
       width: '100%',
@@ -48,7 +48,7 @@ interface GridProps extends MuiGridProps {
   align?: 'left' | 'center' | 'right';
 }
 
-const Grid: React.FC<GridProps> = props => {
+const Grid: React.FC<GridProps> = (props) => {
   let { align, className, children, fluid, ...rest } = props;
   let classes = useStyles();
   let collectedClasses = [className];
@@ -74,7 +74,7 @@ const Grid: React.FC<GridProps> = props => {
 };
 
 type RowProps = MuiGridProps;
-const Row: React.FC<RowProps> = props => {
+const Row: React.FC<RowProps> = (props) => {
   let { className, children, ...rest } = props;
   //let className = props.className;
 
@@ -88,7 +88,7 @@ const Row: React.FC<RowProps> = props => {
 
 type ColProps = MuiGridProps;
 
-const Col: React.FC<ColProps> = props => {
+const Col: React.FC<ColProps> = (props) => {
   let classes = useStyles();
 
   let { className, children, ...rest } = props;

@@ -4,7 +4,7 @@ import { Row, Col } from '../grid';
 import classNames from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     height: theme.spacing(4) / 2,
     backgroundColor: theme.palette.secondary.main,
@@ -25,7 +25,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const Separator: React.FC<{ withMargin?: boolean }> = props => {
+const Separator: React.FC<{ withMargin?: boolean }> = (props) => {
   let classes = useStyles();
   let targetClasses = ['fancy-separator'];
 

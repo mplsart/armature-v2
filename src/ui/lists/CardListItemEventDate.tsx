@@ -75,7 +75,7 @@ interface ListItemArticleProps extends CardListItemBaseProps {
   resource: EventDateResource;
 }
 
-const CardListItemEventDate: React.FC<ListItemArticleProps> = props => {
+const CardListItemEventDate: React.FC<ListItemArticleProps> = (props) => {
   let { resource, ...rest } = props;
 
   // Isolate Event Date

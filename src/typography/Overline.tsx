@@ -4,7 +4,7 @@ import MUITypography, { TypographyProps } from '@material-ui/core/Typography';
 import classnames from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     marginTop: 0,
     color: theme.palette.common.black,
@@ -23,7 +23,7 @@ interface OverlineProps extends TypographyProps {
   rel?: string;
 }
 
-const Overline: React.FC<OverlineProps> = props => {
+const Overline: React.FC<OverlineProps> = (props) => {
   let { children, className, ...rest } = props;
   let classes = useStyles();
 

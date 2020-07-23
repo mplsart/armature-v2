@@ -57,7 +57,7 @@ interface SocialButtonProps extends IconButtonProps {
 
 // Override IconButton defaults: root is applied to Button root.
 // TODO: Might be easier to override Button vs. IconButton ?
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     borderRadius: 0,
     margin: `${theme.spacing(1)}px`,

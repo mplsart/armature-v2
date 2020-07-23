@@ -6,7 +6,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import SmallActionButton from '../buttons/SmallActionButton';
 import { ContentTitle } from '../../typography';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   root: {
     margin: '16px',
     borderTop: '1px solid black',

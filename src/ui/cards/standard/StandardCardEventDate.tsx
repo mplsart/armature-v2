@@ -71,7 +71,7 @@ interface StandardCardEventDateProps {
   linkClassProps: object;
 }
 
-const StandardCardEventDate: React.FC<StandardCardEventDateProps> = props => {
+const StandardCardEventDate: React.FC<StandardCardEventDateProps> = (props) => {
   const { eventResource, eventDateResource, ...rest } = props;
 
   // Isolate Event Date
